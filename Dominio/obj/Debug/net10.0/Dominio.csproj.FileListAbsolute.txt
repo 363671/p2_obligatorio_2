@@ -1,0 +1,25 @@
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.AssemblyInfo.cs
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\bin\Debug\net10.0\Dominio.deps.json
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\bin\Debug\net10.0\Dominio.dll
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\bin\Debug\net10.0\Dominio.pdb
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.dll
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\refint\Dominio.dll
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.pdb
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\ref\Dominio.dll
+C:\Users\diegu\source\repos\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.csproj.Up2Date
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\bin\Debug\net10.0\Dominio.deps.json
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\bin\Debug\net10.0\Dominio.dll
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\bin\Debug\net10.0\Dominio.pdb
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.AssemblyInfo.cs
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.sourcelink.json
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.dll
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\refint\Dominio.dll
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.pdb
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\ref\Dominio.dll
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\1 Obligatorio\Obligatorio_P2_Fiscalia\Dominio\obj\Debug\net10.0\Dominio.csproj.Up2Date
