@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Detective - SysFiscalía";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Sistema de Fiscalía</h1>
+        </div>
+        <div class="card my-5">
+            <div class="card-body text-center">
+                Revolucionando nuestros procesos Judiciales
+            </div>
+        </div>
+
+        <div class="card my-5">
+            <div class="card-header">
+                SysFiscalía
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">¡Bienvenido Detective, !</h4>
+                <p>@Context.Session.GetString("RolLogueado")</p>
+                <p class="card-text">
+                    La nueva aplicación que permite
+                    delegar las imputaciones y facilitar la resolución de los casos
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,17 +9,16 @@ namespace Dominio
     {
         // ATRIBUTOS y PROPERTIES
         private static int UltimoId { get; set; } = 0;
-        private int Id { get; set; }
-        private string Mail { get; set; }
-        private string Contrasena { get; set; }
-        private string Nombre { get; set; }
+        public int Id { get; set; }
+        public string Mail { get; set; }
+        public string Contrasena { get; set; }
+        public string Nombre { get; set; }
         public Rol Rol { get; set; }
 
         // CTOR
         public Investigador()
         {
             Id = ++UltimoId;
-            ValidarDatos();
         }
 
         public Investigador(string mail, string contrasena, string nombre, Rol rol)
@@ -128,19 +127,14 @@ namespace Dominio
             if (Nombre.IsWhiteSpace())
             {
                 errores += "El largo del nombre no puede ser nulo.";
-
-            }
-
-            if (Nombre.Length > 90)
+            } else if (Nombre.Length > 90)
             {
                 errores += "El largo del nombre no puede superar los 90 caracteres.";
-
             }
 
             if (errores != "")
             {
-                Console.WriteLine("");
-                throw new Exception(" < Ha ocurrido un error / Nombre / > ");
+                throw new Exception($" < Ha ocurrido un error / {errores} / > ");
             }
         }
 

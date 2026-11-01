@@ -6,7 +6,8 @@ namespace Dominio
 {
     public enum Rol
     {
-        Fiscal = 0,
-        Detective = 1
+        Detective = 0,
+        Fiscal = 1
+        
     }
 }

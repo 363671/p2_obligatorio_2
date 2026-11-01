@@ -1,8 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio - SysFiscalía";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="display-4">Sistema de Fiscalía</h1>
+        </div>
+        <div class="card my-5">
+            <div class="card-body text-center">
+                Revolucionando nuestros procesos Judiciales
+            </div>
+        </div>
+
+        <div class="card my-5">
+            <div class="card-header">
+                SysFiscalía
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">¡Bienvenido!</h4>
+                <p class="card-text">
+                    La nueva aplicación que permite
+                    delegar las imputaciones y facilitar la resolución de los casos
+                </p>
+                <a class="btn btn-outline-secondary btn-sm px-3" asp-area="" asp-controller="Acceso" asp-action="Login">Iniciar sesión</a>
+                <a class="btn btn-outline-secondary btn-sm px-3" asp-area="" asp-controller="Acceso" asp-action="Registrarse">Registrarse</a>
+            </div>
+        </div>
+    </div>
 </div>

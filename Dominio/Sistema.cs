@@ -591,8 +591,10 @@ namespace Dominio
 
         //////////////////// AGREGAR A LAS LISTAS DE DATOS ////////////////////
         // > Agregar Investigador
-        private void AgregarInvestigador(Investigador i)
+        public void AgregarInvestigador(Investigador i)
         {
+            i.ValidarDatos();
+
             if (!_investigadores.Contains(i))
             {
                 _investigadores.Add(i);
@@ -758,6 +760,20 @@ namespace Dominio
             {
                 throw new Exception(" El mail ingresado corresponde al de un Fiscal, el cual no puede tener Casos asignados. ");
             }
+        }
+
+        public Investigador GetInvestigadorLogin(string email, string pass)
+        {
+            foreach(Investigador i in _investigadores)
+            {
+                if(i.Mail == email && i.Contrasena == pass)
+                {
+                    // retorna el Investigador y su espacio en memoria
+                    return i;
+                }
+            }
+
+            return null;
         }
 
         //sistema

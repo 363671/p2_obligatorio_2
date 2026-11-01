@@ -6,25 +6,40 @@ namespace WebApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // // // // // // // // // // // // //
+            // INICIALIZACION del uso de SESSION
+            // // // // // // // // // // // // //
+            builder.Services.AddSession();
+
+            // // // // // // // // // // // // //
+            // Add services to the container. > de .NET
+            // // // // // // // // // // // // //
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // // // // // // // // // // // // //
+            // Configure the HTTP request pipeline. > de .NET
+            // // // // // // // // // // // // //
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // The default HSTS value is 30 days.
                 app.UseHsts();
             }
 
+            // > de .NET
             app.UseHttpsRedirection();
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.MapStaticAssets();
+
+            // // // // // // // // // // // // //
+            // UTILIZACION de la creada SESSION
+            // // // // // // // // // // // // //
+            app.UseSession();
+
+            // > de .NET
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")

@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es" >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApp</title>
+    <title>@ViewData["Title"]</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -12,25 +12,44 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebApp</a>
+            <div class="container-fluid position-relative">
+                @* TÍTULO PRINCIPAL *@
+                <a class="navbar-brand fw-bold ms-4" asp-area="" asp-controller="Home" asp-action="Index">SysFiscalía</a>
+            
+                @* BUTTON RESPONSIVO *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+            
+                @* CONTENEDOR DE OPCIONES DISTRIBUIDO *@
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+
+                    @* CONTENEDOR DERECHO *@
+                    @* Se muestra dependiendo de si hay un usuario logueado *@
+                    @if(Context.Session.GetInt32("IdLogueado") != null)
+                    {
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary btn-sm px-3 mx-3" asp-area="" asp-controller="Acceso" asp-action="Logout">Logout</a>
+                            </li>
+                        </ul>
+                    } else
+                    {
+                        <ul class="navbar-nav">
+                            @* ÍTEM *@
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary btn-sm px-3 mx-3" asp-area="" asp-controller="Acceso" asp-action="Login">Log In</a>
+                            </li>
+                        </ul>
+                    }
+                    
                 </div>
             </div>
         </nav>
     </header>
+
+    @* VISTAS SEGÚN CONTROLLER *@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -39,7 +58,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2026 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2026 - SysFiscalía - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

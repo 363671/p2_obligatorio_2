@@ -1,0 +1,32 @@
+﻿@* 
+// ATRIBUTOS y PROPERTIES
+    private static int UltimoId { get; set; } = 0;
+    private int Id { get; set; }
+    private string Mail { get; set; }
+    private string Contrasena { get; set; }
+    private string Nombre { get; set; }
+    public Rol Rol { get; set; }
+*@
+
+<h1 class="my-5">
+    Registremos tu Usuario
+</h1>
+
+<form method="post" class="form">
+    <div class="mb-3">
+        <label for="txtNombreCompleto" class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" name="Nombre" id="txtNombreCompleto">
+    </div>
+    <div class="mb-3">
+        <label for="txtEmail" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" name="Mail" id="txtEmail" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="txtPass" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" name="Contrasena" id="txtPass">
+    </div>
+    <button type="submit" class="btn btn-outline-secondary btn-sm px-3">Registrarme</button>
+</form>
+
+<p class="my-4">@ViewBag.ErrorRegistro</p>
+
