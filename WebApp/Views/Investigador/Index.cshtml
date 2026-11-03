@@ -1,30 +1,95 @@
-﻿@{
-    ViewData["Title"] = "Detective - SysFiscalía";
+﻿@using Dominio
+
+@{
+    ViewData["Title"] = "Investigador - SysFiscalía";
 }
+
+@model Investigador
 
 <div class="container-fluid">
     <div class="container">
-        <div class="text-center my-5">
+        <div class="text-center my-4">
             <h1 class="display-4">Sistema de Fiscalía</h1>
         </div>
-        <div class="card my-5">
+        <div class="card my-4">
             <div class="card-body text-center">
                 Revolucionando nuestros procesos Judiciales
             </div>
         </div>
 
-        <div class="card my-5">
+        <div class="card my-4">
             <div class="card-header">
                 SysFiscalía
             </div>
             <div class="card-body">
-                <h4 class="card-title">¡Bienvenido Detective, !</h4>
-                <p>@Context.Session.GetString("RolLogueado")</p>
+                <h4 class="card-title">¡Bienvenido @Model.Rol, @Model.Nombre !</h4>
+
+                @* <p>@Context.Session.GetString("RolLogueado")</p> *@
                 <p class="card-text">
                     La nueva aplicación que permite
                     delegar las imputaciones y facilitar la resolución de los casos
                 </p>
             </div>
         </div>
+
+        @if (@Model.Rol.ToString() == "Detective")
+        {
+            <div class="row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Mis Casos Asignados</h5>
+                            <p class="card-text">Seleccionar esta opcion para ver Mis Casos como Detective.</p>
+                            <a href="#" class="btn btn-success">Ir a Mis Casos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card text-end">
+                        <div class="card-body">
+                            <h5 class="card-title">Sospechosos</h5>
+                            <p class="card-text">Seleccionar esta opcion para ver el listado completo de Sospechosos.</p>
+                            <a href="#" class="btn btn-warning">Ver listado</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        } else
+        {
+            <div class="row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Casos</h5>
+                            <p class="card-text">Seleccionar esta opcion para ver Todos los Casos del Sistema.</p>
+                            <a href="#" class="btn btn-success">Ir a Casos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card text-end">
+                        <div class="card-body">
+                            <h5 class="card-title">Alta de Caso</h5>
+                            <p class="card-text">Seleccionar esta opcion para Ingresar un Caso Nuevo.</p>
+                            <a href="#" class="btn btn-warning">Crear Caso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="card my-4">
+            <div class="card-header">
+                Perfil
+            </div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Mi Perfil</h4>
+                <p class="card-text">Seleccionar esta opcion para ver Mis Datos personales como Detective.</p>
+                <button type="button" class="btn btn-info"><a class="text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="Perfil">Ver mi perfil</a></button>
+            </div>
+        </div>
+
     </div>
 </div>

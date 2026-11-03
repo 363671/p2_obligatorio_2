@@ -776,6 +776,20 @@ namespace Dominio
             return null;
         }
 
+        public Investigador GetInvestigadorPorId(int idInvestigador)
+        {
+            foreach (Investigador i in _investigadores)
+            {
+                if(i.Id == idInvestigador)
+                {
+                    // retorna el Investigador y su espacio en memoria
+                    return i;
+                }
+            }
+
+            return null;
+        }
+
         //sistema
     }
 }

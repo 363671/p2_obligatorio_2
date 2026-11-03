@@ -1,17 +1,21 @@
 ﻿using Dominio;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Filters;
 
 namespace WebApp.Controllers
 {
+    // si esta Logueado, no debe acceder al Login, al Registro
     public class AccesoController : Controller
     {
         Sistema s = Sistema.GetInstancia();
 
+        [RedirigirSiLogueado]
         public IActionResult Login()
         {
             return View();
         }
 
+        [RedirigirSiLogueado]
         [HttpPost]
         public IActionResult Login(string email, string pass)
         {
@@ -31,12 +35,13 @@ namespace WebApp.Controllers
             return View();
         }
 
+        [RedirigirSiLogueado]
         public IActionResult Registrarse()
         {
             return View();
         }
-        
 
+        [RedirigirSiLogueado]
         [HttpPost]
         public IActionResult Registrarse(Investigador i)
         {
@@ -60,6 +65,7 @@ namespace WebApp.Controllers
             }
         }
 
+        // de no estar Logueado, no tiene sentido que se permita hacer este Clear()
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

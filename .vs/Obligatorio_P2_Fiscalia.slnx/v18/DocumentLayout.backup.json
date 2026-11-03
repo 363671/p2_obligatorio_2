@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\controllers\\investigadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\investigadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\perfil.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\perfil.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\acceso\\registrarse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\acceso\\registrarse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12F3CF19-F88C-0774-969F-8840F52C7312}|Dominio\\Dominio.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12F3CF19-F88C-0774-969F-8840F52C7312}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\controllers\\investigadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\investigadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,25 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 206,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-01T04:13:00.812Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Perfil.cshtml",
+              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Perfil.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\Perfil.cshtml",
+              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Perfil.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Investigador\\Perfil.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-02T06:14:35.817Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -68,93 +51,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InvestigadorController.cs",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Controllers\\InvestigadorController.cs",
-              "RelativeDocumentMoniker": "WebApp\\Controllers\\InvestigadorController.cs",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Controllers\\InvestigadorController.cs",
-              "RelativeToolTip": "WebApp\\Controllers\\InvestigadorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-01T07:39:14.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccesoController.cs",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Controllers\\AccesoController.cs",
-              "RelativeDocumentMoniker": "WebApp\\Controllers\\AccesoController.cs",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Controllers\\AccesoController.cs",
-              "RelativeToolTip": "WebApp\\Controllers\\AccesoController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAIA5wBcAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-01T05:26:45.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\Index.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Index.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Investigador\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABMAAAAAAAAAA==",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-01T07:21:55.578Z",
+              "WhenOpened": "2026-11-02T06:13:31.424Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Acceso\\Login.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Acceso\\Login.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Acceso\\Login.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Acceso\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-01T07:26:51.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Registrarse.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Acceso\\Registrarse.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Acceso\\Registrarse.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Acceso\\Registrarse.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Acceso\\Registrarse.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-01T05:55:37.035Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Sistema.cs",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\Dominio\\Sistema.cs",
-              "RelativeDocumentMoniker": "Dominio\\Sistema.cs",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\Dominio\\Sistema.cs",
-              "RelativeToolTip": "Dominio\\Sistema.cs",
-              "ViewState": "AgIAADcCAAAAAAAAAAAMwEYCAAAcAAAAAAAAAA==",
+              "Title": "InvestigadorController.cs",
+              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Controllers\\InvestigadorController.cs",
+              "RelativeDocumentMoniker": "WebApp\\Controllers\\InvestigadorController.cs",
+              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Controllers\\InvestigadorController.cs",
+              "RelativeToolTip": "WebApp\\Controllers\\InvestigadorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-01T06:16:16.093Z",
+              "WhenOpened": "2026-11-02T06:12:37.27Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\Index.cshtml",
+              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Index.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Investigador\\Index.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-01T04:33:26.065Z",
+              "WhenOpened": "2026-11-02T05:55:17.53Z",
               "EditorCaption": ""
             }
           ]

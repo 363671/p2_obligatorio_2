@@ -1,3 +1,33 @@
+:root {
+    --color-primary: #3D45AA;
+    --color-secondary: #DA3D20;
+    --color-accent: #F8843F;
+    --color-background: #FFF19B;
+    --color-surface: #FFFFFF;
+    --color-text: #202B3C;
+}
+
+.colorFondoMorado {
+    background-color: var(--color-primary)
+}
+
+.colorFondoRojo {
+    background-color: var(--color-secondary)
+}
+
+.colorFondoAnaranjado {
+    background-color: var(--color-accent)
+}
+
+.colorFondoLimon {
+    background-color: var(--color-background)
+}
+
+.colorTextoAzul {
+    color: var(--color-text)
+}
+
+
 html {
   font-size: 14px;
 }

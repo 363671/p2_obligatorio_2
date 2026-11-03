@@ -123,3 +123,4 @@ wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
+wwwroot\logo.png

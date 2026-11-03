@@ -1,9 +1,12 @@
+using Dominio;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebApp.Filters;
 using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+    [RedirigirSiLogueado]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -16,10 +19,5 @@ namespace WebApp.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
