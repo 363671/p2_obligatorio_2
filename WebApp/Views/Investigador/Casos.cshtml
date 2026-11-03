@@ -1,0 +1,14 @@
+﻿@using Dominio
+@model Investigador
+
+<h1>Casos</h1>
+
+@if (@Model.Rol.ToString() == "Detective")
+{
+    <h2>Listado de Casos Asignados</h2>
+}
+
+@if (@Model.Rol.ToString() == "Fiscal")
+{
+    <h2>Listado de Todos los Casos</h2>
+}

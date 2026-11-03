@@ -10,6 +10,7 @@ C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\src\person-fill.svg
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
@@ -124,3 +125,4 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\logo.png
+wwwroot\src\person-fill.svg

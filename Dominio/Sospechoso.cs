@@ -9,11 +9,11 @@ namespace Dominio
         // ATRIBUTOS y PROPERTIES
 
         private static int UltimoId { get; set; } = 0;
-        private int Id { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
-        private string Cedula { get; set; }
-        private DateTime FechaNacimiento { get; set; }
-        private bool TieneAntecedentes { get; set; }
+        public string Cedula { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public bool TieneAntecedentes { get; set; }
 
         // CTOR
         public Sospechoso()
@@ -122,12 +122,18 @@ namespace Dominio
         {
             if (antec)
             {
-                return "SI";
+                return "SÍ";
             }
 
             return "NO";
         }
 
+        public int CalcularEdad()
+        {
+            //int edad = 0;
+             
+            return -1;
+        }
         // // // // // // // // // // // // // // // // //
         //                                              //
         //                POLIMORFISMO                  //

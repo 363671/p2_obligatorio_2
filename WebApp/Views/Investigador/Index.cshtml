@@ -4,9 +4,11 @@
     ViewData["Title"] = "Investigador - SysFiscalía";
 }
 
+@* MODELO con el Investigador Logueado *@
 @model Investigador
 
 <div class="container-fluid">
+    @* BIENVENIDA tras Login *@
     <div class="container">
         <div class="text-center my-4">
             <h1 class="display-4">Sistema de Fiscalía</h1>
@@ -23,8 +25,6 @@
             </div>
             <div class="card-body">
                 <h4 class="card-title">¡Bienvenido @Model.Rol, @Model.Nombre !</h4>
-
-                @* <p>@Context.Session.GetString("RolLogueado")</p> *@
                 <p class="card-text">
                     La nueva aplicación que permite
                     delegar las imputaciones y facilitar la resolución de los casos
@@ -32,15 +32,22 @@
             </div>
         </div>
 
+        @* Opciones acorde al ROL del Logueado *@
         @if (@Model.Rol.ToString() == "Detective")
         {
+            @* OPCIONES de Detectives *@
             <div class="row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Mis Casos Asignados</h5>
                             <p class="card-text">Seleccionar esta opcion para ver Mis Casos como Detective.</p>
-                            <a href="#" class="btn btn-success">Ir a Mis Casos</a>
+                            @* Boton que redirige a Casos Asignados a Detective *@
+                            <button type="button" class="btn btn-success">
+                                <a class="text-dark text-decoration-none"
+                                   asp-area="" asp-controller="Investigador"
+                                   asp-action="Casos">Ir a Mis Casos</a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -49,22 +56,29 @@
                         <div class="card-body">
                             <h5 class="card-title">Sospechosos</h5>
                             <p class="card-text">Seleccionar esta opcion para ver el listado completo de Sospechosos.</p>
-                            <a href="#" class="btn btn-warning">Ver listado</a>
+                            @* Boton que redirige al Listado de Sospechosos del Sistema *@
+                            <button type="button" class="btn btn-warning">
+                                <a class="text-dark text-decoration-none"
+                                   asp-area="" asp-controller="Investigador"
+                                   asp-action="ListadoSospechosos">Ver listado</a>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            
-        } else
-        {
+        } else {
+            @* Opciones de de FISCALES *@
             <div class="row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Casos</h5>
                             <p class="card-text">Seleccionar esta opcion para ver Todos los Casos del Sistema.</p>
-                            <a href="#" class="btn btn-success">Ir a Casos</a>
+                            <button type="button" class="btn btn-success">
+                                <a class="text-dark text-decoration-none"
+                                asp-area="" asp-controller="Investigador"
+                                asp-action="Casos">Ir a Casos</a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -79,15 +93,19 @@
                 </div>
             </div>
         }
-
+        
+        @* PERFIL del Investigador*@
         <div class="card my-4">
             <div class="card-header">
                 Perfil
             </div>
             <div class="card-body text-center">
                 <h4 class="card-title">Mi Perfil</h4>
-                <p class="card-text">Seleccionar esta opcion para ver Mis Datos personales como Detective.</p>
-                <button type="button" class="btn btn-info"><a class="text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="Perfil">Ver mi perfil</a></button>
+                <p class="card-text">Seleccionar esta opcion para ver Mis Datos personales como @Model.Rol.</p>
+                @* BOTON PARA REDIRIGIR AL PERFIL DEL Invest*@
+                <button type="button" class="btn btn-info">
+                    <a class="text-dark text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="Perfil">Ver mi perfil</a>
+                </button>
             </div>
         </div>
 

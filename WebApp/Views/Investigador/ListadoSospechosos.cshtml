@@ -1,0 +1,48 @@
+﻿
+@using Dominio
+
+@*
+private static int UltimoId { get; set; } = 0;
+private int Id { get; set; }
+public string Nombre { get; set; }
+private string Cedula { get; set; }
+private DateTime FechaNacimiento { get; set; }
+private bool TieneAntecedentes { get; set; }
+*@
+
+@model List<Sospechoso>
+
+
+<h2>Listado de todos los Sospechosos</h2>
+
+@foreach(Sospechoso s in Model)
+{
+    <div class="card my-3 m-auto" style="max-width: 540px;">
+        <div class="row g-0 flex-nowrap">
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <img src="~/src/person-fill.svg" width="100px" class="img-fluid rounded-start align-content-center" alt="...">
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Nombre: @s.Nombre
+                    </h5>
+                    <p class="card-text">
+                        ID: @s.Id
+                    </p>
+                    <p class="card-text">
+                        CI: @s.Cedula
+                    </p>
+                    <p class="card-text">
+                        Nacimiento: @s.FechaNacimiento
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Tiene Antecedentes: @s.AntecedentesAString(s.TieneAntecedentes)
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

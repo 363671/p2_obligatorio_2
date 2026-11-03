@@ -1,1 +1,29 @@
-﻿<h1>Mi Perfil</h1>
+﻿@using Dominio
+
+@model Investigador
+
+<h2 class="m-4">Mi Perfil</h2>
+
+<div class="container d-flex justify-content-center align-items-center my-5 py-4">
+    <div class="card profile-card w-100">
+        <div class="card-body text-center">
+            <img src="~/src/person-fill.svg" width="0.4rem" alt="User Profile" class="rounded-circle profile-img mb-4">
+            @* NOMBRE *@
+            <h3 class="card-title mb-2">
+                @Model.Nombre
+            </h3>
+            @* ROL *@
+            <p class="card-text mb-3">
+                @Model.Mail
+            </p>
+            <div class="mb-4">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
+                    Id: @Model.Id
+                </span>
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
+                    Rol: @Model.Rol.ToString()
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

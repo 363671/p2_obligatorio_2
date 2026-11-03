@@ -112,4 +112,5 @@ C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\bin\Debug\net10.0\Dominio.dll
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\bin\Debug\net10.0\Dominio.pdb
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\WebApp.csproj.AssemblyReference.cache
-C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\cyyammxk5f-{0}-p3fs74o4xy-p3fs74o4xy.gz
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\4qolz069bg-{0}-qtwf1l3t14-qtwf1l3t14.gz
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\cyyammxk5f-{0}-1qby7hpx4l-1qby7hpx4l.gz

@@ -14,36 +14,51 @@ namespace WebApp.Controllers
     {
         Sistema s = Sistema.GetInstancia();
 
-        public IActionResult Index()
+        // trae el Investigador que se encuentra Logueado
+        public Investigador GetInvestigadorLogueado()
         {
             //el filtro ya se encargó de corrobor que haya alguien logueado
             int idInvestigador = HttpContext.Session.GetInt32("IdLogueado").Value;
 
             Investigador iLogueado = s.GetInvestigadorPorId(idInvestigador);
 
+            return iLogueado;
+        }
+
+        public IActionResult Index()
+        {
+            Investigador iLogueado = GetInvestigadorLogueado();
+
             return View(iLogueado);
         }
 
         public IActionResult Perfil()
         {
+            Investigador iLogueado = GetInvestigadorLogueado();
 
-            return View();
+            return View(iLogueado);
         }
 
-        // Detective
-        public IActionResult VerCasosAsignados()
+        // DETECTIVES
+        public IActionResult Casos()
         {
+            Investigador iLogueado = GetInvestigadorLogueado();
+            ViewBag.UsuarioLogueado = iLogueado;
 
-            return View();
+            return View(iLogueado);
         }
 
-        public IActionResult VerSospechosos()
+        public IActionResult ListadoSospechosos()
         {
+            Investigador iLogueado = GetInvestigadorLogueado();
+            ViewBag.UsuarioLogueado = iLogueado;
 
-            return View();
+            List<Sospechoso> listaRet = s.GetSospechosos();
+            
+            return View(listaRet);
         }
 
-        // Fiscal
+        // FISCALES
         public IActionResult CrearCaso()
         {
 
