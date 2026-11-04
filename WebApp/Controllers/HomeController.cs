@@ -6,7 +6,7 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
-    [RedirigirSiLogueado]
+    [SiEstaLogueado]
     public class HomeController : Controller
     {
         public IActionResult Index()

@@ -9,7 +9,7 @@ namespace WebApp.Controllers
     // -> [VerificarSesion]
     //  -> depende de la Clase WebApp/Filters/VerificarSesionAttribute.cs
 
-    [VerificarSesion]
+    [NoEstaLogueado]
     public class InvestigadorController : Controller
     {
         Sistema s = Sistema.GetInstancia();
@@ -59,7 +59,8 @@ namespace WebApp.Controllers
         }
 
         // FISCALES
-        public IActionResult CrearCaso()
+        [FiscalEstaLogueado]
+        public IActionResult CasoAlta()
         {
 
             return View();

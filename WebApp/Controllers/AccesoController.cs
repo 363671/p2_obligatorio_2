@@ -9,13 +9,13 @@ namespace WebApp.Controllers
     {
         Sistema s = Sistema.GetInstancia();
 
-        [RedirigirSiLogueado]
+        [SiEstaLogueado]
         public IActionResult Login()
         {
             return View();
         }
 
-        [RedirigirSiLogueado]
+        [SiEstaLogueado]
         [HttpPost]
         public IActionResult Login(string email, string pass)
         {
@@ -35,13 +35,13 @@ namespace WebApp.Controllers
             return View();
         }
 
-        [RedirigirSiLogueado]
+        [SiEstaLogueado]
         public IActionResult Registrarse()
         {
             return View();
         }
 
-        [RedirigirSiLogueado]
+        [SiEstaLogueado]
         [HttpPost]
         public IActionResult Registrarse(Investigador i)
         {

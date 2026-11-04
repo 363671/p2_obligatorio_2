@@ -3,22 +3,19 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace WebApp.Filters
 {
-    public class RedirigirSiLogueadoAttribute : ActionFilterAttribute
+    public class DetectiveEstaLogueado : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             var rol = context.HttpContext.Session.GetString("RolLogueado");
-            var id= context.HttpContext.Session.GetInt32("IdLogueado");
 
-            // se verifica si existe un Usuario Logueado
-            if (!string.IsNullOrEmpty(rol))
+            // si esta logueado un DETECTIVE no debe acceder al ALTA de CASOS
+            if (rol == "Detective")
             {
-                // de estar Logueado, no debe acceder al Login, al Registro ni a la Bienvenida
                 context.Result = new RedirectToActionResult("Index", "Investigador", null);
             }
 
             base.OnActionExecuting(context);
         }
     }
-
 }
