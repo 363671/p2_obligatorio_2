@@ -10,9 +10,9 @@ namespace Dominio
     {
         // ATRIBUTOS y PROPERTIES
         private static int UltimoId { get; set; } = 0;
-        protected int Id { get; set; }
-        private DateTime FechaRecoleccion { get; set; }
-        private string Descripcion { get; set; }
+        public int Id { get; set; }
+        public DateTime FechaRecoleccion { get; set; }
+        public string Descripcion { get; set; }
 
         // ctor
         public Evidencia()

@@ -18,7 +18,7 @@ namespace Dominio
         // CTOR
         private Sistema()
         {
-            PrecargarDatos();    
+            PrecargarDatos();
         }
 
         // PRECARGAS DE DATOS
@@ -40,7 +40,7 @@ namespace Dominio
 
             return _instancia;
         }
-        
+
         // > Precargas concretas
         private void PrecargarInvestigadores()
         {
@@ -90,38 +90,38 @@ namespace Dominio
 
         private void PrecargarSospechosos()
         {
-            Sospechoso s1 = new Sospechoso("Juan Pérez", "11111111-1", new DateTime(1985, 3, 15), true);
-            Sospechoso s2 = new Sospechoso("María González", "22222222-2", new DateTime(1992, 7, 22), false);
-            Sospechoso s3 = new Sospechoso("Carlos Rodríguez", "33333333-3", new DateTime(1978, 11, 8), true);
-            Sospechoso s4 = new Sospechoso("Laura Fernández", "44444444-4", new DateTime(1990, 1, 30), false);
-            Sospechoso s5 = new Sospechoso("Martín Silva", "55555555-5", new DateTime(1982, 5, 17), true);
-            Sospechoso s6 = new Sospechoso("Sofía Martínez", "66666666-6", new DateTime(1995, 9, 3), false);
+            Sospechoso s1 = new Sospechoso("Juan Perez", "11111111-1", new DateTime(1985, 3, 15), true);
+            Sospechoso s2 = new Sospechoso("Maria Gonzalez", "22222222-2", new DateTime(1992, 7, 22), false);
+            Sospechoso s3 = new Sospechoso("Carlos Rodriguez", "33333333-3", new DateTime(1978, 11, 8), true);
+            Sospechoso s4 = new Sospechoso("Laura Fernandez", "44444444-4", new DateTime(1990, 1, 30), false);
+            Sospechoso s5 = new Sospechoso("Martin Silva", "55555555-5", new DateTime(1982, 5, 17), true);
+            Sospechoso s6 = new Sospechoso("Sofia Martinez", "66666666-6", new DateTime(1995, 9, 3), false);
             Sospechoso s7 = new Sospechoso("Diego Cabrera", "77777777-7", new DateTime(1975, 12, 19), true);
-            Sospechoso s8 = new Sospechoso("Valentina López", "88888888-8", new DateTime(1988, 4, 26), false);
-            Sospechoso s9 = new Sospechoso("Andrés Pereira", "99999999-9", new DateTime(1980, 8, 11), true);
-            Sospechoso s10 = new Sospechoso("Camila Suárez", "10101010-0", new DateTime(1997, 2, 14), false);
+            Sospechoso s8 = new Sospechoso("Valentina Lopez", "88888888-8", new DateTime(1988, 4, 26), false);
+            Sospechoso s9 = new Sospechoso("Andres Pereira", "99999999-9", new DateTime(1980, 8, 11), true);
+            Sospechoso s10 = new Sospechoso("Camila Suarez", "10101010-0", new DateTime(1997, 2, 14), false);
             Sospechoso s11 = new Sospechoso("Federico Acosta", "12121212-1", new DateTime(1986, 6, 29), true);
-            Sospechoso s12 = new Sospechoso("Natalia Méndez", "13131313-2", new DateTime(1993, 10, 7), false);
-            Sospechoso s13 = new Sospechoso("Sebastián Torres", "14141414-3", new DateTime(1972, 3, 21), true);
-            Sospechoso s14 = new Sospechoso("Paula Ramírez", "15151515-4", new DateTime(1989, 12, 5), false);
+            Sospechoso s12 = new Sospechoso("Natalia Mendez", "13131313-2", new DateTime(1993, 10, 7), false);
+            Sospechoso s13 = new Sospechoso("Sebastian Torres", "14141414-3", new DateTime(1972, 3, 21), true);
+            Sospechoso s14 = new Sospechoso("Paula Ramirez", "15151515-4", new DateTime(1989, 12, 5), false);
             Sospechoso s15 = new Sospechoso("Gonzalo Castro", "16161616-5", new DateTime(1991, 7, 18), true);
 
-            Sospechoso s16 = new Sospechoso("Martín Cabrera", "17171717-1", new DateTime(1989, 3, 12, 0, 0, 0), false);
+            Sospechoso s16 = new Sospechoso("Martin Cabrera", "17171717-1", new DateTime(1989, 3, 12, 0, 0, 0), false);
             Sospechoso s17 = new Sospechoso("Gabriela Ortiz", "18181818-1", new DateTime(1993, 6, 25, 0, 0, 0), true);
-            Sospechoso s18 = new Sospechoso("Andrés Pereira", "19191919-1", new DateTime(1979, 10, 8, 0, 0, 0), false);
-            Sospechoso s19 = new Sospechoso("Natalia Suárez", "20202020-2", new DateTime(1996, 1, 19, 0, 0, 0), true);
-            Sospechoso s20 = new Sospechoso("Sebastián Ramos", "21212121-2", new DateTime(1984, 5, 27, 0, 0, 0), false);
+            Sospechoso s18 = new Sospechoso("Andres Pereira", "19191919-1", new DateTime(1979, 10, 8, 0, 0, 0), false);
+            Sospechoso s19 = new Sospechoso("Natalia Suarez", "20202020-2", new DateTime(1996, 1, 19, 0, 0, 0), true);
+            Sospechoso s20 = new Sospechoso("Sebastian Ramos", "21212121-2", new DateTime(1984, 5, 27, 0, 0, 0), false);
 
-            Sospechoso s21 = new Sospechoso("Carolina Méndez", "23232323-2", new DateTime(1999, 9, 4, 0, 0, 0), true);
-            Sospechoso s22 = new Sospechoso("Nicolás Acosta", "24242424-2", new DateTime(1981, 12, 17, 0, 0, 0), false);
+            Sospechoso s21 = new Sospechoso("Carolina Mendez", "23232323-2", new DateTime(1999, 9, 4, 0, 0, 0), true);
+            Sospechoso s22 = new Sospechoso("Nicolas Acosta", "24242424-2", new DateTime(1981, 12, 17, 0, 0, 0), false);
             Sospechoso s23 = new Sospechoso("Florencia Rojas", "25252525-2", new DateTime(1995, 4, 11, 0, 0, 0), true);
-            Sospechoso s24 = new Sospechoso("Matías Sosa", "26262626-2", new DateTime(1990, 8, 23, 0, 0, 0), false);
-            Sospechoso s25 = new Sospechoso("Romina Vázquez", "27272727-2", new DateTime(1987, 2, 6, 0, 0, 0), true);
+            Sospechoso s24 = new Sospechoso("Matias Sosa", "26262626-2", new DateTime(1990, 8, 23, 0, 0, 0), false);
+            Sospechoso s25 = new Sospechoso("Romina Vazquez", "27272727-2", new DateTime(1987, 2, 6, 0, 0, 0), true);
 
             Sospechoso s26 = new Sospechoso("Gonzalo Medina", "28282828-2", new DateTime(1983, 7, 15, 0, 0, 0), false);
-            Sospechoso s27 = new Sospechoso("Verónica Iglesias", "29292929-2", new DateTime(1992, 11, 2, 0, 0, 0), true);
+            Sospechoso s27 = new Sospechoso("Veronica Iglesias", "29292929-2", new DateTime(1992, 11, 2, 0, 0, 0), true);
             Sospechoso s28 = new Sospechoso("Alejandro Figueroa", "30303030-3", new DateTime(1977, 6, 29, 0, 0, 0), false);
-            Sospechoso s29 = new Sospechoso("Mariana Domínguez", "31313131-3", new DateTime(1998, 10, 13, 0, 0, 0), true);
+            Sospechoso s29 = new Sospechoso("Mariana Dominguez", "31313131-3", new DateTime(1998, 10, 13, 0, 0, 0), true);
             Sospechoso s30 = new Sospechoso("Esteban Olivera", "32323232-3", new DateTime(1985, 1, 31, 0, 0, 0), false);
 
             AgregarSospechoso(s1);
@@ -257,7 +257,7 @@ namespace Dominio
                 "Desaparición de una pieza histórica perteneciente a una exposición.",
                 true,
                 _sospechosos[2],
-                _investigadores[2],
+                _investigadores[0],
                 new DateTime(2022, 11, 5),
                 "Herramienta metálica encontrada cerca de la vitrina forzada.",
                 true
@@ -297,7 +297,7 @@ namespace Dominio
                 "Investigación por la desaparición de un vehículo estacionado en la vía pública.",
                 true,
                 _sospechosos[3],
-                _investigadores[3],
+                _investigadores[1],
                 new DateTime(2021, 5, 18),
                 "Testigo vio a una persona manipulando la cerradura del vehículo.",
                 "Martín Rodríguez",
@@ -338,7 +338,7 @@ namespace Dominio
                 "Investigación por una rapiña ocurrida minutos antes del cierre.",
                 true,
                 _sospechosos[4],
-                _investigadores[4],
+                _investigadores[0],
                 new DateTime(2025, 1, 8),
                 "Grabación principal del sistema de vigilancia del supermercado.",
                 10,
@@ -379,7 +379,7 @@ namespace Dominio
                 "Investigación por acceso no autorizado a un depósito industrial.",
                 true,
                 _sospechosos[5],
-                _investigadores[5],
+                _investigadores[1],
                 new DateTime(2020, 9, 14),
                 "Barreta metálica encontrada junto a una puerta forzada.",
                 true
@@ -419,7 +419,7 @@ namespace Dominio
                 "Investigación relacionada con compras realizadas utilizando datos ajenos.",
                 true,
                 _sospechosos[6],
-                _investigadores[6],
+                _investigadores[0],
                 new DateTime(2024, 8, 2),
                 "Empleado afirma haber entregado varios pedidos a la misma persona.",
                 "Nicolás Cabrera",
@@ -460,7 +460,7 @@ namespace Dominio
                 "Investigación por daños ocasionados durante la madrugada.",
                 true,
                 _sospechosos[7],
-                _investigadores[7],
+                _investigadores[1],
                 new DateTime(2022, 2, 26),
                 "Cámara del acceso principal registra a varias personas entrando al predio.",
                 7,
@@ -501,7 +501,7 @@ namespace Dominio
                 "Investigación por sustracción de dinero y medicamentos.",
                 true,
                 _sospechosos[8],
-                _investigadores[8],
+                _investigadores[0],
                 new DateTime(2023, 12, 11),
                 "Guante encontrado sobre el mostrador del establecimiento.",
                 true
@@ -541,7 +541,7 @@ namespace Dominio
                 "Investigación por robo de computadoras y otros dispositivos electrónicos.",
                 true,
                 _sospechosos[9],
-                _investigadores[9],
+                _investigadores[1],
                 new DateTime(2025, 6, 17),
                 "Cámara interna registra el momento en que se retiran varios equipos.",
                 9,
@@ -603,7 +603,7 @@ namespace Dominio
 
             throw new Exception(" < Ha ocurrido un error / El mail ingresado ya está asociado a un Investigador / > ");
         }
-       
+
         // > Agregar Sospechoso
         private void AgregarSospechoso(Sospechoso s)
         {
@@ -652,7 +652,7 @@ namespace Dominio
             bool antec = AntecedentesStringABool(antecedentes);
 
             Sospechoso s = new Sospechoso(nombre, ci, fechaNac, antec);
-            
+
             s.ValidarDatos();
             AgregarSospechoso(s);
         }
@@ -691,7 +691,7 @@ namespace Dominio
 
             return i;
         }
-        
+
         /////////////// MOSTRAR DATOS ///////////////
         public string MostrarCasosYEvidencias()
         {
@@ -701,28 +701,43 @@ namespace Dominio
                 textoConCasos += c.ToString();
             }
 
-            return(textoConCasos);
+            return (textoConCasos);
         }
 
-        public string MostrarCasosDeUnInvestigador(string mail)
+        public string TextoConCasosDeUnInvestigador(string mail)
         {
             string textoConCasos = "";
 
             foreach (Caso c in _casos)
             {
                 // se delega la responsabilidad a su Clase
-                if(c.MailEsDeInvestigador(mail))
+                if (c.MailEsDeInvestigador(mail))
                 {
                     textoConCasos += c.ToString();
                 }
             }
 
-            if(textoConCasos == "")
+            if (textoConCasos == "")
             {
                 return "\n El Investigador no tiene casos asociados. \n";
             }
 
             return textoConCasos;
+        }
+
+        public List<Caso> ListarCasosDeUnInvestigador(Investigador i)
+        {
+            List<Caso> listaRet = new List<Caso>();
+
+            foreach (Caso c in _casos)
+            {
+                if (c.InvestigadorD.Equals(i))
+                {
+                    listaRet.Add(c);
+                }
+            }
+
+            return listaRet;
         }
 
         public string MostrarSospechososConAntecedentes()
@@ -788,6 +803,56 @@ namespace Dominio
             }
 
             return null;
+        }
+
+        public Caso GetCasoPorId(int id)
+        {
+            foreach (Caso c in GetCasos())
+            {
+                if (c.Id.Equals(id)){
+                    return c;
+                }
+            }
+
+            return null;
+        }
+
+        public List<Sospechoso> GetSospechososConNombre(string nombreABuscar)
+        {
+            List<Sospechoso> listaRet = new List<Sospechoso>();
+
+            nombreABuscar = nombreABuscar.Trim().ToLower();
+
+            foreach (Sospechoso s in GetSospechosos())
+            {
+                string item = s.Nombre.ToLower();
+
+                if (item.Contains(nombreABuscar))
+                {
+                    listaRet.Add(s);
+                }
+            }
+
+            return listaRet;
+        }
+
+        public List<Sospechoso> GetSospechososMayoresDeEdad(string edadASuperar)
+        {
+            List<Sospechoso> listaRet = new List<Sospechoso>();
+
+            int mayorQue = int.Parse(edadASuperar);
+
+            foreach (Sospechoso s in GetSospechosos())
+            {
+                int item = s.CalcularEdad();
+
+                if (item > mayorQue)
+                {
+                    listaRet.Add(s);
+                }
+            }
+
+            return listaRet;
         }
 
         //sistema

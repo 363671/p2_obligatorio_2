@@ -12,8 +12,9 @@
     Registremos tu Usuario
 </h1>
 
-<form method="post" class="form">
+<form method="post" class="form-floating">
     <div class="mb-3">
+
         <label for="txtNombreCompleto" class="form-label">Nombre Completo</label>
         <input type="text" class="form-control" name="Nombre" id="txtNombreCompleto">
     </div>
@@ -24,6 +25,9 @@
     <div class="mb-3">
         <label for="txtPass" class="form-label">Contraseña</label>
         <input type="password" class="form-control" name="Contrasena" id="txtPass">
+    </div>
+    <div class="mb-3 alert alert-warning" role="alert">
+        Advertencia: el usuario que se generará será de Rol <b>Detective</b>
     </div>
     <button type="submit" class="btn btn-outline-secondary btn-sm px-3">Registrarme</button>
 </form>

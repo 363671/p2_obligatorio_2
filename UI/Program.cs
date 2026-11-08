@@ -46,7 +46,7 @@ namespace UI
                                 // de ser Fiscal se arroja una excepción
                                 s.InvestigadorEsFiscal(mail);
                                 
-                                Console.WriteLine(s.MostrarCasosDeUnInvestigador(mail));
+                                Console.WriteLine(s.TextoConCasosDeUnInvestigador(mail));
                             } else {
                                 DataToUser.OpcCorreoDelInvestigadorNoExiste(mail);
                             }

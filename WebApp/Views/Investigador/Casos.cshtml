@@ -1,14 +1,69 @@
 ﻿@using Dominio
 @model Investigador
 
-<h1>Casos</h1>
+@* 
+ViewBag.CasosDetective = CasosDeInvestigador;
+ViewBag.CasosSistema = CasosDelSistema;
+*@
 
-@if (@Model.Rol.ToString() == "Detective")
+@if (Model.Rol.ToString() == "Detective")
 {
-    <h2>Listado de Casos Asignados</h2>
+    @if (ViewBag.CasosDetective.Count == 0)
+    {
+        <p>El Investigador no tiene Casos Asignados</p>
+    }
+    else
+    {
+        <h2>Estos son tus Casos:</h2>
+
+        <table class="table table-striped" data-bs-theme="dark">
+            <tr class="text-center">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Sospechoso</th>
+                <th>Detective</th>
+                <th>Evidencias @* cantidad *@</th>
+                <th>Detalles</th>
+            </tr>
+
+            @foreach (Caso c in ViewBag.CasosDetective)
+            {
+                <tr class="text-center">
+                    <td>@c.Id</td>
+                    <td>@c.Nombre</td>
+                    <td>@c.SospechosoPrincipal.Nombre</td>
+                    <td>@c.InvestigadorD.Nombre</td>
+                    <td>@c._evidenciasDelCaso.Count</td>
+                    <th>@Html.ActionLink("Ver", "CasoDetalle", new { id = c.Id }, new { style = "text-decoration: none;" })</th>
+                </tr>
+            }
+        </table>
+    }
 }
-
-@if (@Model.Rol.ToString() == "Fiscal")
+else
 {
-    <h2>Listado de Todos los Casos</h2>
+    <h2>Estos son los Casos del Sistema</h2>
+
+    <table class="table table-striped" data-bs-theme="dark">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Sospechoso</th>
+            <th>Detective</th>
+            <th>Evidencias @* cantidad *@</th>
+            <th>Detalles</th>
+        </tr>
+
+        @foreach (Caso c in ViewBag.CasosSistema)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Nombre</td>
+                <td>@c.SospechosoPrincipal.Nombre</td>
+                <td>@c.InvestigadorD.Nombre</td>
+                <td>@c._evidenciasDelCaso.Count</td>
+                <th>@Html.ActionLink("Ver", "CasoDetalle", new { id = c.Id })</th>
+            </tr>
+        }
+    </table>
 }

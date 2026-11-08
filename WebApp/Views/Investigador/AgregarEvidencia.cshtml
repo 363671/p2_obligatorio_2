@@ -1,0 +1,50 @@
+﻿@* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia"*@
+
+@* por  defecto el input del formulario esta en false *@
+@if (!ViewBag.AgregacionEvidencia)
+{
+    <div class="d-flex justify-content-center m-3 mb-0 p-2">
+        <form method="get">
+            <button type="submit" class="btn btn-primary btn-sm px-3" name="inpDecision" value="agregarEvidencia">Agregar evidencia</button>
+        </form>
+    </div>
+}
+
+@* si el boton "Agregar Evidencia" es presionado cambia el valor booleano del input*@
+@if (ViewBag.AgregacionEvidencia)
+{
+    <div class="card my-2">
+        <div class="card-header bg-dark text-white">
+            Agregar Evidencia
+        </div>
+        <div class="card-body">
+            <form method="post" class="form-check form d-flex flex-column">
+                <div class="m-auto">
+                    <label for="" class="form-label text-dark">Tipo de Evidencia</label>
+                    <select name="slcTipoEvidencia">
+                        <option value="x">Seleccione una opcion...</option>
+
+                        @foreach (string tE in ViewBag.TiposEvidencias)
+                        {
+                            <option value="@tE">@tE</option>
+                        }
+                    </select>
+                </div>
+                            
+                @if (TempData["EvidenciaInvalida"] != "")
+                {
+                    <div class="alert alert-warning m-auto my-3 p-2" role="alert">@TempData["EvidenciaInvalida"]</div>
+                }
+                <div class="m-auto">
+                            
+                    <button type="submit" class="btn btn-outline-danger btn-sm px-3" name="inpDecision" value="cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-sm px-3" name="inpDecision" value="siguiente">Siguiente</button>
+                </div>
+            </form>
+
+            <div class="container-fluid">
+                <p class="my-4">@ViewBag.Error</p>
+            </div>
+        </div>
+    </div>
+}

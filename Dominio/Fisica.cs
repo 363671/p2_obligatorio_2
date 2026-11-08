@@ -9,7 +9,7 @@ namespace Dominio
         // CLASE HIJA de EVIDENCIA
 
         // PROPERTIES
-        private bool TieneHuellasDigitales { get; set; }
+        public bool TieneHuellasDigitales { get; set; }
 
         // CTOR
         public Fisica(bool tieneHuellas, DateTime fechaRecoleccion, string descripcion) : base (fechaRecoleccion, descripcion)

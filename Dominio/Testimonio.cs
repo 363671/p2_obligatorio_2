@@ -10,8 +10,8 @@ namespace Dominio
         // CLASE HIJA de EVIDENCIA
 
         // PROPERTIES
-        private string NombreTestigo { get; set; }
-        private Credibilidad IndiceCredibilidad { get; set; }
+        public string NombreTestigo { get; set; }
+        public Credibilidad IndiceCredibilidad { get; set; }
 
         // CTOR
         

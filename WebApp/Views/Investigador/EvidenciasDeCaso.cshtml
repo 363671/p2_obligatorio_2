@@ -1,0 +1,118 @@
+﻿@using Dominio
+@model Caso
+
+<div class="col-lg-6">
+    <div class="d-flex flex-column gap-3">
+
+        @if (Model.GetEvidenciasDelCaso().Count() == 0)
+        {
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-2">
+                <span class="mb-0">Aviso</span>
+                <span class="badge bg-info text-dark">No existen Evidencias asociadas</span>
+            </div>
+        }
+
+        @foreach (Evidencia e in Model.GetEvidenciasDelCaso())
+        {
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-2">
+                    <span class="mb-0">Evidencia #@e.Id</span>
+
+                    @if (e is Fisica)
+                    {
+                        <span class="badge bg-primary">Física</span>
+                    }
+                    else if (e is Grabacion)
+                    {
+                        <span class="badge bg-warning text-dark">Grabación</span>
+                    }
+                    else if (e is Testimonio)
+                    {
+                        <span class="badge bg-info text-dark">Testimonio</span>
+                    }
+                </div>
+                <div class="card-body py-2 px-3">
+                    @* Datos generales de la evidencia *@
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <small class="text-secondary">Fecha de recolección</small>
+                            <p class="fw-semibold mb-0">
+                                @e.FechaRecoleccion.ToString("dd/MM/yyyy")
+                            </p>
+                        </div>
+                        <div class="col-md-9">
+                            <small class="text-secondary">Descripción</small>
+                            <p class="mb-0">@e.Descripcion</p>
+                        </div>
+                    </div>
+                    <hr class="m-2"/>
+                            
+                    <div class="d-flex align-items-center flex-wrap gap-4">
+                        <h6 class="fw-bold mb-0">Detalles específicos:</h6>
+
+                        @* Evidencia Física *@
+
+                        @if (e is Fisica f)
+                        {
+                            <div class="d-flex align-items-center gap-3">
+                                <span>Huellas digitales:</span>
+                                @if (f.TieneHuellasDigitales)
+                                {
+                                    <span class="badge bg-success">Sí tiene</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">No tiene</span>
+                                }
+
+                            </div>
+                        }
+
+                        @* Evidencia Grabación *@
+                        @if (e is Grabacion g)
+                        {
+                            <div class="row">
+                                <div class="col-md-6 d-flex align-items-center gap-3">
+                                    <span class="text-secondary">Calidad:</span>
+                                    <strong>@g.Calidad</strong>
+                                </div>
+
+                                <div class="col-md-6 d-flex align-items-center gap-3">
+                                    <span class="text-secondary text-nowrap">¿In fraganti?</span>
+
+                                    @if (g.InFraganti)
+                                    {
+                                        <span class="badge bg-success">Sí</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">No</span>
+                                    }
+                                </div>
+                            </div>
+                        }
+
+                        @* Evidencia Testimonio *@
+
+                        @if (e is Testimonio t)
+                        {
+                            <div>
+                                <span class="text-secondary">Testigo:</span>
+                                <strong>@t.NombreTestigo</strong>
+                            </div>
+
+                            <div>
+                                <span class="text-secondary">Credibilidad:</span>
+                                <strong>@t.IndiceCredibilidad</strong>
+                            </div>
+
+                        }
+
+                        @* cierre de div de Evidencia *@
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -9,13 +9,13 @@ namespace Dominio
     {
         // ATRIBUTOS y PROPERTIES
         private static int UltimoId { get; set; } = 0;
-        private int Id { get; set; }
-        private string Nombre { get; set; }
-        private string Descripcion { get; set; }
-        private bool Activo { get; set; }
-        private Sospechoso SospechosoPrincipal { get; set; }
-        private Investigador InvestigadorD { get; set; }
-        private List<Evidencia> _evidenciasDelCaso { get; set; } = new List<Evidencia>();
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public bool Activo { get; set; }
+        public Sospechoso SospechosoPrincipal { get; set; }
+        public Investigador InvestigadorD { get; set; }
+        public List<Evidencia> _evidenciasDelCaso { get; set; } = new List<Evidencia>();
 
         // CONSTRUCTORES
         public Caso()

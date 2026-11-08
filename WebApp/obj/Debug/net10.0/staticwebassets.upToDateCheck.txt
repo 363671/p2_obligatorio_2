@@ -27,6 +27,7 @@ C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\css\site.css
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\src\plus-slash-minus.svg
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\js\site.js
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
@@ -53,6 +54,7 @@ C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\src\plus-square-fill.svg
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\wwwroot\lib\jquery\LICENSE.txt
@@ -126,3 +128,5 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\logo.png
 wwwroot\src\person-fill.svg
+wwwroot\src\plus-slash-minus.svg
+wwwroot\src\plus-square-fill.svg

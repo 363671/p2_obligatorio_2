@@ -130,10 +130,18 @@ namespace Dominio
 
         public int CalcularEdad()
         {
-            //int edad = 0;
-             
-            return -1;
+            DateTime fechaActual = DateTime.Today;
+
+            int edadAprox = fechaActual.Year - FechaNacimiento.Year;
+
+            if(FechaNacimiento.Date > fechaActual.AddYears(-edadAprox))
+            {
+                edadAprox--;
+            }
+
+            return edadAprox;
         }
+
         // // // // // // // // // // // // // // // // //
         //                                              //
         //                POLIMORFISMO                  //

@@ -35,7 +35,7 @@
         @* Opciones acorde al ROL del Logueado *@
         @if (@Model.Rol.ToString() == "Detective")
         {
-            @* OPCIONES de Detectives *@
+            @* OPCIONES de DETECTIVES *@
             <div class="row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="card">
@@ -44,7 +44,7 @@
                             <p class="card-text">Seleccionar esta opcion para ver Mis Casos como Detective.</p>
                             @* Boton que redirige a Casos Asignados a Detective *@
                             <button type="button" class="btn btn-success">
-                                <a class="text-dark text-decoration-none"
+                                <a class="text-white text-decoration-none"
                                    asp-area="" asp-controller="Investigador"
                                    asp-action="Casos">Ir a Mis Casos</a>
                             </button>
@@ -87,7 +87,11 @@
                         <div class="card-body">
                             <h5 class="card-title">Alta de Caso</h5>
                             <p class="card-text">Seleccionar esta opcion para Ingresar un Caso Nuevo.</p>
-                            <a href="#" class="btn btn-warning">Crear Caso</a>
+                            <button type="button" class="btn btn-warning">
+                                <a class="text-dark text-decoration-none"
+                                   asp-area="" asp-controller="Investigador"
+                                   asp-action="CasoAlta">Crear Caso</a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -103,8 +107,8 @@
                 <h4 class="card-title">Mi Perfil</h4>
                 <p class="card-text">Seleccionar esta opcion para ver Mis Datos personales como @Model.Rol.</p>
                 @* BOTON PARA REDIRIGIR AL PERFIL DEL Invest*@
-                <button type="button" class="btn btn-info">
-                    <a class="text-dark text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="Perfil">Ver mi perfil</a>
+                <button type="button" class="btn btn-primary">
+                    <a class="text-white text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="Perfil">Ver mi perfil</a>
                 </button>
             </div>
         </div>

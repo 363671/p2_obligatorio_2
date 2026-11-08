@@ -9,10 +9,10 @@ namespace Dominio
         // CLASE HIJA de EVIDENCIA
 
         // PROPERTIES
-        private int Calidad { get; set; }
-        private bool InFraganti { get; set; }
+        public int Calidad { get; set; }
+        public bool InFraganti { get; set; }
 
-        // CTOR
+        // CTORs
         public Grabacion()
         {
         
