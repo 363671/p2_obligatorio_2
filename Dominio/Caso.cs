@@ -109,12 +109,8 @@ namespace Dominio
         public string ElaborarRecomendacion()
         {
             string recomendacion = "";
-            int puntaje = 0;
+            int puntaje = SumaDeEvidencias();
             
-            // Aqui voy a agregar los calculos del puntaje
-            // !
-
-
             if(puntaje < 30)
             {
                 recomendacion = $"DESESTIMADO: El caso “[{Nombre}]“ carece de fundamentos. \n" +
@@ -142,7 +138,8 @@ namespace Dominio
         }
 
 
-        // Se cuenta cuantas evidencias hay y se evalua su fecha de recol.
+        // Se cuenta cuantas evidencias hay y se evalua su fecha de recol.,
+        // por Herencia, dependiendo de qué sub Clase es la instancia, es cómo se Calcula el Peso
         public int SumaDeEvidencias()
         {
             int peso = 0;
@@ -152,6 +149,11 @@ namespace Dominio
             foreach (Evidencia e in l)
             {
                 peso += e.CalcularPesoEvidencia();
+
+                if(peso >= 100)
+                {
+                    return 100;
+                }
             }
 
             return peso;

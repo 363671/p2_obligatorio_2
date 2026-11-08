@@ -56,14 +56,20 @@ else
 
         @foreach (Caso c in ViewBag.CasosSistema)
         {
-            <tr>
+            <tr class="text-center">
                 <td>@c.Id</td>
                 <td>@c.Nombre</td>
                 <td>@c.SospechosoPrincipal.Nombre</td>
                 <td>@c.InvestigadorD.Nombre</td>
                 <td>@c._evidenciasDelCaso.Count</td>
-                <th>@Html.ActionLink("Ver", "CasoDetalle", new { id = c.Id })</th>
+                <th>@Html.ActionLink("Ver", "CasoDetalle", new { id = c.Id }, new { style = "text-decoration: none;" })</th>
             </tr>
         }
     </table>
 }
+
+<button type="button" class="btn btn-primary mx-auto d-block">
+    <a class="text-white text-decoration-none"
+       asp-area="" asp-controller="Investigador"
+       asp-action="Index">Volver al Inicio</a>
+</button>

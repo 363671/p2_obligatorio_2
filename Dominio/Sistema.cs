@@ -177,9 +177,8 @@ namespace Dominio
                 new DateTime(2024, 3, 12),
                 "Testigo afirma haber visto a una persona salir rápidamente del local.",
                 "Carlos Méndez",
-                Credibilidad.Alto
+                Credibilidad.Bajo
             );
-
             c1.AgregarEvidencia(
                 new Fisica(
                     true,
@@ -188,10 +187,11 @@ namespace Dominio
                 )
             );
 
+            
             c1.AgregarEvidencia(
                 new Grabacion(
                     8,
-                    true,
+                    false,
                     new DateTime(2024, 3, 12),
                     "Cámara de seguridad registra al sospechoso ingresando al comercio."
                 )
@@ -200,7 +200,7 @@ namespace Dominio
             c1.AgregarEvidencia(
                 new Testimonio(
                     "Mariana López",
-                    Credibilidad.Medio,
+                    Credibilidad.Bajo,
                     new DateTime(2024, 3, 13),
                     "Vecina escuchó ruidos de vidrios rotos durante la madrugada."
                 )
@@ -224,7 +224,7 @@ namespace Dominio
 
             c2.AgregarEvidencia(
                 new Fisica(
-                    true,
+                    false,
                     new DateTime(2023, 7, 21),
                     "Guante encontrado detrás del mostrador."
                 )
@@ -559,7 +559,7 @@ namespace Dominio
             c10.AgregarEvidencia(
                 new Testimonio(
                     "Gabriel Martínez",
-                    Credibilidad.Medio,
+                    Credibilidad.Bajo,
                     new DateTime(2025, 6, 18),
                     "Comerciante de la zona vio a una persona cargando equipos en un vehículo."
                 )
@@ -567,7 +567,7 @@ namespace Dominio
 
             c10.AgregarEvidencia(
                 new Grabacion(
-                    7,
+                    3,
                     false,
                     new DateTime(2025, 6, 17),
                     "Cámara exterior permite identificar parcialmente la matrícula del vehículo."

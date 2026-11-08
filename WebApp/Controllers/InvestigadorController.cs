@@ -61,6 +61,8 @@ namespace WebApp.Controllers
             ViewBag.AgregacionEvidencia = false;
             TempData["EvidenciaInvalida"] = "";
 
+            ViewBag.Recomendacion = "";
+
             List<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
             ViewBag.TiposEvidencias = tiposEvidencias;
 
@@ -79,6 +81,9 @@ namespace WebApp.Controllers
                     ViewBag.AgregacionEvidencia = true;
                     if (slcTipoEvidencia == "x")
                         TempData["EvidenciaInvalida"] = "Error, tipo de Evidencia invalida.";
+                    break;
+                case "elaborarRecomendacion":
+                    ViewBag.Recomendacion = cSeleccionado.ElaborarRecomendacion();
                     break;
                 default:
                     break;
