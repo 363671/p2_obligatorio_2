@@ -54,7 +54,7 @@ namespace WebApp.Controllers
             return View(iLogueado);
         }
 
-        public IActionResult CasoDetalle(int id, string inpDecision, string slcTipoEvidencia)
+        public IActionResult CasoDetalle(int id, string inpDecision)
         {
             Caso cSeleccionado = s.GetCasoPorId(id);
 
@@ -69,22 +69,72 @@ namespace WebApp.Controllers
             // se evalua que Boton fue presionado, comparten "name" pero tienen distinto "value"
             switch (inpDecision)
             {
+                // este case se encuentra aquí porque el formulario 
+                //  por el cual llega, viene por el metodo GET
                 case "agregarEvidencia":
                     ViewBag.AgregacionEvidencia = true;
-                    break;
-
-                case "cancelar":
-                    ViewBag.AgregacionEvidencia = false;
-                    break;
-
-                case "siguiente":
-                    ViewBag.AgregacionEvidencia = true;
-                    if (slcTipoEvidencia == "x")
-                        TempData["EvidenciaInvalida"] = "Error, tipo de Evidencia invalida.";
                     break;
                 case "elaborarRecomendacion":
                     ViewBag.Recomendacion = cSeleccionado.ElaborarRecomendacion();
                     break;
+                case "tomarRecomendacion":
+                    cSeleccionado.TomarRecomendacionEInactivar();
+                    break;
+                case "descartarRecomendacion":
+                    ViewBag.Recomendacion = "";
+                    break;
+                case "btnReactivar":
+                    ViewBag.Recomendacion = "";
+                    cSeleccionado.ReActivarElCaso();
+                    break;
+                default:
+                    break;
+            }
+
+            return View(cSeleccionado);
+        }
+
+        [HttpPost]
+        public IActionResult CasoDetalle(int id, string inpDecisionEvidencia, string slcTipoEvidencia)
+        {
+            Caso cSeleccionado = s.GetCasoPorId(id);
+
+            ViewBag.AgregacionEvidencia = false;
+            TempData["EvidenciaInvalida"] = "";
+            TempData["TipoEvidencia"] = "";
+            TempData["FechaActual"] = DateTime.Today.ToString("yyyy-MM-dd");
+
+            ViewBag.Recomendacion = "";
+
+            List<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
+            ViewBag.TiposEvidencias = tiposEvidencias;
+
+            // se evalua que Boton fue presionado, comparten "name" pero tienen distinto "value"
+            switch (inpDecisionEvidencia)
+            {
+                case "cancelar":
+                    ViewBag.AgregacionEvidencia = false;
+                    break;
+                case "siguiente":
+                    ViewBag.AgregacionEvidencia = true;
+                    if (slcTipoEvidencia == "x")
+                    {
+                        TempData["EvidenciaInvalida"] = "Error, tipo de Evidencia invalida.";
+                    }
+                    if (slcTipoEvidencia == "Fisica")
+                    {
+                        TempData["TipoEvidencia"] = "Fisica";
+                    }
+                    if (slcTipoEvidencia == "Testimonio")
+                    {
+                        TempData["TipoEvidencia"] = "Testimonio";
+                    }
+                    if (slcTipoEvidencia == "Grabacion")
+                    {
+                        TempData["TipoEvidencia"] = "Grabacion";
+                    }
+                    break;
+                
                 default:
                     break;
             }

@@ -4,6 +4,7 @@
 @if (!ViewBag.AgregacionEvidencia)
 {
     <div class="d-flex justify-content-center m-3 mb-0 p-2">
+        @* el metódo será GET *@
         <form method="get">
             <button type="submit" class="btn btn-primary btn-sm px-3" name="inpDecision" value="agregarEvidencia">Agregar evidencia</button>
         </form>
@@ -18,6 +19,7 @@
             Agregar Evidencia
         </div>
         <div class="card-body">
+            @* el metódo será POST - porque se pedirán datos para la Evidencia Nueva *@
             <form method="post" class="form-check form d-flex flex-column">
                 <div class="m-auto">
                     <label for="" class="form-label text-dark">Tipo de Evidencia</label>
@@ -26,7 +28,14 @@
 
                         @foreach (string tE in ViewBag.TiposEvidencias)
                         {
-                            <option value="@tE">@tE</option>
+                            if (TempData["TipoEvidencia"] != "" &&
+                                tE == @TempData["TipoEvidencia"])
+                            {
+                                <option value="@tE" selected>@tE</option>
+                            } else
+                            {
+                                <option value="@tE">@tE</option>
+                            }
                         }
                     </select>
                 </div>
@@ -35,10 +44,47 @@
                 {
                     <div class="alert alert-warning m-auto my-3 p-2" role="alert">@TempData["EvidenciaInvalida"]</div>
                 }
+
+                @* REVISAR LOS NAME PARA QUE COINCIDAN CON LAS PROPs DE CADA CLASE *@
+                @if (TempData["TipoEvidencia"] != "")
+                {
+
+
+                    @* Datos que se piden por cualquier Evidencia *@
+                    <div class="input-group my-2 ">
+                        <span class="input-group-text">Fecha recolección</span>
+                        <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1900" max="@TempData["FechaActual"]"/>
+
+                    </div>
+                    <div class="input-group my-2 ">
+                        <span class="input-group-text">Descripcion</span>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+                }
+                @if (TempData["TipoEvidencia"] == "Fisica")
+                {
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="checkHuellas" switch>
+                        <label class="form-check-label">
+                            Incluye huellas digitales
+                        </label>
+                    </div>
+                }
+                @if (TempData["TipoEvidencia"] == "Grabacion")
+                {
+                    <input type="number" min="1" max="5" name="inpCalidad" />
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="checkInFraganti" switch>
+                        <label class="form-check-label">
+                            In Fraganti
+                        </label>
+                    </div>
+                }
+
+
                 <div class="m-auto">
-                            
-                    <button type="submit" class="btn btn-outline-danger btn-sm px-3" name="inpDecision" value="cancelar">Cancelar</button>
-                    <button type="submit" class="btn btn-outline-primary btn-sm px-3" name="inpDecision" value="siguiente">Siguiente</button>
+                    <button type="submit" class="btn btn-outline-danger btn-sm px-3" name="inpDecisionEvidencia" value="cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-sm px-3" name="inpDecisionEvidencia" value="siguiente">Siguiente</button>
                 </div>
             </form>
 

@@ -166,7 +166,18 @@ namespace Dominio
         
         public bool MailEsDeInvestigador(string mail)
         {
+            // se delega la responsabilidad a su Clase (Investigador)
             return InvestigadorD.InvestigadorTieneMail(mail);
+        }
+
+        public void TomarRecomendacionEInactivar()
+        {
+            Activo = false;
+        }
+
+        public void ReActivarElCaso()
+        {
+            Activo = true;
         }
 
         // // // // // // // // // // // // // // // // //
@@ -197,5 +208,6 @@ namespace Dominio
         {
             return obj is Caso caso && Nombre == caso.Nombre;
         }
+
     }
 }

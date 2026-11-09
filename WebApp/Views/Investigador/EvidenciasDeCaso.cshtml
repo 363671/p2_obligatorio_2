@@ -49,9 +49,7 @@
                             
                     <div class="d-flex align-items-center flex-wrap gap-4">
                         <h6 class="fw-bold mb-0">Detalles específicos:</h6>
-
                         @* Evidencia Física *@
-
                         @if (e is Fisica f)
                         {
                             <div class="d-flex align-items-center gap-3">
@@ -67,7 +65,6 @@
 
                             </div>
                         }
-
                         @* Evidencia Grabación *@
                         @if (e is Grabacion g)
                         {
@@ -76,7 +73,6 @@
                                     <span class="text-secondary">Calidad:</span>
                                     <strong>@g.Calidad</strong>
                                 </div>
-
                                 <div class="col-md-6 d-flex align-items-center gap-3">
                                     <span class="text-secondary text-nowrap">¿In fraganti?</span>
 
@@ -93,24 +89,19 @@
                         }
 
                         @* Evidencia Testimonio *@
-
                         @if (e is Testimonio t)
                         {
                             <div>
                                 <span class="text-secondary">Testigo:</span>
                                 <strong>@t.NombreTestigo</strong>
                             </div>
-
                             <div>
                                 <span class="text-secondary">Credibilidad:</span>
                                 <strong>@t.IndiceCredibilidad</strong>
                             </div>
-
                         }
-
                         @* cierre de div de Evidencia *@
                     </div>
-
                 </div>
             </div>
         }

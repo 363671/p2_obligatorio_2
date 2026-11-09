@@ -26,18 +26,18 @@
                 </div>
 
                 <div class="card-body p-4 pt-2">
-                    <h5 class="mb-3">Información general</h5>
-                    <div class="row mb-4">
+                    <h5 class="mb-2">Información general</h5>
+                    <div class="row mb-1">
                         <div class="col-5">
                             <h6 class="text-muted">Nombre del caso:</h6>
                             <p class="fs-5 fw-semibold">@Model.Nombre</p>
                         </div>
                         <div class="col-7">
                             <h6 class="text-muted">Descripción:</h6>
-                            <p class="fst-italic fw-semibold">@Model.Descripcion</p>
+                            <p class="fst-italic fw-semibold m-0">@Model.Descripcion</p>
                         </div>
                     </div>
-                    <hr />
+                    <hr class="m-2 mb-3"/>
                     <div class="row g-3">
                         @* Datos del Investigador *@
                         <div class="col-md-7">
@@ -56,20 +56,32 @@
                                 </div>
                             </div>
 
-                            @if(ViewBag.Recomendacion == "")
+                            @if(Model.Activo)
                             {
                                 @* Btn para Elaborar Solucion *@
                                 <form method="get" class="px-3 m-3">
                                     <button type="submit"
-                                            class="btn btn-sm px-3 m-3 text-warning"
+                                            class="btn btn-sm px-3 text-warning"
                                             name="inpDecision" value="elaborarRecomendacion"
                                             style="background-color: #7740ff;">
                                         Elaborar Recomendacion
                                     </button>
                                 </form>
-                            } else
+                            }
+                            @if (!Model.Activo)
                             {
-                                <form method="get" class="m-3 bg-dark rounded p-3 text-white">
+                                <form method="get" class="px-3 m-3">
+                                    <button type="submit"
+                                            class="btn btn-sm px-3 m-3 text-warning"
+                                            name="inpDecision" value="btnReactivar"
+                                            style="background-color: #7740ff;">
+                                        Re activar
+                                    </button>
+                                </form>
+                            }
+                            @if (ViewBag.Recomendacion != "")
+                            {
+                                <form method="get" class="m-2 bg-dark rounded p-3 text-white">
                                     <p><b>@ViewBag.Recomendacion</b></p>
                                     <div class="d-flex justify-content-center gap-2">
                                         <button type="submit"
@@ -79,7 +91,7 @@
                                         </button>
                                         <button type="submit"
                                                 class="btn btn-sm text-white bg-success"
-                                                name="inpDecision" value="tomarRecomendacion"
+                                                name="inpDecision" value="tomarRecomendacion" S
                                                 style="background-color: #7740ff;">
                                             Dar por solucionado
                                         </button>
@@ -90,7 +102,7 @@
 
                         @* Datos del Sospechoso *@
                         <div class="col-md-5">
-                            <div class="bg-body-tertiary rounded p-3 h-100">
+                            <div class="bg-body-tertiary rounded p-3 ">
                                 <h5 class="mb-3">
                                     <i class="bi bi-person-exclamation"></i>
                                     Sospechoso
@@ -128,8 +140,11 @@
                 </div>
             </div>
             
-            @* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia"*@
-            <partial name="AgregarEvidencia"/>
+            @if (Model.Activo)
+            {
+                @* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia"*@
+                <partial name="AgregarEvidencia"/>
+            }
         </div>
 
         @* COLUMNA DERECHA: EVIDENCIAS *@

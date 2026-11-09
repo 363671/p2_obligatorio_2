@@ -710,7 +710,7 @@ namespace Dominio
 
             foreach (Caso c in _casos)
             {
-                // se delega la responsabilidad a su Clase
+                // se delega la responsabilidad a su Clase (Caso)
                 if (c.MailEsDeInvestigador(mail))
                 {
                     textoConCasos += c.ToString();
