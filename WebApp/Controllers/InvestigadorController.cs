@@ -60,6 +60,7 @@ namespace WebApp.Controllers
 
             ViewBag.AgregacionEvidencia = false;
             TempData["EvidenciaInvalida"] = "";
+            TempData["TipoEvidencia"] = "";
 
             ViewBag.Recomendacion = "";
 

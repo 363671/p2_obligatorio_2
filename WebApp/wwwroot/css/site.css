@@ -7,27 +7,6 @@
     --color-text: #202B3C;
 }
 
-.colorFondoMorado {
-    background-color: var(--color-primary)
-}
-
-.colorFondoRojo {
-    background-color: var(--color-secondary)
-}
-
-.colorFondoAnaranjado {
-    background-color: var(--color-accent)
-}
-
-.colorFondoLimon {
-    background-color: var(--color-background)
-}
-
-.colorTextoAzul {
-    color: var(--color-text)
-}
-
-
 html {
   font-size: 14px;
 }
@@ -92,3 +71,4 @@ body {
     background-color: #007bff;
     color: #fff;
 }
+

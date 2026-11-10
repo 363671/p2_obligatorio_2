@@ -21,9 +21,9 @@
         <div class="card-body">
             @* el metódo será POST - porque se pedirán datos para la Evidencia Nueva *@
             <form method="post" class="form-check form d-flex flex-column">
-                <div class="m-auto">
-                    <label for="" class="form-label text-dark">Tipo de Evidencia</label>
-                    <select name="slcTipoEvidencia">
+                <div class="input-group my-2">
+                    <span class="input-group-text">Tipo de Evidencia</span>
+                    <select class="form-control form-select" name="slcTipoEvidencia">
                         <option value="x">Seleccione una opcion...</option>
 
                         @foreach (string tE in ViewBag.TiposEvidencias)
@@ -46,41 +46,56 @@
                 }
 
                 @* REVISAR LOS NAME PARA QUE COINCIDAN CON LAS PROPs DE CADA CLASE *@
+
+                @* Datos que se piden por cualquier Evidencia *@
+
                 @if (TempData["TipoEvidencia"] != "")
                 {
-
-
-                    @* Datos que se piden por cualquier Evidencia *@
-                    <div class="input-group my-2 ">
+                    <div class="input-group my-2">
                         <span class="input-group-text">Fecha recolección</span>
-                        <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1900" max="@TempData["FechaActual"]"/>
-
+                        <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1800" max="@TempData["FechaActual"]"/>
                     </div>
-                    <div class="input-group my-2 ">
+                    <div class="input-group my-2">
                         <span class="input-group-text">Descripcion</span>
                         <textarea class="form-control" aria-label="With textarea"></textarea>
                     </div>
                 }
+
                 @if (TempData["TipoEvidencia"] == "Fisica")
                 {
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="checkHuellas" switch>
                         <label class="form-check-label">
                             Incluye huellas digitales
                         </label>
+                        <input class="form-check-input" type="checkbox" name="TieneHuellasDigitales" switch>
                     </div>
                 }
+                
                 @if (TempData["TipoEvidencia"] == "Grabacion")
                 {
-                    <input type="number" min="1" max="5" name="inpCalidad" />
+                    <div class="input-group my-2">
+                        <span class="input-group-text">Calidad</span>
+                        <input class="form-control" type="number" min="1" max="5" name="Calidad" />
+                    </div>
+
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="checkInFraganti" switch>
+                        <input class="form-check-input" type="checkbox" name="InFraganti" switch>
                         <label class="form-check-label">
                             In Fraganti
                         </label>
                     </div>
                 }
 
+                @if (TempData["TipoEvidencia"] == "Testimonio")
+                {
+                    @* Nombre de Testigo *@
+                    @* IndiceCredibilidad *@
+
+                    <div class="input-group my-2">
+                        <span class="input-group-text">Nombre del Testigo</span>
+                        <input class="form-control" type="text" name="NombreTestigo" />
+                    </div>
+                }
 
                 <div class="m-auto">
                     <button type="submit" class="btn btn-outline-danger btn-sm px-3" name="inpDecisionEvidencia" value="cancelar">Cancelar</button>

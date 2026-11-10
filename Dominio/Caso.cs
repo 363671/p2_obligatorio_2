@@ -81,12 +81,12 @@ namespace Dominio
         public void AgregarEvidencia(Evidencia e)
         {
             ValidarActivo();
+            e.ValidarDatos();
             _evidenciasDelCaso.Add(e);
         }
 
         public void ValidarDatos()
         {
-            ValidarActivo();
             ValidarInvestigador();
         }
 
@@ -152,6 +152,7 @@ namespace Dominio
 
                 if(peso >= 100)
                 {
+                    // de llegar a 100 puntos sale directamente del bucle
                     return 100;
                 }
             }

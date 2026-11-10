@@ -42,6 +42,19 @@ namespace Dominio
 
         private void ValidarFechaRecoleccion()
         {
+            DateTime fechaActual = DateTime.Now;
+            DateTime fechaLimite = new DateTime(1800,01,01);
+
+            if (FechaRecoleccion > fechaActual)
+            {
+                throw new Exception(" Fecha de Recolección inválida ");
+            }
+
+            if (FechaRecoleccion < fechaLimite)
+            {
+                throw new Exception(" Fecha de Recolección inválida ");
+            }
+
             // validar que no sea mayor a la fecha de hoy / que no sea de hace mucho tiempo / etc
             // throw new NotImplementedException();
         }

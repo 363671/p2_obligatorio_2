@@ -575,6 +575,208 @@ namespace Dominio
             );
 
             // ==========================================================
+            // CASO 11 - TESTIMONIO (Se mantiene ACTIVO)
+            // ==========================================================
+            Caso c11 = new Caso(
+                "Sabotaje en Fábrica Textil",
+                "Investigación por daños intencionales en la maquinaria principal de hilado.",
+                true,
+                _sospechosos[0],
+                _investigadores[1],
+                new DateTime(2026, 2, 14),
+                "Operario afirma haber visto a alguien ajeno a la sección merodeando.",
+                "Jorge Ramírez",
+                Credibilidad.Bajo
+            );
+
+            c11.AgregarEvidencia(new Fisica(false, new DateTime(2026, 2, 14), "Cable de alimentación cortado con pinza."));
+            c11.AgregarEvidencia(new Grabacion(3, false, new DateTime(2026, 2, 14), "Cámara de pasillo muestra silueta borrosa a la distancia."));
+            c11.AgregarEvidencia(new Testimonio("Elena Ortiz", Credibilidad.Bajo, new DateTime(2026, 2, 15), "Limpiadora cree haber escuchado una discusión previa al hecho."));
+            c11.AgregarEvidencia(new Fisica(true, new DateTime(2026, 2, 14), "Candado del tablero eléctrico forzado."));
+
+            // ==========================================================
+            // CASO 12 - GRABACIÓN (Se INACTIVA por recomendación)
+            // ==========================================================
+            Caso c12 = new Caso(
+                "Hurto de Cables en Vía Pública",
+                "Sustracción de cableado subterráneo de fibra óptica en zona norte.",
+                true,
+                _sospechosos[1],
+                _investigadores[0],
+                new DateTime(2025, 9, 30),
+                "Cámara municipal registra movimientos vehiculares inusuales de madrugada.",
+                5,
+                false
+            );
+
+            c12.AgregarEvidencia(new Fisica(true, new DateTime(2025, 9, 30), "Pinza de presión oxidada abandonada en la zanja."));
+            c12.AgregarEvidencia(new Testimonio("Luis Alvez", Credibilidad.Bajo, new DateTime(2025, 10, 1), "Vecino dice haber visto una camioneta blanca sin matrícula."));
+            c12.AgregarEvidencia(new Grabacion(4, false, new DateTime(2025, 9, 30), "Cámara comercial capta ráfaga de luces del presunto vehículo escape."));
+            c12.AgregarEvidencia(new Fisica(false, new DateTime(2025, 9, 30), "Guantes de lona sucios cerca de la cámara de registro."));
+            c12.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+
+            // ==========================================================
+            // CASO 13 - FÍSICA (Se mantiene ACTIVO)
+            // ==========================================================
+            Caso c13 = new Caso(
+                "Intrusión en Estacionamiento Privado",
+                "Denuncia por intento de apertura forzada de varios vehículos particulares.",
+                true,
+                _sospechosos[2],
+                _investigadores[1],
+                new DateTime(2026, 4, 11),
+                "Ganzúa casera encontrada trabada en la cerradura de un coche.",
+                true
+            );
+
+            c13.AgregarEvidencia(new Grabacion(2, false, new DateTime(2026, 4, 11), "Cámara del subsuelo registra sombras moviéndose entre los pilares."));
+            c13.AgregarEvidencia(new Testimonio("Clara Mendoza", Credibilidad.Bajo, new DateTime(2026, 4, 12), "Inquilina afirma haber oído silbidos extraños en el garaje."));
+            c13.AgregarEvidencia(new Fisica(false, new DateTime(2026, 4, 11), "Gorra deportiva negra tirada en una plaza vacía."));
+            c13.AgregarEvidencia(new Testimonio("Pedro Rocha", Credibilidad.Medio, new DateTime(2026, 4, 11), "Guardia del turno tarde vio a un joven sospechoso merodeando el portón."));
+
+            // ==========================================================
+            // CASO 14 - TESTIMONIO (Se INACTIVA por recomendación)
+            // ==========================================================
+            Caso c14 = new Caso(
+                "Falta de Stock en Barraca",
+                "Investigación interna por faltante acumulado de herramientas eléctricas.",
+                true,
+                _sospechosos[3],
+                _investigadores[0],
+                new DateTime(2025, 11, 12),
+                "Empleado administrativo sugiere que los remitos de carga fueron alterados.",
+                "Mario Benítez",
+                Credibilidad.Bajo
+            );
+
+            c14.AgregarEvidencia(new Grabacion(4, false, new DateTime(2025, 11, 12), "Cámara del sector de carga muestra operarios trabajando de espaldas."));
+            c14.AgregarEvidencia(new Fisica(true, new DateTime(2025, 11, 13), "Planilla de inventario con tachaduras en el renglón de taladros."));
+            c14.AgregarEvidencia(new Testimonio("Lucía Ríos", Credibilidad.Bajo, new DateTime(2025, 11, 14), "Cajera escuchó rumores sobre ventas informales fuera del horario comercial."));
+            c14.AgregarEvidencia(new Grabacion(3, false, new DateTime(2025, 11, 12), "Domótica de entrada registra apertura fuera de hora sin video claro."));
+            c14.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+
+            // ==========================================================
+            // CASO 15 - GRABACIÓN (Se mantiene ACTIVO)
+            // ==========================================================
+            Caso c15 = new Caso(
+                "Vandalismo en Fachada de Banco",
+                "Pintadas y rotura de cartelería digital en la sucursal de la avenida principal.",
+                true,
+                _sospechosos[4],
+                _investigadores[1],
+                new DateTime(2026, 1, 20),
+                "Cámara del cajero automático capta de reojo el inicio del disturbio.",
+                6,
+                false
+            );
+
+            c15.AgregarEvidencia(new Fisica(true, new DateTime(2026, 1, 20), "Ladrillo partido utilizado para golpear el vidrio del tótem."));
+            c15.AgregarEvidencia(new Testimonio("Hugo Peralta", Credibilidad.Bajo, new DateTime(2026, 1, 21), "Transeúnte dice que el grupo vestía camperas de un club local."));
+            c15.AgregarEvidencia(new Grabacion(4, false, new DateTime(2026, 1, 20), "Cámara de tránsito muestra un grupo de personas corriendo tres cuadras más adelante."));
+            c15.AgregarEvidencia(new Fisica(false, new DateTime(2026, 1, 20), "Restos de un envase de pintura en aerosol color negro."));
+
+            // ==========================================================
+            // CASO 16 - FÍSICA (Se INACTIVA por recomendación)
+            // ==========================================================
+            Caso c16 = new Caso(
+                "Robo en Obra en Construcción",
+                "Pérdida de materiales de construcción y grifería fina guardada en depósito temporal.",
+                true,
+                _sospechosos[5],
+                _investigadores[0],
+                new DateTime(2025, 8, 5),
+                "Corte neto en el tejido perimetral del predio de la obra.",
+                true
+            );
+
+            c16.AgregarEvidencia(new Grabacion(3, false, new DateTime(2025, 8, 5), "Cámara de la esquina graba un camión detenido cerca de la brecha."));
+            c16.AgregarEvidencia(new Testimonio("Andrés Fleitas", Credibilidad.Bajo, new DateTime(2025, 8, 6), "Sereno de la obra lindera afirma haberse quedado dormido por ruidos extraños."));
+            c16.AgregarEvidencia(new Fisica(false, new DateTime(2025, 8, 5), "Huella de calzado embarrado talle grande cerca del contenedor."));
+            c16.AgregarEvidencia(new Testimonio("Sonia Viera", Credibilidad.Bajo, new DateTime(2025, 8, 7), "Vecina reporta ruidos de carga a altas horas de la noche."));
+            c16.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+
+            // ==========================================================
+            // CASO 17 - TESTIMONIO (Se mantiene ACTIVO)
+            // ==========================================================
+            Caso c17 = new Caso(
+                "Estafa en Taller Mecánico",
+                "Cliente denuncia colocación de repuestos usados facturados como nuevos.",
+                true,
+                _sospechosos[6],
+                _investigadores[1],
+                new DateTime(2026, 5, 2),
+                "Ex-empleado del taller afirma que es una práctica común del dueño.",
+                "Roberto Díaz",
+                Credibilidad.Bajo
+            );
+
+            c17.AgregarEvidencia(new Fisica(true, new DateTime(2026, 5, 3), "Filtro de aceite desgastado extraído del auto del denunciante."));
+            c17.AgregarEvidencia(new Grabacion(5, false, new DateTime(2026, 5, 2), "Cámara del taller registra el auto en la fosa pero los mecánicos tapan la visual."));
+            c17.AgregarEvidencia(new Testimonio("Gisela Cardozo", Credibilidad.Bajo, new DateTime(2026, 5, 4), "Clienta sospecha que le ocurrió lo mismo por un ruido persistente en su motor."));
+            c17.AgregarEvidencia(new Fisica(false, new DateTime(2026, 5, 2), "Caja de repuesto nuevo tirada vacía en el contenedor de basura."));
+
+            // ==========================================================
+            // CASO 18 - GRABACIÓN (Se INACTIVA por recomendación)
+            // ==========================================================
+            Caso c18 = new Caso(
+                "Hurto de Mercadería en Minimercado",
+                "Sustracción hormiga detectada en góndolas de perfumería y cosmética.",
+                true,
+                _sospechosos[7],
+                _investigadores[0],
+                new DateTime(2025, 6, 14),
+                "Domótica de pasillo registra un movimiento sospechoso de manos hacia una mochila.",
+                4,
+                false
+            );
+
+            c18.AgregarEvidencia(new Fisica(false, new DateTime(2025, 6, 14), "Blíster de desodorante vacío escondido detrás de las cajas de cereal."));
+            c18.AgregarEvidencia(new Testimonio("Estela Maris", Credibilidad.Bajo, new DateTime(2025, 6, 15), "Repositora cree recordar a una pareja sospechosa esa tarde."));
+            c18.AgregarEvidencia(new Grabacion(5, false, new DateTime(2025, 6, 14), "Cámara de salida capta a los sospechosos cruzando las cajas sin comprar nada."));
+            c18.AgregarEvidencia(new Testimonio("Juan Pintos", Credibilidad.Bajo, new DateTime(2025, 6, 14), "Cliente vio a alguien apurado saliendo hacia el estacionamiento."));
+            c18.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+
+            // ==========================================================
+            // CASO 19 - FÍSICA (Se mantiene ACTIVO)
+            // ==========================================================
+            Caso c19 = new Caso(
+                "Intento de Estafa Telefónica",
+                "Investigación por llamadas extorsivas simulando secuestro familiar a una anciana.",
+                true,
+                _sospechosos[8],
+                _investigadores[1],
+                new DateTime(2026, 3, 19),
+                "Papel con anotación del número de cuenta destino arrojado en el jardín.",
+                true
+                );
+
+            c19.AgregarEvidencia(new Grabacion(3, false, new DateTime(2026, 3, 19), "Audio del contestador automático con la voz distorsionada del atacante."));
+            c19.AgregarEvidencia(new Testimonio("Olga Suárez", Credibilidad.Bajo, new DateTime(2026, 3, 19), "Víctima nerviosa confunde detalles sobre la voz del llamante."));
+            c19.AgregarEvidencia(new Testimonio("Raúl Castro", Credibilidad.Bajo, new DateTime(2026, 3, 20), "Vecino dice haber visto una moto sospechosa al momento de la llamada."));
+            c19.AgregarEvidencia(new Fisica(false, new DateTime(2026, 3, 19), "Chip Prepago de telefonía descartado en la vereda contigua."));
+
+            // ==========================================================
+            // CASO 20 - GRABACIÓN (Se mantiene ACTIVO)
+            // ==========================================================
+            Caso c20 = new Caso(
+                "Sustracción en Vestuarios de Club",
+                "Reporte de hurto de una billetera y un reloj de alta gama del casillero.",
+                true,
+                _sospechosos[9],
+                _investigadores[0],
+                new DateTime(2026, 6, 8),
+                "Cámara de acceso al pasillo del vestuario registra entradas y salidas generales.",
+                5,
+                false
+                );
+            
+            c20.AgregarEvidencia(new Fisica(true, new DateTime(2026, 6, 8), "Traba del casillero número 14 visiblemente falseada."));
+            c20.AgregarEvidencia(new Testimonio("Marcos Paz", Credibilidad.Bajo, new DateTime(2026, 6, 9), "Socio menciona haber visto ingresar a un joven que no suele ir a esa hora."));
+            c20.AgregarEvidencia(new Grabacion(4, false, new DateTime(2026, 6, 8), "Cámara del hall principal muestra el egreso apresurado de una persona."));
+            c20.AgregarEvidencia(new Testimonio("Tomás Delgado", Credibilidad.Bajo, new DateTime(2026, 6, 8), "Profesor de gimnasia escuchó un portazo fuerte pero no revisó el área."));
+
+
+            // ==========================================================
             // Añadir Casos a la lista _casos
             // ==========================================================
             AgregarCaso(c1);
@@ -587,6 +789,16 @@ namespace Dominio
             AgregarCaso(c8);
             AgregarCaso(c9);
             AgregarCaso(c10);
+            AgregarCaso(c11);
+            AgregarCaso(c12);
+            AgregarCaso(c13);
+            AgregarCaso(c14);
+            AgregarCaso(c15);
+            AgregarCaso(c16);
+            AgregarCaso(c17);
+            AgregarCaso(c18);
+            AgregarCaso(c19);
+            AgregarCaso(c20);
         }
 
         //////////////////// AGREGAR A LAS LISTAS DE DATOS ////////////////////

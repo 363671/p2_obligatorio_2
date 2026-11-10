@@ -41,17 +41,13 @@ namespace Dominio
             if (NombreTestigo.IsWhiteSpace())
             {
                 errores += "El largo del Nombre del Testigo no puede ser nulo.";
-                
-                
             } else if (NombreTestigo.Length > 90)
             {
                 errores += "El largo del Nombre del Testigo no puede superar los 90 caracteres.";
             }
-            
 
             if (errores != "")
             {
-                Console.WriteLine("");
                 throw new Exception(" < Ha ocurrido un error / Nombre del Testigo / > ");
             }
         }
