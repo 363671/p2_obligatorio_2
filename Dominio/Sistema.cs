@@ -1067,6 +1067,21 @@ namespace Dominio
             return listaRet;
         }
 
+        public IEnumerable<Investigador> GetDetectives()
+        {
+            List<Investigador> listaRet = new List<Investigador>();
+
+            foreach (Investigador i in _investigadores)
+            {
+                if(i.Rol == Rol.Detective)
+                {
+                    listaRet.Add(i);
+                }
+            }
+
+            return listaRet;
+        }
+
         //sistema
     }
 }

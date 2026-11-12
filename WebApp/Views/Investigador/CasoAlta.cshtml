@@ -1,3 +1,37 @@
-﻿
+﻿@using Dominio;
+@*
+    ViewBag.Sospechosos = listaSospechosos;
+    ViewBag.Detectives = listaDetectives;
+*@
+
 
 <h2>Caso Nuevo</h2>
+<form method="post">
+    <label>Nombre del Caso:</label>
+    <input type="text"/>
+    <br />
+    <label>Descripción:</label>
+    <br />
+    <textarea></textarea>
+    <br />
+    <label>Sospechoso principal:</label>
+    <select>
+        @foreach (Sospechoso s in ViewBag.Sospechosos)
+            {
+            <option value="@s.Id">@s.Nombre</option>
+            }
+    </select>
+    
+    <br />
+    <label>Detective a asignar:</label>
+    <select>
+        @foreach (Investigador i in ViewBag.Detectives)
+        {
+            <option value="@i.Id">@i.Nombre</option>
+        }
+    </select>
+
+    <br />
+    <label>Agregar Evidencia:</label>
+    <partial name="AgregarEvidencia" />
+</form>

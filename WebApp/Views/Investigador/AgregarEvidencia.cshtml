@@ -46,18 +46,17 @@
                 }
 
                 @* REVISAR LOS NAME PARA QUE COINCIDAN CON LAS PROPs DE CADA CLASE *@
-
                 @* Datos que se piden por cualquier Evidencia *@
 
                 @if (TempData["TipoEvidencia"] != "")
                 {
                     <div class="input-group my-2">
                         <span class="input-group-text">Fecha recolección</span>
-                        <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1800" max="@TempData["FechaActual"]"/>
+                        <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1800" max="@TempData["FechaActual"]" required />
                     </div>
                     <div class="input-group my-2">
                         <span class="input-group-text">Descripcion</span>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <textarea class="form-control" aria-label="With textarea" required></textarea>
                     </div>
                 }
 
@@ -67,7 +66,7 @@
                         <label class="form-check-label">
                             Incluye huellas digitales
                         </label>
-                        <input class="form-check-input" type="checkbox" name="TieneHuellasDigitales" switch>
+                        <input class="form-check-input" type="checkbox" name="TieneHuellasDigitales" switch required>
                     </div>
                 }
                 
@@ -75,11 +74,11 @@
                 {
                     <div class="input-group my-2">
                         <span class="input-group-text">Calidad</span>
-                        <input class="form-control" type="number" min="1" max="5" name="Calidad" />
+                        <input class="form-control" type="number" min="1" max="5" name="Calidad" required/>
                     </div>
 
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="InFraganti" switch>
+                        <input class="form-check-input" type="checkbox" name="InFraganti" switch required>
                         <label class="form-check-label">
                             In Fraganti
                         </label>
@@ -90,10 +89,22 @@
                 {
                     @* Nombre de Testigo *@
                     @* IndiceCredibilidad *@
-
                     <div class="input-group my-2">
                         <span class="input-group-text">Nombre del Testigo</span>
-                        <input class="form-control" type="text" name="NombreTestigo" />
+                        <input class="form-control" type="text" name="NombreTestigo" required/>
+                    </div>
+
+                    <div class="input-group my-2" role="group" aria-label="Índice de credibilidad">
+                        <span class="input-group-text">Credibilidad</span>
+  
+                        <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadBaja" value="baja" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="credibilidadBaja">Baja</label>
+
+                        <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadMedia" value="media" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="credibilidadMedia">Media</label>
+
+                        <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadAlta" value="alta" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="credibilidadAlta">Alta</label>
                     </div>
                 }
 

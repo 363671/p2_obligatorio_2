@@ -100,15 +100,14 @@ namespace WebApp.Controllers
         {
             Caso cSeleccionado = s.GetCasoPorId(id);
 
+            IEnumerable<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
+            ViewBag.TiposEvidencias = tiposEvidencias;
+
             ViewBag.AgregacionEvidencia = false;
+            ViewBag.Recomendacion = "";
             TempData["EvidenciaInvalida"] = "";
             TempData["TipoEvidencia"] = "";
             TempData["FechaActual"] = DateTime.Today.ToString("yyyy-MM-dd");
-
-            ViewBag.Recomendacion = "";
-
-            List<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
-            ViewBag.TiposEvidencias = tiposEvidencias;
 
             // se evalua que Boton fue presionado, comparten "name" pero tienen distinto "value"
             switch (inpDecisionEvidencia)
@@ -165,11 +164,19 @@ namespace WebApp.Controllers
             return View(listaRet);
         }
 
-        // FISCALES
-        // FiltroParaDetective > para que Detectives no puedan dar de alta
+        // Opción exclusiva para FISCALES
         [FiltroParaDetective]
         public IActionResult CasoAlta()
         {
+            IEnumerable<Sospechoso> listaSospechosos = s.GetSospechosos();
+            IEnumerable<Investigador> listaDetectives = s.GetDetectives();
+
+            ViewBag.Sospechosos = listaSospechosos;
+            ViewBag.Detectives = listaDetectives;
+
+            ViewBag.AgregacionEvidencia = false;
+            IEnumerable<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
+            ViewBag.TiposEvidencias = tiposEvidencias;
 
             return View();
         }
