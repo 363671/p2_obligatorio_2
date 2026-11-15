@@ -57,7 +57,7 @@ namespace Dominio
 
             if (InFraganti)
             {
-                ptos += 40;
+                ptos += 60;
             }
 
             if (Calidad >= 3)

@@ -14,7 +14,11 @@ namespace Dominio
         public Credibilidad IndiceCredibilidad { get; set; }
 
         // CTOR
-        
+        public Testimonio()
+        {
+            
+        }
+
         public Testimonio(string nombreTestigo, Credibilidad indiceCredibilidad, DateTime fechaRecoleccion, string descripcion) : base(fechaRecoleccion, descripcion)
         {
             NombreTestigo = nombreTestigo;

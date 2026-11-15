@@ -40,116 +40,142 @@ namespace WebApp.Controllers
             return View(iLogueado);
         }
 
-        // DETECTIVES
         public IActionResult Casos()
         {
             Investigador iLogueado = GetInvestigadorLogueado();
-            
-            List<Caso> CasosDeInvestigador = s.ListarCasosDeUnInvestigador(iLogueado);
-            List<Caso> CasosDelSistema = s.GetCasos();
 
-            ViewBag.CasosDetective = CasosDeInvestigador;
-            ViewBag.CasosSistema = CasosDelSistema;
+            List<Caso> Casos = new List<Caso>();
+
+            if(iLogueado.Rol.ToString() == "Fiscal")
+            {
+                Casos = s.GetCasos();
+            }
+
+            if (iLogueado.Rol.ToString() == "Detective")
+            {
+                Casos = s.ListarCasosDeUnInvestigador(iLogueado);
+            }
+
+            // Ordeno la lista
+            //  según el criterio de ordenamiento establecido en el CompareTo
+            Casos.Sort();
+
+            ViewBag.Casos = Casos;
 
             return View(iLogueado);
         }
 
-        public IActionResult CasoDetalle(int id, string inpDecision)
+        // Opción para DETECTIVES y FISCALES
+        // HttpGet
+        public IActionResult CasoDetalle(int id, string btnRecomendacion)
         {
             Caso cSeleccionado = s.GetCasoPorId(id);
 
-            ViewBag.AgregacionEvidencia = false;
-            TempData["EvidenciaInvalida"] = "";
-            TempData["TipoEvidencia"] = "";
-
             ViewBag.Recomendacion = "";
 
-            List<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
+            List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
             ViewBag.TiposEvidencias = tiposEvidencias;
 
-            // se evalua que Boton fue presionado, comparten "name" pero tienen distinto "value"
-            switch (inpDecision)
+            if(btnRecomendacion == "elaborarRecomendacion")
             {
-                // este case se encuentra aquí porque el formulario 
-                //  por el cual llega, viene por el metodo GET
-                case "agregarEvidencia":
-                    ViewBag.AgregacionEvidencia = true;
-                    break;
-                case "elaborarRecomendacion":
-                    ViewBag.Recomendacion = cSeleccionado.ElaborarRecomendacion();
-                    break;
-                case "tomarRecomendacion":
-                    cSeleccionado.TomarRecomendacionEInactivar();
-                    break;
-                case "descartarRecomendacion":
-                    ViewBag.Recomendacion = "";
-                    break;
-                case "btnReactivar":
-                    ViewBag.Recomendacion = "";
-                    cSeleccionado.ReActivarElCaso();
-                    break;
-                default:
-                    break;
+                ViewBag.Recomendacion = cSeleccionado.ElaborarRecomendacion();
             }
 
             return View(cSeleccionado);
         }
 
+        // la vista CasoDetalle tiene Vistas Parciales integradas
+        // -> AgregarFormulario.cshtml
         [HttpPost]
-        public IActionResult CasoDetalle(int id, string inpDecisionEvidencia, string slcTipoEvidencia)
+        public IActionResult CasoDetalle(
+            int id,
+            string btnRecomendacion, 
+            string slcTipoEvidencia,
+            DateTime FechaRecoleccion,
+            string Descripcion,
+            string TieneHuellasDigitales,
+            int Calidad,
+            string InFraganti,
+            string NombreTestigo,
+            Credibilidad IndiceCredibilidad)
         {
             Caso cSeleccionado = s.GetCasoPorId(id);
 
-            IEnumerable<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
+            List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
             ViewBag.TiposEvidencias = tiposEvidencias;
 
-            ViewBag.AgregacionEvidencia = false;
             ViewBag.Recomendacion = "";
             TempData["EvidenciaInvalida"] = "";
             TempData["TipoEvidencia"] = "";
             TempData["FechaActual"] = DateTime.Today.ToString("yyyy-MM-dd");
 
-            // se evalua que Boton fue presionado, comparten "name" pero tienen distinto "value"
-            switch (inpDecisionEvidencia)
+            // en el Detalle del Caso, interesa que se pueda modificar el estado del CASO
+            // como modifica el Sistema, corresponde que sea POST
+            switch (btnRecomendacion)
             {
-                case "cancelar":
-                    ViewBag.AgregacionEvidencia = false;
+                case "btnReactivar":
+                    ViewBag.Recomendacion = "";
+                    cSeleccionado.ReActivarElCaso();
                     break;
-                case "siguiente":
-                    ViewBag.AgregacionEvidencia = true;
-                    if (slcTipoEvidencia == "x")
-                    {
-                        TempData["EvidenciaInvalida"] = "Error, tipo de Evidencia invalida.";
-                    }
-                    if (slcTipoEvidencia == "Fisica")
-                    {
-                        TempData["TipoEvidencia"] = "Fisica";
-                    }
-                    if (slcTipoEvidencia == "Testimonio")
-                    {
-                        TempData["TipoEvidencia"] = "Testimonio";
-                    }
-                    if (slcTipoEvidencia == "Grabacion")
-                    {
-                        TempData["TipoEvidencia"] = "Grabacion";
-                    }
+                case "tomarRecomendacion": 
+                    cSeleccionado.Inactivar();
                     break;
+            }
+
+            // FechaRecoleccion Descripcion / TieneHuellasDigitales / Calidad InFraganti / NombreTestigo IndiceCredibilidad
+            if (slcTipoEvidencia == "Fisica")
+            {
+                bool tiene = false;
+
+                if(TieneHuellasDigitales == "siTiene")
+                {
+                    tiene = true;
+                }
+
+                // TODO, se deberia generar la Evidencia desde Sistema? consultar
+                cSeleccionado.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
+
+                TempData["EvidenciaIngresada"] = "Evidencia Física ingresada.";
+            }
+
+            if (slcTipoEvidencia == "Grabacion")
+            {
+                bool captado = false;
+
+                if (InFraganti == "on")
+                {
+                    captado = true;
+                }
+
+                // TODO, se deberia generar la Evidencia desde Sistema? consultar
+                cSeleccionado.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
                 
-                default:
-                    break;
+                TempData["EvidenciaIngresada"] = "Evidencia Grabación ingresada.";
+            }
+
+            if (slcTipoEvidencia == "Testimonio")
+            {
+                cSeleccionado.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
+             
+                TempData["EvidenciaIngresada"] = "Evidencia Testimonio ingresada.";
             }
 
             return View(cSeleccionado);
         }
 
+        /// <summary>
+        /// Se listan los Sospechosos del Sistema.
+        /// Si no hay un Nombre o una Edad introducida, se traen todas las instancias.
+        /// </summary>
+        /// <param name="nombreABuscar"></param>
+        /// <param name="edadASuperar"></param>
+        /// <returns></returns>
         public IActionResult ListadoSospechosos(string nombreABuscar, string edadASuperar)
         {
             Investigador iLogueado = GetInvestigadorLogueado();
             ViewBag.UsuarioLogueado = iLogueado;
 
-            List<Sospechoso> listaRet = new List<Sospechoso>();
-
-            listaRet = s.GetSospechosos();
+            List<Sospechoso> listaRet = s.GetSospechosos();
             
             if (!string.IsNullOrEmpty(nombreABuscar))
             {
@@ -175,7 +201,7 @@ namespace WebApp.Controllers
             ViewBag.Detectives = listaDetectives;
 
             ViewBag.AgregacionEvidencia = false;
-            IEnumerable<string> tiposEvidencias = ["Fisica", "Testimonio", "Grabacion"];
+            List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
             ViewBag.TiposEvidencias = tiposEvidencias;
 
             return View();

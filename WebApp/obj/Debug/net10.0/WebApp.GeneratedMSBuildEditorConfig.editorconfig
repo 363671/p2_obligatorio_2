@@ -43,6 +43,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0aWdhZG9yXEFncmVnYXJFdmlkZW5jaWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/diegu/OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay/P2/2 Obligatorio parte 2/Obligatorio_P2_Fiscalia/WebApp/Views/Investigador/AgregarEvidenciaParaSubFormulario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0aWdhZG9yXEFncmVnYXJFdmlkZW5jaWFQYXJhU3ViRm9ybXVsYXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/diegu/OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay/P2/2 Obligatorio parte 2/Obligatorio_P2_Fiscalia/WebApp/Views/Investigador/CasoAlta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0aWdhZG9yXENhc29BbHRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -69,6 +73,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/diegu/OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay/P2/2 Obligatorio parte 2/Obligatorio_P2_Fiscalia/WebApp/Views/Investigador/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0aWdhZG9yXFBlcmZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/diegu/OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay/P2/2 Obligatorio parte 2/Obligatorio_P2_Fiscalia/WebApp/Views/Investigador/SospechosoAlta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZXN0aWdhZG9yXFNvc3BlY2hvc29BbHRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/diegu/OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay/P2/2 Obligatorio parte 2/Obligatorio_P2_Fiscalia/WebApp/Views/Shared/Error.cshtml]

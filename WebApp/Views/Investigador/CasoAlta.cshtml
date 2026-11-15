@@ -1,37 +1,50 @@
 ﻿@using Dominio;
-@*
-    ViewBag.Sospechosos = listaSospechosos;
-    ViewBag.Detectives = listaDetectives;
-*@
 
+@{
+    ViewData["Title"] = "Nuevo Caso - Fiscal";
+}
 
 <h2>Caso Nuevo</h2>
-<form method="post">
-    <label>Nombre del Caso:</label>
-    <input type="text"/>
-    <br />
-    <label>Descripción:</label>
-    <br />
-    <textarea></textarea>
-    <br />
-    <label>Sospechoso principal:</label>
-    <select>
-        @foreach (Sospechoso s in ViewBag.Sospechosos)
-            {
-            <option value="@s.Id">@s.Nombre</option>
-            }
-    </select>
-    
-    <br />
-    <label>Detective a asignar:</label>
-    <select>
-        @foreach (Investigador i in ViewBag.Detectives)
-        {
-            <option value="@i.Id">@i.Nombre</option>
-        }
-    </select>
+<form method="post"
+      id="formCasoNuevo"
+      class="form-check form d-flex flex-column">
+    <div class="row">
+        <!-- Nombre -->
+        <div class="input-group my-2">
+            <span class="input-group-text">Nombre del Caso:</span>
+            <input type="text" name="NombreCaso" class="form-control"/>
+        </div>
+        <!-- Descripcion -->
+        <div class="input-group my-2">
+            <span class="input-group-text">Descripcion:</span>
+            <textarea class="form-control" name="DescripcionCaso" aria-label="With textarea"></textarea>
+        </div>
+    </div>
+    <!-- Sospechoso -->
+    <div class="input-group my-2">
+        <span class="input-group-text">Sospechoso principal:</span>
+        <select class="form-control form-select" id="slcSospechoso" name="slcSospechoso">
+            <option value="x" selected>Seleccione una opcion...</option>
 
-    <br />
-    <label>Agregar Evidencia:</label>
-    <partial name="AgregarEvidencia" />
+            @foreach (Sospechoso s in ViewBag.Sospechosos)
+            {
+                <option value="@s.Id">@s.Nombre</option>
+            }
+        </select>
+    </div>
+    <!-- Detective -->
+    <div class="input-group my-2">
+        <span class="input-group-text">Detective a asignar:</span>
+        <select class="form-control form-select" id="slcDetective" name="slcDetective">
+            <option value="x" selected>Seleccione una opcion...</option>
+
+            @foreach (Investigador i in ViewBag.Detectives)
+            {
+                <option value="@i.Id">@i.Nombre</option>
+            }
+        </select>
+    </div>
+    <!-- Agregar Evidencia TODO : (opcional) -->
+    @* <label>Agregar Evidencia:</label> *@
+    <partial name="AgregarEvidenciaParaSubFormulario" />
 </form>

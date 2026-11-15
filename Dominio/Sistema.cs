@@ -613,7 +613,7 @@ namespace Dominio
             c12.AgregarEvidencia(new Testimonio("Luis Alvez", Credibilidad.Bajo, new DateTime(2025, 10, 1), "Vecino dice haber visto una camioneta blanca sin matrícula."));
             c12.AgregarEvidencia(new Grabacion(4, false, new DateTime(2025, 9, 30), "Cámara comercial capta ráfaga de luces del presunto vehículo escape."));
             c12.AgregarEvidencia(new Fisica(false, new DateTime(2025, 9, 30), "Guantes de lona sucios cerca de la cámara de registro."));
-            c12.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+            c12.Inactivar(); // Pasa a estado Inactivo
 
             // ==========================================================
             // CASO 13 - FÍSICA (Se mantiene ACTIVO)
@@ -653,7 +653,7 @@ namespace Dominio
             c14.AgregarEvidencia(new Fisica(true, new DateTime(2025, 11, 13), "Planilla de inventario con tachaduras en el renglón de taladros."));
             c14.AgregarEvidencia(new Testimonio("Lucía Ríos", Credibilidad.Bajo, new DateTime(2025, 11, 14), "Cajera escuchó rumores sobre ventas informales fuera del horario comercial."));
             c14.AgregarEvidencia(new Grabacion(3, false, new DateTime(2025, 11, 12), "Domótica de entrada registra apertura fuera de hora sin video claro."));
-            c14.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+            c14.Inactivar(); // Pasa a estado Inactivo
 
             // ==========================================================
             // CASO 15 - GRABACIÓN (Se mantiene ACTIVO)
@@ -693,7 +693,7 @@ namespace Dominio
             c16.AgregarEvidencia(new Testimonio("Andrés Fleitas", Credibilidad.Bajo, new DateTime(2025, 8, 6), "Sereno de la obra lindera afirma haberse quedado dormido por ruidos extraños."));
             c16.AgregarEvidencia(new Fisica(false, new DateTime(2025, 8, 5), "Huella de calzado embarrado talle grande cerca del contenedor."));
             c16.AgregarEvidencia(new Testimonio("Sonia Viera", Credibilidad.Bajo, new DateTime(2025, 8, 7), "Vecina reporta ruidos de carga a altas horas de la noche."));
-            c16.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+            c16.Inactivar(); // Pasa a estado Inactivo
 
             // ==========================================================
             // CASO 17 - TESTIMONIO (Se mantiene ACTIVO)
@@ -734,7 +734,7 @@ namespace Dominio
             c18.AgregarEvidencia(new Testimonio("Estela Maris", Credibilidad.Bajo, new DateTime(2025, 6, 15), "Repositora cree recordar a una pareja sospechosa esa tarde."));
             c18.AgregarEvidencia(new Grabacion(5, false, new DateTime(2025, 6, 14), "Cámara de salida capta a los sospechosos cruzando las cajas sin comprar nada."));
             c18.AgregarEvidencia(new Testimonio("Juan Pintos", Credibilidad.Bajo, new DateTime(2025, 6, 14), "Cliente vio a alguien apurado saliendo hacia el estacionamiento."));
-            c18.TomarRecomendacionEInactivar(); // Pasa a estado Inactivo
+            c18.Inactivar(); // Pasa a estado Inactivo
 
             // ==========================================================
             // CASO 19 - FÍSICA (Se mantiene ACTIVO)
@@ -1080,6 +1080,25 @@ namespace Dominio
             }
 
             return listaRet;
+        }
+
+        public List<string> GetClasesHijasDeEvidencia()
+        {
+            List<string> listaRet = new List<string>();
+
+            var clasesHijas = Evidencia.ObtenerClasesHijas();
+
+            foreach (var cH in clasesHijas)
+            {
+                listaRet.Add(cH.Name);
+            }
+
+            return listaRet;
+        }
+
+        public void AltaEvidencia()
+        {
+            throw new NotImplementedException();
         }
 
         //sistema

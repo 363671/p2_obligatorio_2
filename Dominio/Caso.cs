@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Dominio
 {
-    public class Caso : IValidable
+    public class Caso : IValidable, IComparable<Caso>
     {
         // ATRIBUTOS y PROPERTIES
         private static int UltimoId { get; set; } = 0;
@@ -144,6 +145,13 @@ namespace Dominio
         {
             int peso = 0;
 
+            // se le suma 10 puntos más al total si el Dospechoso TieneAntecedentes
+            if (SospechosoPrincipal.TieneAntecedentes)
+            {
+                peso += 10;
+            }
+
+            // se revisa cada Evidencia del Caso
             List<Evidencia> l = GetEvidenciasDelCaso();
 
             foreach (Evidencia e in l)
@@ -156,7 +164,7 @@ namespace Dominio
                     return 100;
                 }
             }
-
+            
             return peso;
         }
         
@@ -171,7 +179,7 @@ namespace Dominio
             return InvestigadorD.InvestigadorTieneMail(mail);
         }
 
-        public void TomarRecomendacionEInactivar()
+        public void Inactivar()
         {
             Activo = false;
         }
@@ -208,6 +216,19 @@ namespace Dominio
         public override bool Equals(object? obj)
         {
             return obj is Caso caso && Nombre == caso.Nombre;
+        }
+
+        /// <summary>
+        /// INTERFAZ ICOMPARABLE APLICADA
+        ///  El criterio de comparación es establecido por Nombre
+        ///   Esta Comparacion sera aprovechada con el Metodo Sort(),
+        ///    el cual utiliza el ComparteTo como criterio
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Entero</returns>
+        public int CompareTo(Caso? other)
+        {
+            return Nombre.CompareTo(other.Nombre);
         }
 
     }

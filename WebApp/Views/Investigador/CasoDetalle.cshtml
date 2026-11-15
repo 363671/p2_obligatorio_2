@@ -1,12 +1,23 @@
 ﻿@using Dominio
 @model Caso
 
-<div class="container">
-    <div class="row g-4 align-items-start">
+@{
+    ViewData["Title"] = "Caso " + Model.Id;
+}
 
+<div class="container">
+    <div class="row g-4">
         @* RECTANGULO IZQUIERDO > info general *@
         @* COLUMNA IZQUIERDA: DATOS DEL CASO *@
-
+        <div class="col-lg-1 d-flex justify-content-center pt-2">
+            <a class="text-decoration-none"
+               asp-area="" asp-controller="Investigador"
+               asp-action="Casos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg>
+            </a>
+        </div>
         <div class="col-lg-6">
             <div class="card shadow border-0">
                 @* Encabezado del caso *@
@@ -62,7 +73,7 @@
                                 <form method="get" class="px-3 m-3">
                                     <button type="submit"
                                             class="btn btn-sm px-3 text-warning"
-                                            name="inpDecision" value="elaborarRecomendacion"
+                                            name="btnRecomendacion" value="elaborarRecomendacion"
                                             style="background-color: #7740ff;">
                                         Elaborar Recomendacion
                                     </button>
@@ -70,10 +81,10 @@
                             }
                             @if (!Model.Activo)
                             {
-                                <form method="get" class="px-3 m-3">
+                                <form method="post" class="px-3 m-3">
                                     <button type="submit"
                                             class="btn btn-sm px-3 m-3 text-warning"
-                                            name="inpDecision" value="btnReactivar"
+                                            name="btnRecomendacion" value="btnReactivar"
                                             style="background-color: #7740ff;">
                                         Re activar
                                     </button>
@@ -81,17 +92,18 @@
                             }
                             @if (ViewBag.Recomendacion != "")
                             {
-                                <form method="get" class="m-2 bg-dark rounded p-3 text-white">
+                                <form method="post" class="m-2 bg-dark rounded p-3 text-white" id="formCasoRecomendacion">
                                     <p><b>@ViewBag.Recomendacion</b></p>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <button type="submit"
+                                        <button type="button"
+                                                id="btnDescartarRecomendacion"
                                                 class="btn btn-sm bg-danger text-white"
-                                                name="inpDecision" value="descartarRecomendacion">
+                                                value="descartarRecomendacion">
                                             Descartar
                                         </button>
                                         <button type="submit"
                                                 class="btn btn-sm text-white bg-success"
-                                                name="inpDecision" value="tomarRecomendacion" S
+                                                name="btnRecomendacion" value="tomarRecomendacion"
                                                 style="background-color: #7740ff;">
                                             Dar por solucionado
                                         </button>
@@ -102,7 +114,7 @@
 
                         @* Datos del Sospechoso *@
                         <div class="col-md-5">
-                            <div class="bg-body-tertiary rounded p-3 ">
+                            <div class="bg-body-tertiary rounded p-2">
                                 <h5 class="mb-3">
                                     <i class="bi bi-person-exclamation"></i>
                                     Sospechoso

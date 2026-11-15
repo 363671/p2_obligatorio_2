@@ -1,122 +1,108 @@
 ﻿@* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia"*@
-
-@* por  defecto el input del formulario esta en false *@
-@if (!ViewBag.AgregacionEvidencia)
-{
-    <div class="d-flex justify-content-center m-3 mb-0 p-2">
-        @* el metódo será GET *@
-        <form method="get">
-            <button type="submit" class="btn btn-primary btn-sm px-3" name="inpDecision" value="agregarEvidencia">Agregar evidencia</button>
-        </form>
+<div class="d-flex justify-content-center m-3 mb-0 p-2">
+    <button type="button" id="btnAgregarEvidencia" class="btn btn-primary btn-sm px-3">Agregar evidencia</button>
+</div>
+<div class="card my-2" id="formularioEvidenciaNueva">
+    <div class="card-header bg-dark text-white">
+        Agregar Evidencia
     </div>
-}
+    <p class="card-body">
+    @* el metódo será POST - porque se pedirán datos para la Evidencia Nueva *@
+    <form method="post" id="formEvidenciaNueva" class="form-check form d-flex flex-column">
+        <div id="pAvisoEvidenciaInvalida" class="alert alert-warning m-auto my-3 p-2" role="alert"></div>
 
-@* si el boton "Agregar Evidencia" es presionado cambia el valor booleano del input*@
-@if (ViewBag.AgregacionEvidencia)
-{
-    <div class="card my-2">
-        <div class="card-header bg-dark text-white">
-            Agregar Evidencia
+        <div class="input-group my-2">
+            <span class="input-group-text">Tipo de Evidencia</span>
+            <select class="form-control form-select" id="slcTipoEvidencia" name="slcTipoEvidencia">
+                <option value="x" selected>Seleccione una opcion...</option>
+
+                @foreach (string tE in ViewBag.TiposEvidencias)
+                {
+                        <option value="@tE">@tE</option>
+                }
+            </select>
         </div>
-        <div class="card-body">
-            @* el metódo será POST - porque se pedirán datos para la Evidencia Nueva *@
-            <form method="post" class="form-check form d-flex flex-column">
-                <div class="input-group my-2">
-                    <span class="input-group-text">Tipo de Evidencia</span>
-                    <select class="form-control form-select" name="slcTipoEvidencia">
-                        <option value="x">Seleccione una opcion...</option>
 
-                        @foreach (string tE in ViewBag.TiposEvidencias)
-                        {
-                            if (TempData["TipoEvidencia"] != "" &&
-                                tE == @TempData["TipoEvidencia"])
-                            {
-                                <option value="@tE" selected>@tE</option>
-                            } else
-                            {
-                                <option value="@tE">@tE</option>
-                            }
-                        }
-                    </select>
-                </div>
-                            
-                @if (TempData["EvidenciaInvalida"] != "")
-                {
-                    <div class="alert alert-warning m-auto my-3 p-2" role="alert">@TempData["EvidenciaInvalida"]</div>
-                }
-
-                @* REVISAR LOS NAME PARA QUE COINCIDAN CON LAS PROPs DE CADA CLASE *@
-                @* Datos que se piden por cualquier Evidencia *@
-
-                @if (TempData["TipoEvidencia"] != "")
-                {
-                    <div class="input-group my-2">
-                        <span class="input-group-text">Fecha recolección</span>
-                        <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1800" max="@TempData["FechaActual"]" required />
-                    </div>
-                    <div class="input-group my-2">
-                        <span class="input-group-text">Descripcion</span>
-                        <textarea class="form-control" aria-label="With textarea" required></textarea>
-                    </div>
-                }
-
-                @if (TempData["TipoEvidencia"] == "Fisica")
-                {
-                    <div class="form-check form-switch">
-                        <label class="form-check-label">
-                            Incluye huellas digitales
-                        </label>
-                        <input class="form-check-input" type="checkbox" name="TieneHuellasDigitales" switch required>
-                    </div>
-                }
-                
-                @if (TempData["TipoEvidencia"] == "Grabacion")
-                {
-                    <div class="input-group my-2">
-                        <span class="input-group-text">Calidad</span>
-                        <input class="form-control" type="number" min="1" max="5" name="Calidad" required/>
-                    </div>
-
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="InFraganti" switch required>
-                        <label class="form-check-label">
-                            In Fraganti
-                        </label>
-                    </div>
-                }
-
-                @if (TempData["TipoEvidencia"] == "Testimonio")
-                {
-                    @* Nombre de Testigo *@
-                    @* IndiceCredibilidad *@
-                    <div class="input-group my-2">
-                        <span class="input-group-text">Nombre del Testigo</span>
-                        <input class="form-control" type="text" name="NombreTestigo" required/>
-                    </div>
-
-                    <div class="input-group my-2" role="group" aria-label="Índice de credibilidad">
-                        <span class="input-group-text">Credibilidad</span>
-  
-                        <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadBaja" value="baja" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="credibilidadBaja">Baja</label>
-
-                        <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadMedia" value="media" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="credibilidadMedia">Media</label>
-
-                        <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadAlta" value="alta" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="credibilidadAlta">Alta</label>
-                    </div>
-                }
-
-                <div class="m-auto">
-                    <button type="submit" class="btn btn-outline-danger btn-sm px-3" name="inpDecisionEvidencia" value="cancelar">Cancelar</button>
-                    <button type="submit" class="btn btn-outline-primary btn-sm px-3" name="inpDecisionEvidencia" value="siguiente">Siguiente</button>
-                </div>
-            </form>
-
-            <div class="container-fluid">
-                <p class="my-4">@ViewBag.Error</p>
+        <!-- Datos que se piden por cualquier Evidencia  -->
+        <div id="divDatosBasicosEvidencias" class="row">
+            <div class="input-group my-2">
+                <span class="input-group-text">Fecha recolección</span>
+                <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1800" max="@TempData["FechaActual"]" />
+            </div>
+            <div class="input-group my-2">
+                <span class="input-group-text">Descripcion</span>
+                <textarea class="form-control" name="Descripcion" aria-label="With textarea"></textarea>
             </div>
         </div>
+        <!-- -->
+
+        <!-- Datos especificos -->
+        @* TieneHuellasDigitales *@
+        <div id="divTipoEvidenciaFisica" class="form-check form-switch">
+            <label class="form-check-label">
+                Incluye huellas digitales
+            </label>
+            <input class="form-check-input" type="checkbox" name="TieneHuellasDigitales" value="siTiene">
+        </div>
+                
+        @* Calidad *@
+        @* InFraganti *@
+        <div id="divTipoEvidenciaGrabacion" class="col">
+            <div class="input-group my-2">
+                <span class="input-group-text">Calidad</span>
+                <input class="form-control" type="number" min="1" max="5" name="Calidad" />
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" name="InFraganti" switch>
+                <label class="form-check-label">
+                    In Fraganti
+                </label>
+            </div>
+        </div>
+
+        @* Nombre de Testigo *@
+        @* IndiceCredibilidad *@
+        <div id="divTipoEvidenciaTestimonio" class="col">
+            <div class="input-group my-2">
+                <span class="input-group-text">Nombre del Testigo</span>
+                <input class="form-control" type="text" name="NombreTestigo" />
+            </div>
+            <div class="input-group my-2" role="group" aria-label="Índice de credibilidad">
+                <span class="input-group-text">Credibilidad</span>
+  
+                <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadBaja" value="0" autocomplete="off">
+                <label class="btn btn-outline-primary" for="credibilidadBaja">BajaTest</label>
+
+                <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadMedia" value="1" autocomplete="off">
+                <label class="btn btn-outline-primary" for="credibilidadMedia">Media</label>
+
+                <input type="radio" class="btn-check" name="IndiceCredibilidad" id="credibilidadAlta" value="2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="credibilidadAlta">Alta</label>
+            </div>
+        </div>
+        <div class="m-auto">
+            <button type="button" id="btnCancelarAgregarEvidencia" class="btn btn-outline-danger btn-sm px-3">Cancelar</button>
+            <button type="submit" id="btnRegistrarEvidencia"
+                class="btn btn-outline-primary btn-sm px-3"
+                name="inpDecisionEvidencia"
+                value="siguiente">Registrar</button>
+        </div>
+    </form>
+    <div class="container-fluid">
+            <p class="my-4">
+                @TempData["EvidenciaIngresada"]
+            </p>
     </div>
-}
+</div>
+
+<div id="divEvidenciaIngresada">
+
+</div>
+@*
+<div class="alert alert-success d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+    <div>
+        @TempData["EvidenciaIngresada"]
+    </div>
+</div>
+*@
