@@ -4,7 +4,6 @@ using WebApp.Filters;
 
 namespace WebApp.Controllers
 {
-
     // visto en clase con el profe
     // verificacion opcional para este Obligatorio
     // -> [VerificarSesion]
@@ -64,6 +63,10 @@ namespace WebApp.Controllers
 
             return View(iLogueado);
         }
+
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+        // // // // // // // // //            CasoDetalle           // // // // // // // // // //
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
         // Opción para DETECTIVES y FISCALES
         // HttpGet
@@ -135,7 +138,6 @@ namespace WebApp.Controllers
                 // TODO, se deberia generar la Evidencia desde Sistema? consultar
                 cSeleccionado.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
 
-                TempData["EvidenciaIngresada"] = "Evidencia Física ingresada.";
             }
 
             if (slcTipoEvidencia == "Grabacion")
@@ -150,18 +152,114 @@ namespace WebApp.Controllers
                 // TODO, se deberia generar la Evidencia desde Sistema? consultar
                 cSeleccionado.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
                 
-                TempData["EvidenciaIngresada"] = "Evidencia Grabación ingresada.";
             }
 
             if (slcTipoEvidencia == "Testimonio")
             {
                 cSeleccionado.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
-             
-                TempData["EvidenciaIngresada"] = "Evidencia Testimonio ingresada.";
             }
 
             return View(cSeleccionado);
         }
+
+        // // // // // // // // // //                               // // // // // // // // // //
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+        // // // // // // // // // //            CasoAlta           // // // // // // // // // //
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+        // Opción exclusiva para FISCALES
+        [FiltroParaDetective]
+        public IActionResult CasoAlta()
+        {
+            IEnumerable<Sospechoso> listaSospechosos = s.GetSospechosos();
+            IEnumerable<Investigador> listaDetectives = s.GetDetectives();
+
+            ViewBag.Sospechosos = listaSospechosos;
+            ViewBag.Detectives = listaDetectives;
+
+            List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
+            ViewBag.TiposEvidencias = tiposEvidencias;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CasoAlta(
+            // Datos del Caso
+            string NombreCaso,
+            string DescripcionCaso,
+            // Sospechoso
+            int slcSospechoso,
+            // Detective
+            int slcDetective,
+            // Evidencia
+            string slcTipoEvidencia,
+            DateTime FechaRecoleccion,
+            string Descripcion,
+            string TieneHuellasDigitales,
+            int Calidad,
+            string InFraganti,
+            string NombreTestigo,
+            Credibilidad IndiceCredibilidad)
+        {
+                Sospechoso sSeleccionado = s.GetSospechosoPorId(slcSospechoso);
+                Investigador dSeleccionado = s.GetInvestigadorPorId(slcDetective);
+
+                Caso cAlta = new Caso(NombreCaso, DescripcionCaso, true, sSeleccionado, dSeleccionado);
+
+                // FechaRecoleccion Descripcion / TieneHuellasDigitales / Calidad InFraganti / NombreTestigo IndiceCredibilidad
+                if (slcTipoEvidencia == "Fisica")
+                {
+                    bool tiene = false;
+
+                    if (TieneHuellasDigitales == "siTiene")
+                    {
+                        tiene = true;
+                    }
+
+                    // TODO, se deberia generar la Evidencia desde Sistema? consultar
+                    cAlta.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
+
+                    TempData["EvidenciaIngresada"] = "Evidencia Física ingresada.";
+                }
+
+                if (slcTipoEvidencia == "Grabacion")
+                {
+                    bool captado = false;
+
+                    if (InFraganti == "on")
+                    {
+                        captado = true;
+                    }
+
+                    // TODO, se deberia generar la Evidencia desde Sistema? consultar
+                    cAlta.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
+
+                    TempData["EvidenciaIngresada"] = "Evidencia Grabación ingresada.";
+                }
+
+                if (slcTipoEvidencia == "Testimonio")
+                {
+                    cAlta.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
+
+                    TempData["EvidenciaIngresada"] = "Evidencia Testimonio ingresada.";
+                }
+
+                // se agrega el Caso a la lista _casos
+                s.AgregarCaso(cAlta);
+
+                TempData["CasoIngresado"] = "¡Caso ingresado exitosamente!";
+
+                return RedirectToAction("CasoDetalle", new { id = cAlta.Id });
+
+            
+        }
+
+        // // // // // // // // // //                               // // // // // // // // // //
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
         /// <summary>
         /// Se listan los Sospechosos del Sistema.
@@ -176,7 +274,7 @@ namespace WebApp.Controllers
             ViewBag.UsuarioLogueado = iLogueado;
 
             List<Sospechoso> listaRet = s.GetSospechosos();
-            
+
             if (!string.IsNullOrEmpty(nombreABuscar))
             {
                 listaRet = s.GetSospechososConNombre(nombreABuscar);
@@ -186,25 +284,8 @@ namespace WebApp.Controllers
             {
                 listaRet = s.GetSospechososMayoresDeEdad(edadASuperar);
             }
-            
+
             return View(listaRet);
-        }
-
-        // Opción exclusiva para FISCALES
-        [FiltroParaDetective]
-        public IActionResult CasoAlta()
-        {
-            IEnumerable<Sospechoso> listaSospechosos = s.GetSospechosos();
-            IEnumerable<Investigador> listaDetectives = s.GetDetectives();
-
-            ViewBag.Sospechosos = listaSospechosos;
-            ViewBag.Detectives = listaDetectives;
-
-            ViewBag.AgregacionEvidencia = false;
-            List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
-            ViewBag.TiposEvidencias = tiposEvidencias;
-
-            return View();
         }
 
     }

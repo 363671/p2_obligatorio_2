@@ -67,12 +67,14 @@
     </header>
 
     @* VISTAS SEGÚN CONTROLLER *@
-    <div class="container d-flex flex-column justify-content-center">
-        <div class="container-fluid">
-            <main role="main" class="pb-4 p-0">
+    <div class="container d-flex flex-column m-auto min-vw-100 px-5">
+        @* <div class="container-fluid"> *@
+            <main role="main" class="row pb-4 p-0">
+                <!-- RENDER BODY -->
                 @RenderBody()
+                <!-- RENDER BODY -->
             </main>
-        </div>
+        @* </div> *@
     </div>
 
     @* PIE *@

@@ -34,6 +34,18 @@ namespace Dominio
             ValidarDatos();
         }
 
+        // Constructor para Crear Casos sin exigir una Evidencia
+        public Caso(string nombre, string descripcion, bool activo, Sospechoso sospechoso, Investigador investigadorD)
+        {
+            Id = ++UltimoId;
+            Nombre = nombre;
+            Descripcion = descripcion;
+            Activo = activo;
+            SospechosoPrincipal = sospechoso;
+            InvestigadorD = investigadorD;
+            ValidarDatos();
+        }
+
         // Constructor para Evidencias Fisicas
         public Caso(string nombre, string descripcion, bool activo, Sospechoso sospechoso, Investigador investigadorD, DateTime fechaRecoleccion, string descEvidencia, bool tieneHuellasDigitales)
         {

@@ -18,6 +18,9 @@ var divTipoEvidenciaTestimonio = document.querySelector("#divTipoEvidenciaTestim
 
 var btnRegistrarEvidencia = document.querySelector("#btnRegistrarEvidencia");
 
+var formEvidenciaNueva = document.querySelector("#formEvidenciaNueva");
+
+
 // Eventos
     // de tipo click
 if (btnAgregarEvidencia) {
@@ -48,7 +51,7 @@ fContenedoresAMostrarPorDefecto();
 
 function fContenedoresAMostrarPorDefecto() {
     console.log("fContenedoresAMostrarPorDefecto.");
-    slcTipoEvidencia.value = "x";
+
     if (formularioEvidenciaNueva) {
         formularioEvidenciaNueva.style.display = "none";
     }
@@ -59,6 +62,10 @@ function fContenedoresAMostrarPorDefecto() {
 
     if (btnAgregarEvidencia) {
         btnAgregarEvidencia.style.display = "block";
+    }
+
+    if (formEvidenciaNueva) {
+        formEvidenciaNueva.reset();
     }
 
     fOcultarDatosEspecificosDeEvidencias();
@@ -86,7 +93,7 @@ function fMostrarFormulario() {
 }
 
 function fCambiarOpcionEvidencia() {
-    fOcultarDatosEspecificosDeEvidencias()
+    fOcultarDatosEspecificosDeEvidencias();
 
     if (this.value == "x") {
     }
@@ -105,18 +112,8 @@ function fCambiarOpcionEvidencia() {
 }
 
 function fRegistrarEvidencia() {
-    if (slcTipoEvidencia.value == "x") {
+    if (slcTipoEvidencia.value == "") {
         console.log(" fCambiarOpcionEvidencia 15 11");
-    } else {
-        /*
-        divEvidenciaIngresada.innerHTML =
-        `<div class="alert alert-success d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
-            <div>
-                @TempData["EvidenciaIngresada"]
-            </div>
-        </div>`;
-        */
     }
 }
 

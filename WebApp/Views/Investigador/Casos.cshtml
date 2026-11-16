@@ -1,70 +1,86 @@
 ﻿@using Dominio
 @model Investigador
 
-@if (Model.Rol.ToString() == "Detective")
-{
-    ViewData["Title"] = "Casos - Asignados";
+<div class="container py-5">
+    <!-- justify-content-center centra la columna si mide menos de 12 -->
+    <div class="row justify-content-center">
+        <!-- Ocupa 12 en celular, 10 en laptop y 9 en monitores grandes -->
+        <div class="col-12 col-lg-10">
+            @if (Model.Rol.ToString() == "Detective")
+            {
+                ViewData["Title"] = "Casos - Asignados";
+                <h3 class="mb-3">Estos son tus Casos Asignados</h3>
+            }
+            else if (Model.Rol.ToString() == "Fiscal")
+            {
+                ViewData["Title"] = "Casos del Sistema";
+                <h3 class="mb-3">Estos son los Casos del Sistema</h3>
+            }
 
-    <h2>Estos son tus Casos Asignados</h2>
-}
+            @if (ViewBag.Casos == null || ViewBag.Casos.Count == 0)
+            {
+                <div class="alert alert-info" role="alert">
+                    No se encontraron Casos.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <!-- table-sm y small hacen la tabla mucho más compacta -->
+                    <table class="table table-sm table-striped table-hover align-middle" data-bs-theme="dark">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Sospechoso</th>
+                                <th>Detective</th>
+                                <th>Evidencias</th>
+                                <th>Estado</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Caso c in ViewBag.Casos)
+                            {
+                                <tr class="text-center">
+                                    <td>@c.Id</td>
+                                    <td>@c.Nombre</td>
+                                    <td>@c.SospechosoPrincipal.Nombre</td>
+                                    <td>@c.InvestigadorD.Nombre</td>
+                                    <td>@c._evidenciasDelCaso.Count</td>
+                                    <td>
+                                        @if (c.Activo)
+                                        {
+                                            <span class="badge bg-success">Activo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Cerrado</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-action="CasoDetalle" asp-route-id="@c.Id" class="text-decoration-none text-info d-inline-flex align-items-center gap-1">
+                                            <span>Ver</span>
+                                            <svg width="14" height="14" viewBox="0 0 30 30" fill="currentColor">
+                                                <path d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
 
-@if (Model.Rol.ToString() == "Fiscal")
-{
-    ViewData["Title"] = "Casos del Sistema";
-
-    <h2>Estos son los Casos del Sistema</h2>
-}
-
-@if (ViewBag.Casos.Count == 0)
-{
-    // en caso de no haber casos:
-    <p>No se encontraron Casos</p>
-}
-else
-{
-    <table class="table table-striped" data-bs-theme="dark">
-        <tr class="text-center">
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Sospechoso</th>
-            <th>Detective</th>
-            <th>Evidencias @* cantidad *@</th>
-            <th>Estado</th>
-            <th>Detalles</th>
-        </tr>
-
-        @* esta ViewBag se compone dependiendo de quién está logueado *@
-        @foreach (Caso c in ViewBag.Casos)
-        {
-            <tr class="text-center">
-                <td>@c.Id</td>
-                <td>@c.Nombre</td>
-                <td>@c.SospechosoPrincipal.Nombre</td>
-                <td>@c.InvestigadorD.Nombre</td>
-                @* cantidad de Evidencias del Caso *@
-                <td>@c._evidenciasDelCaso.Count</td>
-                @if (@c.Activo)
-                {
-                    <td>Activo</td>
-                }
-                else
-                {
-                    <td>Cerrado</td>
-                }
-                <th>
-                    @Html.ActionLink("Ver", "CasoDetalle", new { id = c.Id }, new { style = "text-decoration: none;" })
-                    <svg x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
-                        <path fill="white" d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
-                    </svg>
-                </th>
-
-            </tr>
-        }
-    </table>
-}
-
-<button type="button" class="btn btn-primary mx-auto d-block">
-    <a class="text-white text-decoration-none"
-       asp-area="" asp-controller="Investigador"
-       asp-action="Index">Volver al Inicio</a>
-</button>
+            <div class="text-center mt-4">
+                <a class="btn btn-sm btn-primary"
+                   asp-area=""
+                   asp-controller="Investigador"
+                   asp-action="Index">
+                    Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

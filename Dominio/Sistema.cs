@@ -179,6 +179,7 @@ namespace Dominio
                 "Carlos Méndez",
                 Credibilidad.Bajo
             );
+
             c1.AgregarEvidencia(
                 new Fisica(
                     true,
@@ -829,7 +830,7 @@ namespace Dominio
         }
 
         // > Agregar Caso
-        private void AgregarCaso(Caso c)
+        public void AgregarCaso(Caso c)
         {
             if (!_casos.Contains(c))
             {
@@ -1011,6 +1012,20 @@ namespace Dominio
                 {
                     // retorna el Investigador y su espacio en memoria
                     return i;
+                }
+            }
+
+            return null;
+        }
+
+        public Sospechoso GetSospechosoPorId(int idSospechoso)
+        {
+            foreach (Sospechoso s in _sospechosos)
+            {
+                if (s.Id == idSospechoso)
+                {
+                    // retorna el Sospechoso y su espacio en memoria
+                    return s;
                 }
             }
 

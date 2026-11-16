@@ -4,47 +4,97 @@
     ViewData["Title"] = "Nuevo Caso - Fiscal";
 }
 
-<h2>Caso Nuevo</h2>
-<form method="post"
-      id="formCasoNuevo"
-      class="form-check form d-flex flex-column">
-    <div class="row">
-        <!-- Nombre -->
-        <div class="input-group my-2">
-            <span class="input-group-text">Nombre del Caso:</span>
-            <input type="text" name="NombreCaso" class="form-control"/>
-        </div>
-        <!-- Descripcion -->
-        <div class="input-group my-2">
-            <span class="input-group-text">Descripcion:</span>
-            <textarea class="form-control" name="DescripcionCaso" aria-label="With textarea"></textarea>
-        </div>
-    </div>
-    <!-- Sospechoso -->
-    <div class="input-group my-2">
-        <span class="input-group-text">Sospechoso principal:</span>
-        <select class="form-control form-select" id="slcSospechoso" name="slcSospechoso">
-            <option value="x" selected>Seleccione una opcion...</option>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                
+                @* Encabezado unificado con el resto del sistema *@
+                <div class="card-header bg-dark text-white px-4 py-3 d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0 fw-semibold">
+                        <i class="bi bi-folder-plus me-2"></i>Caso Nuevo
+                    </h5>
+                    <span class="badge bg-secondary">Formulario de Alta</span>
+                </div>
 
-            @foreach (Sospechoso s in ViewBag.Sospechosos)
-            {
-                <option value="@s.Id">@s.Nombre</option>
-            }
-        </select>
-    </div>
-    <!-- Detective -->
-    <div class="input-group my-2">
-        <span class="input-group-text">Detective a asignar:</span>
-        <select class="form-control form-select" id="slcDetective" name="slcDetective">
-            <option value="x" selected>Seleccione una opcion...</option>
+                <div class="card-body p-4">
+                    <form method="post" id="formCasoNuevo">
+                        <h6 class="text-uppercase text-muted small fw-bold mb-3">Datos principales</h6>
 
-            @foreach (Investigador i in ViewBag.Detectives)
-            {
-                <option value="@i.Id">@i.Nombre</option>
-            }
-        </select>
+                        @* Nombre *@
+                        <div class="mb-3">
+                            <label for="NombreCaso" class="form-label small fw-semibold text-secondary mb-1">
+                                Nombre del Caso
+                            </label>
+                            <input type="text" id="NombreCaso" name="NombreCaso" class="form-control" placeholder="Ej: Robo en sucursal centro" required />
+                        </div>
+
+                        @* Descripción *@
+                        <div class="mb-3">
+                            <label for="DescripcionCaso" class="form-label small fw-semibold text-secondary mb-1">
+                                Descripción
+                            </label>
+                            <textarea id="DescripcionCaso" class="form-control" name="DescripcionCaso" rows="3" placeholder="Detalle los hechos iniciales del caso..." required></textarea>
+                        </div>
+
+                        @* Sospechoso y Detective en fila de 2 columnas *@
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="slcSospechoso" class="form-label small fw-semibold text-secondary mb-1">
+                                    Sospechoso principal
+                                </label>
+                                <select class="form-select" id="slcSospechoso" name="slcSospechoso" required>
+                                    <option value="" selected disabled>Seleccione una opción...</option>
+
+                                    @foreach (Sospechoso s in ViewBag.Sospechosos)
+                                    {
+                                        <option value="@s.Id">@s.Nombre</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="slcDetective" class="form-label small fw-semibold text-secondary mb-1">
+                                    Detective a asignar
+                                </label>
+                                <select class="form-select" id="slcDetective" name="slcDetective" required>
+                                    <option value="" selected disabled>Seleccione una opción...</option>
+
+                                    @foreach (Investigador i in ViewBag.Detectives)
+                                    {
+                                        <option value="@i.Id">@i.Nombre</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr class="my-4 opacity-25" />
+
+                        @* Aviso de evidencia opcional *@
+                        <div class="alert alert-info alert-dismissible fade show shadow-sm border-0 rounded-3 small mb-3" role="alert">
+                            <i class="bi bi-info-circle-fill me-1"></i>
+                            <strong>El ingreso de Evidencia es <u>opcional</u> al momento de generar un Caso</strong>; también se pueden añadir luego desde el Panel de Casos.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        @* Subformulario de Evidencia *@
+                        <div class="bg-body-tertiary border rounded-3 p-3 mb-4">
+                            <partial name="AgregarEvidenciaParaSubFormulario" />
+                        </div>
+
+                        @* Botón para Crear *@
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" id="btnCrearCaso"
+                                    class="btn btn-primary px-4 py-2 fw-semibold shadow-sm"
+                                    name="btnCrearCaso"
+                                    value="crearCaso">
+                                <i class="bi bi-check-lg me-1"></i>Crear Caso
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <!-- Agregar Evidencia TODO : (opcional) -->
-    @* <label>Agregar Evidencia:</label> *@
-    <partial name="AgregarEvidenciaParaSubFormulario" />
-</form>
+</div>

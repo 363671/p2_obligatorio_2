@@ -5,106 +5,126 @@
     ViewData["Title"] = "Caso " + Model.Id;
 }
 
-<div class="container">
-    <div class="row g-4">
-        @* RECTANGULO IZQUIERDO > info general *@
-        @* COLUMNA IZQUIERDA: DATOS DEL CASO *@
-        <div class="col-lg-1 d-flex justify-content-center pt-2">
-            <a class="text-decoration-none"
+<div class="container py-4">
+    @if (TempData["CasoIngresado"] != null)
+    {
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="alert alert-primary alert-dismissible fade show shadow-sm mb-0" role="alert">
+                    <strong>@TempData["CasoIngresado"]</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row g-4 align-items-start">
+        @* BOTÓN VOLVER (1 columna en desktop) *@
+        <div class="col-12 col-lg-1 d-flex justify-content-start justify-content-lg-center pt-lg-2">
+            <a class="text-secondary link-dark text-decoration-none d-inline-flex align-items-center gap-2"
+               title="Volver a Casos"
                asp-area="" asp-controller="Investigador"
                asp-action="Casos">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                <svg xmlns="http://w3.org"
+                     width="32" height="32" fill="currentColor"
+                     class="bi bi-arrow-left-circle-fill"
+                     viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
                 </svg>
+                <span class="d-lg-none fw-semibold">Volver a Casos</span>
             </a>
         </div>
-        <div class="col-lg-6">
-            <div class="card shadow border-0">
+
+        @* COLUMNA IZQUIERDA: DATOS DEL CASO + AGREGAR EVIDENCIA (6 columnas en desktop) *@
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
                 @* Encabezado del caso *@
-                <div class="card-header bg-dark text-white p-3 d-flex justify-content-between align-items-center">
-                    <div>
-                        <h5 class="mb-0">Detalle del CASO #@Model.Id</h5>
-                    </div>
+                <div class="card-header bg-dark text-white px-4 py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-semibold">Detalle del CASO #@Model.Id</h5>
 
                     @if (Model.Activo)
                     {
-                        <span class="badge bg-success">Activo</span>
+                        <span class="badge bg-success px-3 py-2">Activo</span>
                     }
                     else
                     {
-                        <span class="badge bg-danger">Cerrado</span>
+                        <span class="badge bg-danger px-3 py-2">Cerrado</span>
                     }
                 </div>
 
-                <div class="card-body p-4 pt-2">
-                    <h5 class="mb-2">Información general</h5>
-                    <div class="row mb-1">
-                        <div class="col-5">
-                            <h6 class="text-muted">Nombre del caso:</h6>
-                            <p class="fs-5 fw-semibold">@Model.Nombre</p>
+                <div class="card-body p-4">
+                    <h6 class="text-uppercase text-muted small fw-bold mb-3">Información general</h6>
+
+                    <div class="row g-3 mb-2">
+                        <div class="col-sm-5">
+                            <span class="text-muted small d-block">Nombre del caso:</span>
+                            <p class="fs-5 fw-semibold mb-0">@Model.Nombre</p>
                         </div>
-                        <div class="col-7">
-                            <h6 class="text-muted">Descripción:</h6>
-                            <p class="fst-italic fw-semibold m-0">@Model.Descripcion</p>
+                        <div class="col-sm-7">
+                            <span class="text-muted small d-block">Descripción:</span>
+                            <p class="fst-italic text-secondary mb-0">@Model.Descripcion</p>
                         </div>
                     </div>
-                    <hr class="m-2 mb-3"/>
+
+                    <hr class="my-4 opacity-25" />
+
                     <div class="row g-3">
                         @* Datos del Investigador *@
-                        <div class="col-md-7">
-                            <div class="bg-body-tertiary rounded p-3">
-                                <h5 class="mb-3">
-                                    <i class="bi bi-person-badge"></i>
+                        <div class="col-md-6">
+                            <div class="bg-body-tertiary border rounded-3 p-3">
+                                <h6 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                                    <i class="bi bi-person-badge text-primary"></i>
                                     Detective asignado
-                                </h5>
-                                <div class="d-flex flex-nowrap">
-                                    <p class="mb-1 text-muted">ID:</p>
-                                    <p class="fw-semibold mx-2">@Model.InvestigadorD.Id</p>
+                                </h6>
+                                <div class="mb-2 small">
+                                    <span class="text-muted">ID:</span>
+                                    <span class="fw-semibold ms-1">@Model.InvestigadorD.Id</span>
                                 </div>
-                                <div>
-                                    <p class="mb-1 text-muted">Nombre:</p>
-                                    <p class="fw-semibold mb-0">@Model.InvestigadorD.Nombre</p>
+                                <div class="small">
+                                    <span class="text-muted d-block">Nombre:</span>
+                                    <span class="fw-semibold fs-6">@Model.InvestigadorD.Nombre</span>
                                 </div>
                             </div>
 
-                            @if(Model.Activo)
+                            @if (Model.Activo)
                             {
                                 @* Btn para Elaborar Solucion *@
-                                <form method="get" class="px-3 m-3">
+                                <form method="get" class="mt-3">
                                     <button type="submit"
-                                            class="btn btn-sm px-3 text-warning"
+                                            class="btn btn-sm w-100 py-2 fw-semibold text-warning shadow-sm"
                                             name="btnRecomendacion" value="elaborarRecomendacion"
                                             style="background-color: #7740ff;">
-                                        Elaborar Recomendacion
+                                        Elaborar Recomendación
                                     </button>
                                 </form>
                             }
+
                             @if (!Model.Activo)
                             {
-                                <form method="post" class="px-3 m-3">
+                                <form method="post" class="mt-3">
                                     <button type="submit"
-                                            class="btn btn-sm px-3 m-3 text-warning"
+                                            class="btn btn-sm w-100 py-2 fw-semibold text-warning shadow-sm"
                                             name="btnRecomendacion" value="btnReactivar"
                                             style="background-color: #7740ff;">
-                                        Re activar
+                                        Reactivar caso
                                     </button>
                                 </form>
                             }
+
                             @if (ViewBag.Recomendacion != "")
                             {
-                                <form method="post" class="m-2 bg-dark rounded p-3 text-white" id="formCasoRecomendacion">
-                                    <p><b>@ViewBag.Recomendacion</b></p>
-                                    <div class="d-flex justify-content-center gap-2">
+                                <form method="post" class="mt-3 bg-dark rounded-3 p-3 text-white shadow-sm" id="formCasoRecomendacion">
+                                    <p class="small mb-3"><strong>@ViewBag.Recomendacion</strong></p>
+                                    <div class="d-flex justify-content-end gap-2">
                                         <button type="button"
                                                 id="btnDescartarRecomendacion"
-                                                class="btn btn-sm bg-danger text-white"
+                                                class="btn btn-sm btn-danger"
                                                 value="descartarRecomendacion">
                                             Descartar
                                         </button>
                                         <button type="submit"
-                                                class="btn btn-sm text-white bg-success"
-                                                name="btnRecomendacion" value="tomarRecomendacion"
-                                                style="background-color: #7740ff;">
+                                                class="btn btn-sm btn-success"
+                                                name="btnRecomendacion" value="tomarRecomendacion">
                                             Dar por solucionado
                                         </button>
                                     </div>
@@ -113,53 +133,57 @@
                         </div>
 
                         @* Datos del Sospechoso *@
-                        <div class="col-md-5">
-                            <div class="bg-body-tertiary rounded p-2">
-                                <h5 class="mb-3">
-                                    <i class="bi bi-person-exclamation"></i>
+                        <div class="col-md-6">
+                            <div class="bg-body-tertiary border rounded-3 p-3 h-100">
+                                <h6 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                                    <i class="bi bi-person-exclamation text-danger"></i>
                                     Sospechoso
-                                </h5>
-                                <div class="d-flex flex-nowrap">
-                                    <p class="mb-1 text-muted">ID:</p>
-                                    <p class="fw-semibold mx-2">@Model.SospechosoPrincipal.Id</p>
+                                </h6>
+                                <div class="mb-2 small">
+                                    <span class="text-muted">ID:</span>
+                                    <span class="fw-semibold ms-1">@Model.SospechosoPrincipal.Id</span>
                                 </div>
-                                <p class="mb-1 text-muted">Nombre:</p>
-                                <p class="fw-semibold">@Model.SospechosoPrincipal.Nombre</p>
-                                
-                                <div class="d-flex flex-nowrap">
-                                    <p class="mb-1 text-muted">Cédula:</p>
-                                    <p class="fw-semibold mx-2">@Model.SospechosoPrincipal.Cedula</p>
+                                <div class="mb-2 small">
+                                    <span class="text-muted d-block">Nombre:</span>
+                                    <span class="fw-semibold fs-6">@Model.SospechosoPrincipal.Nombre</span>
                                 </div>
-
-                                <p class="mb-1 text-muted">Fecha de nacimiento:</p>
-                                <p class="fw-semibold">
-                                    @Model.SospechosoPrincipal.FechaNacimiento.ToShortDateString()
-                                </p>
-
-                                <p class="mb-1 text-muted">Antecedentes:</p>
-
-                                @if (Model.SospechosoPrincipal.TieneAntecedentes)
-                                {
-                                    <span class="badge bg-danger">Sí registra antecedentes</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-success">Sin antecedentes</span>
-                                }
+                                <div class="mb-2 small">
+                                    <span class="text-muted">Cédula:</span>
+                                    <span class="fw-semibold ms-1">@Model.SospechosoPrincipal.Cedula</span>
+                                </div>
+                                <div class="mb-3 small">
+                                    <span class="text-muted d-block">Fecha de nacimiento:</span>
+                                    <span class="fw-semibold">
+                                        @Model.SospechosoPrincipal.FechaNacimiento.ToShortDateString()
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="text-muted d-block mb-1">Antecedentes:</span>
+                                    @if (Model.SospechosoPrincipal.TieneAntecedentes)
+                                    {
+                                        <span class="badge bg-danger">Sí registra antecedentes</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-success">Sin antecedentes</span>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             @if (Model.Activo)
             {
-                @* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia"*@
-                <partial name="AgregarEvidencia"/>
+                @* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia" *@
+                <div class="mt-4">
+                    <partial name="AgregarEvidencia" />
+                </div>
             }
         </div>
 
-        @* COLUMNA DERECHA: EVIDENCIAS *@
+        @* COLUMNA DERECHA: EVIDENCIAS (5 columnas en desktop para completar 1 + 6 + 5 = 12) *@
             <partial name="EvidenciasDeCaso" />
     </div>
 </div>
