@@ -2,25 +2,66 @@
     ViewData["Title"] = "Log In";
 }
 
-<h1 class="my-5">
-    Iniciemos tu sesión
-</h1>
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+        <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+            
+            <div class="card shadow border-0 rounded-3 overflow-hidden">
+                @* Encabezado unificado con el tema oscuro del sistema *@
+                <div class="card-header bg-dark text-white text-center py-4">
+                    <i class="bi bi-shield-lock-fill fs-2 mb-2 d-block text-primary"></i>
+                    <h4 class="mb-1 fw-semibold">Iniciemos tu sesión</h4>
+                    <p class="text-white-50 small mb-0">Ingrese sus credenciales para continuar</p>
+                </div>
 
-<form method="post" class="form">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div class="card-body p-4">
+                    <form method="post">
+                        @* Correo Electrónico *@
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label small fw-semibold text-secondary mb-1">
+                                Correo Electrónico
+                            </label>
+                            <input type="email"
+                                   class="form-control"
+                                   name="email"
+                                   id="exampleInputEmail1"
+                                   placeholder="nombre@ejemplo.com"
+                                   aria-describedby="emailHelp"
+                                   required />
+                        </div>
+
+                        @* Contraseña *@
+                        <div class="mb-4">
+                            <label for="exampleInputPassword1" class="form-label small fw-semibold text-secondary mb-1">
+                                Contraseña
+                            </label>
+                            <input type="password"
+                                   class="form-control"
+                                   name="pass"
+                                   id="exampleInputPassword1"
+                                   placeholder="••••••••"
+                                   required />
+                        </div>
+
+                        <input type="hidden" name="Rol" value="1" />
+
+                        @* Mensaje de error estilizado (solo ocupa espacio si hay error) *@
+                        @if (ViewBag.Error != null && ViewBag.Error.ToString() != "")
+                        {
+                            <div class="alert alert-danger py-2 px-3 small text-center border-0 rounded-2 mb-3" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                @ViewBag.Error
+                            </div>
+                        }
+
+                        @* Botón principal *@
+                        <button type="submit" class="btn btn-dark w-100 py-2 fw-semibold shadow-sm">
+                            Iniciar sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" name="pass" id="exampleInputPassword1">
-    </div>
-
-    <input type="hidden" class="form-control" name="Rol" value="1">
-
-    <button type="submit" class="btn btn-outline-secondary btn-sm px-3">Iniciar sesión</button>
-</form>
-
-<div class="container-fluid">
-    <p class="my-4">@ViewBag.Error</p>
 </div>
