@@ -5,7 +5,8 @@ console.log("Conectado.");
 var btnAgregarEvidencia = document.querySelector("#btnAgregarEvidencia");
 
 var formularioEvidenciaNueva = document.querySelector("#formularioEvidenciaNueva");
-var slcTipoEvidencia = document.querySelector("#slcTipoEvidencia");
+var slcTipoEvidencia = document.querySelector('[id*="slcTipoEvidencia"]');
+
 var btnCancelarAgregarEvidencia = document.querySelector("#btnCancelarAgregarEvidencia");
 var btnDescartarRecomendacion = document.querySelector("#btnDescartarRecomendacion");
 var pAvisoEvidenciaInvalida = document.querySelector("#pAvisoEvidenciaInvalida");
@@ -20,29 +21,53 @@ var btnRegistrarEvidencia = document.querySelector("#btnRegistrarEvidencia");
 
 var formEvidenciaNueva = document.querySelector("#formEvidenciaNueva");
 
+// --------------------- //
+
+let evidenciaIndex = 0;
+
+document.getElementById('btnAgregarEvidenciaNueva').addEventListener("click", fCargaDeEvidenciasEnCasoNuevo)
+
+function fCargaDeEvidenciasEnCasoNuevo() {
+
+    const template = document.getElementById('formularioEvidenciaNueva').innerHTML;
+
+    const evidenciaNumerada = template.replaceAll('{INDEX}', evidenciaIndex);
+
+    document.getElementById('contenedor-evidencias').insertAdjacentHTML('beforeend', evidenciaNumerada);
+
+    evidenciaIndex++;
+
+    fLlamarListeners();
+}
+
+// --------------------- //
 
 // Eventos
     // de tipo click
-if (btnAgregarEvidencia) {
-    document.querySelector("#btnAgregarEvidencia").addEventListener("click", fMostrarFormulario);
-}
+// if (btnAgregarEvidencia) {
+//     document.querySelector("#btnAgregarEvidencia").addEventListener("click", fMostrarFormulario);
+// }
 
-if (btnCancelarAgregarEvidencia) {
-    document.querySelector("#btnCancelarAgregarEvidencia").addEventListener("click", fContenedoresAMostrarPorDefecto);
-}
+fLlamarListeners();
+function fLlamarListeners() {
 
-if (btnDescartarRecomendacion) {
-    console.log("btnDescartarRecomendacion");
-    document.querySelector("#btnDescartarRecomendacion").addEventListener("click", fDescartarRecomendacion);
-}
+    if (btnCancelarAgregarEvidencia) {
+        document.querySelector("#btnCancelarAgregarEvidencia").addEventListener("click", fContenedoresAMostrarPorDefecto);
+    }
 
-if (btnRegistrarEvidencia) {
-    document.querySelector("#btnRegistrarEvidencia").addEventListener("click", fRegistrarEvidencia);
-}
+    if (btnDescartarRecomendacion) {
+        console.log("btnDescartarRecomendacion");
+        document.querySelector("#btnDescartarRecomendacion").addEventListener("click", fDescartarRecomendacion);
+    }
 
-    // de tipo change
-if (slcTipoEvidencia) {
-    document.querySelector("#slcTipoEvidencia").addEventListener("change", fCambiarOpcionEvidencia);
+    if (btnRegistrarEvidencia) {
+        document.querySelector("#btnRegistrarEvidencia").addEventListener("click", fRegistrarEvidencia);
+    }
+
+        // de tipo change
+    if (slcTipoEvidencia) {
+            slcTipoEvidencia.addEventListener("change", fCambiarOpcionEvidencia);
+    }
 }
 
 fContenedoresAMostrarPorDefecto();
@@ -88,7 +113,7 @@ function fOcultarDatosEspecificosDeEvidencias() {
 function fMostrarFormulario() {
     console.log("fMostrarFormulario.");
 
-    formularioEvidenciaNueva.style.display = "block";
+    // formularioEvidenciaNueva.style.display = "block";
     btnAgregarEvidencia.style.display = "none";
 }
 
