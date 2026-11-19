@@ -39,7 +39,7 @@ namespace Dominio
 
         private void ValidarCalidad()
         {
-            if (Calidad < 1 && Calidad > 5 )
+            if (Calidad < 1 || Calidad > 5 )
             {
                 throw new Exception(" < Ha ocurrido un error / Calidad Grabacion / > ");
             }

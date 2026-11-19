@@ -135,9 +135,14 @@ namespace WebApp.Controllers
                     tiene = true;
                 }
 
-                // TODO, se deberia generar la Evidencia desde Sistema? consultar
-                cSeleccionado.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
-
+                try
+                {
+                    cSeleccionado.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
+                }
             }
 
             if (slcTipoEvidencia == "Grabacion")
@@ -149,14 +154,27 @@ namespace WebApp.Controllers
                     captado = true;
                 }
 
-                // TODO, se deberia generar la Evidencia desde Sistema? consultar
-                cSeleccionado.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
-                
+                try
+                {
+                    // TODO, se deberia generar la Evidencia desde Sistema? consultar
+                    cSeleccionado.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
+                }
             }
 
             if (slcTipoEvidencia == "Testimonio")
             {
-                cSeleccionado.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
+                try
+                {
+                    cSeleccionado.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
+                }
             }
 
             return View(cSeleccionado);
@@ -189,8 +207,9 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult CasoAlta(
             // Datos del Caso
-            string NombreCaso,
-            string DescripcionCaso,
+            // // string NombreCaso,
+            // // string DescripcionCaso,
+            Caso cNuevo,
             // Sospechoso
             int slcSospechoso,
             // Detective
@@ -205,57 +224,91 @@ namespace WebApp.Controllers
             string NombreTestigo,
             Credibilidad IndiceCredibilidad)
         {
-                Sospechoso sSeleccionado = s.GetSospechosoPorId(slcSospechoso);
-                Investigador dSeleccionado = s.GetInvestigadorPorId(slcDetective);
+            Sospechoso sSeleccionado = s.GetSospechosoPorId(slcSospechoso);
+            Investigador dSeleccionado = s.GetInvestigadorPorId(slcDetective);
 
-                Caso cAlta = new Caso(NombreCaso, DescripcionCaso, true, sSeleccionado, dSeleccionado);
+            IEnumerable<Sospechoso> listaSospechosos = s.GetSospechosos();
+            IEnumerable<Investigador> listaDetectives = s.GetDetectives();
 
-                // FechaRecoleccion Descripcion / TieneHuellasDigitales / Calidad InFraganti / NombreTestigo IndiceCredibilidad
-                if (slcTipoEvidencia == "Fisica")
+            cNuevo.SospechosoPrincipal = sSeleccionado;
+            cNuevo.InvestigadorD = dSeleccionado;
+
+            ViewBag.Sospechosos = listaSospechosos;
+            ViewBag.Detectives = listaDetectives;
+
+            List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
+            ViewBag.TiposEvidencias = tiposEvidencias;
+
+            // FechaRecoleccion Descripcion / TieneHuellasDigitales / Calidad InFraganti / NombreTestigo IndiceCredibilidad
+            if (slcTipoEvidencia == "Fisica")
+            {
+                bool tiene = false;
+
+                if (TieneHuellasDigitales == "siTiene")
                 {
-                    bool tiene = false;
-
-                    if (TieneHuellasDigitales == "siTiene")
-                    {
-                        tiene = true;
-                    }
-
-                    // TODO, se deberia generar la Evidencia desde Sistema? consultar
-                    cAlta.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
-
-                    TempData["EvidenciaIngresada"] = "Evidencia Física ingresada.";
+                    tiene = true;
                 }
 
-                if (slcTipoEvidencia == "Grabacion")
+                try
                 {
-                    bool captado = false;
+                    cNuevo.AgregarEvidencia(new Fisica(tiene, FechaRecoleccion, Descripcion));
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
+                }
+            }
 
-                    if (InFraganti == "on")
-                    {
-                        captado = true;
-                    }
+            if (slcTipoEvidencia == "Grabacion")
+            {
+                bool captado = false;
 
-                    // TODO, se deberia generar la Evidencia desde Sistema? consultar
-                    cAlta.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
-
-                    TempData["EvidenciaIngresada"] = "Evidencia Grabación ingresada.";
+                if (InFraganti == "on")
+                {
+                    captado = true;
                 }
 
-                if (slcTipoEvidencia == "Testimonio")
+                try
                 {
-                    cAlta.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
-
-                    TempData["EvidenciaIngresada"] = "Evidencia Testimonio ingresada.";
+                    cNuevo.AgregarEvidencia(new Grabacion(Calidad, captado, FechaRecoleccion, Descripcion));
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
                 }
 
-                // se agrega el Caso a la lista _casos
-                s.AgregarCaso(cAlta);
+            }
+
+            if (slcTipoEvidencia == "Testimonio")
+            {
+                try
+                {
+                    cNuevo.AgregarEvidencia(new Testimonio(NombreTestigo, IndiceCredibilidad, FechaRecoleccion, Descripcion));
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
+                }
+            }
+
+            if (TempData["Excepcion"] == null)
+            {
+                try
+                {
+                    // se agrega el Caso a la lista _casos
+                    s.AgregarCaso(cNuevo);
+                }
+                catch (Exception e)
+                {
+                    TempData["Excepcion"] += " " + e.Message;
+                }
 
                 TempData["CasoIngresado"] = "¡Caso ingresado exitosamente!";
 
-                return RedirectToAction("CasoDetalle", new { id = cAlta.Id });
+                return RedirectToAction("CasoDetalle", new { id = cNuevo.Id });
+            }
 
-            
+            return View();
         }
 
         // // // // // // // // // //                               // // // // // // // // // //
@@ -268,7 +321,7 @@ namespace WebApp.Controllers
         /// <param name="nombreABuscar"></param>
         /// <param name="edadASuperar"></param>
         /// <returns></returns>
-        public IActionResult ListadoSospechosos(string nombreABuscar, string edadASuperar)
+        public IActionResult ListadoSospechosos(int id, string nombreABuscar, string edadASuperar)
         {
             Investigador iLogueado = GetInvestigadorLogueado();
             ViewBag.UsuarioLogueado = iLogueado;
@@ -283,6 +336,11 @@ namespace WebApp.Controllers
             if (!string.IsNullOrEmpty(edadASuperar))
             {
                 listaRet = s.GetSospechososMayoresDeEdad(edadASuperar);
+            }
+
+            if (id != null)
+            {
+                listaRet.Add(s.GetSospechosoPorId(id));
             }
 
             return View(listaRet);

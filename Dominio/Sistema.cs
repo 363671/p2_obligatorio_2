@@ -191,7 +191,7 @@ namespace Dominio
             
             c1.AgregarEvidencia(
                 new Grabacion(
-                    8,
+                    4,
                     false,
                     new DateTime(2024, 3, 12),
                     "Cámara de seguridad registra al sospechoso ingresando al comercio."
@@ -219,8 +219,8 @@ namespace Dominio
                 _investigadores[1],
                 new DateTime(2023, 7, 21),
                 "Grabación de la cámara ubicada sobre la caja registradora.",
-                9,
-                true
+                1,
+                false
             );
 
             c2.AgregarEvidencia(
@@ -242,7 +242,7 @@ namespace Dominio
 
             c2.AgregarEvidencia(
                 new Grabacion(
-                    6,
+                    5,
                     false,
                     new DateTime(2023, 7, 22),
                     "Cámara exterior registra un vehículo abandonando el lugar."
@@ -266,7 +266,7 @@ namespace Dominio
 
             c3.AgregarEvidencia(
                 new Grabacion(
-                    7,
+                    1,
                     false,
                     new DateTime(2022, 11, 5),
                     "Grabación muestra movimientos en un corredor próximo a la exposición."
@@ -342,7 +342,7 @@ namespace Dominio
                 _investigadores[0],
                 new DateTime(2025, 1, 8),
                 "Grabación principal del sistema de vigilancia del supermercado.",
-                10,
+                3,
                 true
             );
 
@@ -357,7 +357,7 @@ namespace Dominio
             c5.AgregarEvidencia(
                 new Testimonio(
                     "Sofía Pereira",
-                    Credibilidad.Alto,
+                    Credibilidad.Medio,
                     new DateTime(2025, 1, 8),
                     "Cajera reconoce características físicas del sospechoso."
                 )
@@ -365,7 +365,7 @@ namespace Dominio
 
             c5.AgregarEvidencia(
                 new Grabacion(
-                    8,
+                    3,
                     false,
                     new DateTime(2025, 1, 8),
                     "Grabación del estacionamiento muestra la ruta de escape."
@@ -388,7 +388,7 @@ namespace Dominio
 
             c6.AgregarEvidencia(
                 new Grabacion(
-                    4,
+                    2,
                     false,
                     new DateTime(2020, 9, 14),
                     "Cámara distante registra una silueta ingresando al depósito."
@@ -429,7 +429,7 @@ namespace Dominio
 
             c7.AgregarEvidencia(
                 new Grabacion(
-                    9,
+                    1,
                     false,
                     new DateTime(2024, 8, 2),
                     "Cámara del punto de entrega registra al individuo retirando productos."
@@ -464,8 +464,8 @@ namespace Dominio
                 _investigadores[1],
                 new DateTime(2022, 2, 26),
                 "Cámara del acceso principal registra a varias personas entrando al predio.",
-                7,
-                true
+                1,
+                false
             );
 
             c8.AgregarEvidencia(
@@ -487,7 +487,7 @@ namespace Dominio
 
             c8.AgregarEvidencia(
                 new Grabacion(
-                    6,
+                    1,
                     false,
                     new DateTime(2022, 2, 26),
                     "Otra cámara registra a un grupo alejándose del centro educativo."
@@ -510,7 +510,7 @@ namespace Dominio
 
             c9.AgregarEvidencia(
                 new Grabacion(
-                    8,
+                    2,
                     true,
                     new DateTime(2023, 12, 11),
                     "Cámara interna registra claramente al sospechoso."
@@ -545,8 +545,8 @@ namespace Dominio
                 _investigadores[1],
                 new DateTime(2025, 6, 17),
                 "Cámara interna registra el momento en que se retiran varios equipos.",
-                9,
-                true
+                2,
+                false
             );
 
             c10.AgregarEvidencia(
@@ -593,7 +593,7 @@ namespace Dominio
             c11.AgregarEvidencia(new Fisica(false, new DateTime(2026, 2, 14), "Cable de alimentación cortado con pinza."));
             c11.AgregarEvidencia(new Grabacion(3, false, new DateTime(2026, 2, 14), "Cámara de pasillo muestra silueta borrosa a la distancia."));
             c11.AgregarEvidencia(new Testimonio("Elena Ortiz", Credibilidad.Bajo, new DateTime(2026, 2, 15), "Limpiadora cree haber escuchado una discusión previa al hecho."));
-            c11.AgregarEvidencia(new Fisica(true, new DateTime(2026, 2, 14), "Candado del tablero eléctrico forzado."));
+            c11.AgregarEvidencia(new Fisica(false, new DateTime(2026, 2, 14), "Candado del tablero eléctrico forzado."));
 
             // ==========================================================
             // CASO 12 - GRABACIÓN (Se INACTIVA por recomendación)
@@ -606,11 +606,11 @@ namespace Dominio
                 _investigadores[0],
                 new DateTime(2025, 9, 30),
                 "Cámara municipal registra movimientos vehiculares inusuales de madrugada.",
-                5,
+                2,
                 false
             );
 
-            c12.AgregarEvidencia(new Fisica(true, new DateTime(2025, 9, 30), "Pinza de presión oxidada abandonada en la zanja."));
+            c12.AgregarEvidencia(new Fisica(false, new DateTime(2025, 9, 30), "Pinza de presión oxidada abandonada en la zanja."));
             c12.AgregarEvidencia(new Testimonio("Luis Alvez", Credibilidad.Bajo, new DateTime(2025, 10, 1), "Vecino dice haber visto una camioneta blanca sin matrícula."));
             c12.AgregarEvidencia(new Grabacion(4, false, new DateTime(2025, 9, 30), "Cámara comercial capta ráfaga de luces del presunto vehículo escape."));
             c12.AgregarEvidencia(new Fisica(false, new DateTime(2025, 9, 30), "Guantes de lona sucios cerca de la cámara de registro."));
@@ -667,11 +667,11 @@ namespace Dominio
                 _investigadores[1],
                 new DateTime(2026, 1, 20),
                 "Cámara del cajero automático capta de reojo el inicio del disturbio.",
-                6,
+                3,
                 false
             );
 
-            c15.AgregarEvidencia(new Fisica(true, new DateTime(2026, 1, 20), "Ladrillo partido utilizado para golpear el vidrio del tótem."));
+            c15.AgregarEvidencia(new Fisica(false, new DateTime(2026, 1, 20), "Ladrillo partido utilizado para golpear el vidrio del tótem."));
             c15.AgregarEvidencia(new Testimonio("Hugo Peralta", Credibilidad.Bajo, new DateTime(2026, 1, 21), "Transeúnte dice que el grupo vestía camperas de un club local."));
             c15.AgregarEvidencia(new Grabacion(4, false, new DateTime(2026, 1, 20), "Cámara de tránsito muestra un grupo de personas corriendo tres cuadras más adelante."));
             c15.AgregarEvidencia(new Fisica(false, new DateTime(2026, 1, 20), "Restos de un envase de pintura en aerosol color negro."));
@@ -711,7 +711,7 @@ namespace Dominio
                 Credibilidad.Bajo
             );
 
-            c17.AgregarEvidencia(new Fisica(true, new DateTime(2026, 5, 3), "Filtro de aceite desgastado extraído del auto del denunciante."));
+            c17.AgregarEvidencia(new Fisica(false, new DateTime(2026, 5, 3), "Filtro de aceite desgastado extraído del auto del denunciante."));
             c17.AgregarEvidencia(new Grabacion(5, false, new DateTime(2026, 5, 2), "Cámara del taller registra el auto en la fosa pero los mecánicos tapan la visual."));
             c17.AgregarEvidencia(new Testimonio("Gisela Cardozo", Credibilidad.Bajo, new DateTime(2026, 5, 4), "Clienta sospecha que le ocurrió lo mismo por un ruido persistente en su motor."));
             c17.AgregarEvidencia(new Fisica(false, new DateTime(2026, 5, 2), "Caja de repuesto nuevo tirada vacía en el contenedor de basura."));
@@ -727,7 +727,7 @@ namespace Dominio
                 _investigadores[0],
                 new DateTime(2025, 6, 14),
                 "Domótica de pasillo registra un movimiento sospechoso de manos hacia una mochila.",
-                4,
+                2,
                 false
             );
 
@@ -767,11 +767,11 @@ namespace Dominio
                 _investigadores[0],
                 new DateTime(2026, 6, 8),
                 "Cámara de acceso al pasillo del vestuario registra entradas y salidas generales.",
-                5,
+                1,
                 false
                 );
             
-            c20.AgregarEvidencia(new Fisica(true, new DateTime(2026, 6, 8), "Traba del casillero número 14 visiblemente falseada."));
+            c20.AgregarEvidencia(new Fisica(false, new DateTime(2026, 6, 8), "Traba del casillero número 14 visiblemente falseada."));
             c20.AgregarEvidencia(new Testimonio("Marcos Paz", Credibilidad.Bajo, new DateTime(2026, 6, 9), "Socio menciona haber visto ingresar a un joven que no suele ir a esa hora."));
             c20.AgregarEvidencia(new Grabacion(4, false, new DateTime(2026, 6, 8), "Cámara del hall principal muestra el egreso apresurado de una persona."));
             c20.AgregarEvidencia(new Testimonio("Tomás Delgado", Credibilidad.Bajo, new DateTime(2026, 6, 8), "Profesor de gimnasia escuchó un portazo fuerte pero no revisó el área."));

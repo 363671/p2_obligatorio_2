@@ -13,7 +13,7 @@ namespace Dominio
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public bool Activo { get; set; }
+        public bool Activo { get; set; } = true;
         public Sospechoso SospechosoPrincipal { get; set; }
         public Investigador InvestigadorD { get; set; }
         public List<Evidencia> _evidenciasDelCaso { get; set; } = new List<Evidencia>();
@@ -22,7 +22,6 @@ namespace Dominio
         public Caso()
         {
             Id = ++UltimoId;
-            ValidarDatos();
         }
 
         public Caso(string nombre, string descripcion, bool activo)

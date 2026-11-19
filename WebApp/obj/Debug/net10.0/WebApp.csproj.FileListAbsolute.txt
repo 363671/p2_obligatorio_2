@@ -115,4 +115,4 @@ C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\wty4kf2fji-{0}-wg2l2mxn0g-wg2l2mxn0g.gz
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\edxsyew204-{0}-28p3tdb8eh-28p3tdb8eh.gz
 C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\cyyammxk5f-{0}-nunkbao2u4-nunkbao2u4.gz
-C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\gd9znr7z8k-{0}-tt5ygg9d7q-tt5ygg9d7q.gz
+C:\Users\diegu\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\P2\2 Obligatorio parte 2\Obligatorio_P2_Fiscalia\WebApp\obj\Debug\net10.0\compressed\gd9znr7z8k-{0}-47879g1omi-47879g1omi.gz

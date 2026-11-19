@@ -9,6 +9,9 @@
         <div class="col-12 col-md-10 col-lg-8">
             <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
                 
+                
+
+
                 @* Encabezado unificado con el resto del sistema *@
                 <div class="card-header bg-dark text-white px-4 py-3 d-flex align-items-center justify-content-between">
                     <h5 class="mb-0 fw-semibold">
@@ -26,7 +29,7 @@
                             <label for="NombreCaso" class="form-label small fw-semibold text-secondary mb-1">
                                 Nombre del Caso
                             </label>
-                            <input type="text" id="NombreCaso" name="NombreCaso" class="form-control" placeholder="Ej: Robo en sucursal centro" required />
+                            <input type="text" id="NombreCaso" name="Nombre" class="form-control" placeholder="Ej: Robo en sucursal centro" required />
                         </div>
 
                         @* Descripción *@
@@ -34,7 +37,7 @@
                             <label for="DescripcionCaso" class="form-label small fw-semibold text-secondary mb-1">
                                 Descripción
                             </label>
-                            <textarea id="DescripcionCaso" class="form-control" name="DescripcionCaso" rows="3" placeholder="Detalle los hechos iniciales del caso..." required></textarea>
+                            <textarea id="DescripcionCaso" class="form-control" name="Descripcion" rows="3" placeholder="Detalle los hechos iniciales del caso..." required></textarea>
                         </div>
 
                         @* Sospechoso y Detective en fila de 2 columnas *@
@@ -80,6 +83,18 @@
                         @* Subformulario de Evidencia *@
                         <div class="bg-body-tertiary border rounded-3 p-3 mb-4">
                             <partial name="AgregarEvidenciaParaSubFormulario" />
+                            
+                            @if (TempData["Excepcion"] != null)
+                            {
+                            <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3 small mb-3" role="alert">
+                                <i class="bi bi-info-circle-fill me-1"></i>
+                                <strong>
+                                    @TempData["Excepcion"]
+                                </strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            }
+                            
                         </div>
 
                         @* Botón para Crear *@

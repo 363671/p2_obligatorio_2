@@ -179,6 +179,16 @@
                 @* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia" *@
                 <div class="mt-4">
                     <partial name="AgregarEvidencia" />
+                    @if (TempData["Excepcion"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3 small mb-3" role="alert">
+                            <i class="bi bi-info-circle-fill me-1"></i>
+                            <strong>
+                                @TempData["Excepcion"]
+                            </strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
                 </div>
             }
         </div>

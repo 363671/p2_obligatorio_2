@@ -6,44 +6,98 @@
 
 @model IEnumerable<Sospechoso>
 
-<h3>Listado de todos los Sospechosos</h3>
+<div class="container my-4" style="max-width: 720px;">
+    <h3 class="mb-3 text-center">Listado de todos los Sospechosos</h3>
+
+    <div class="alert alert-info py-2 mb-3" role="alert">
+        <small>Se puede filtrar <strong>SOLO</strong> de a 1 opción:</small>
+    </div>
+
+    <form method="get">
+        <div class="input-group">
+            <!-- Selector de criterio -->
+            <span class="input-group-text">Filtrar por</span>
+            <select class="form-select" id="slcCriterioFiltrado" name="slcCriterioFiltrado" style="max-width: 190px;">
+                <option value="x" selected>Opción...</option>
+                <option value="Nombre">Nombre</option>
+                <option value="Edad">Edad</option>
+                <option value="Antecedentes">Antecedentes</option>
+            </select>
+
+            <!-- Input Nombre -->
+            <input type="number"
+                   class="form-control"
+                   id="idABuscar"
+                   name="idABuscar"
+                   placeholder="..."
+                   aria-label="Introduce un ID..." />
+
+            <!-- Input Nombre -->
+            <input type="number"
+                   class="form-control"
+                   id="txtNombre"
+                   name="nombreABuscar"
+                   placeholder="..."
+                   aria-label="Introduce un nombre" />
+
+            <!-- Input Edad -->
+            <input type="number"
+                   class="form-control"
+                   id="edadASuperar"
+                   name="edadASuperar"
+                   placeholder="...mayor de..."
+                   min="0"
+                   max="120"
+                   style="max-width: 110px;"
+                   aria-label="Introduce una edad" />
+
+            <!-- Botón Buscar -->
+            <button type="submit" class="btn btn-primary" title="Buscar">🔎</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+
+            <div class="table-responsive">
+                <table class="table table-sm table-striped table-hover align-middle" data-bs-theme="dark">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Cédula</th>
+                            <th>Fecha de nacimiento</th>
+                            <th>Edad</th>
+                            <th>Antecedentes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Sospechoso s in Model)
+                        {
+                            <tr>
+                                <td>@s.Id</td>
+                                <td>@s.Nombre</td>
+                                <td>@s.Cedula</td>
+                                <td>@s.FechaNacimiento.ToShortDateString()</td>
+                                <td>@s.CalcularEdad()</td>
+                                <td>@s.AntecedentesAString(s.TieneAntecedentes)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                @if (Model.Count() == 0)
+                {
+                    <div class="mb-3 alert alert-warning" role="alert">No hay resultados</div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <br />
-<div class="mb-3 alert alert-info" role="alert">Se puede filtrar SOLO de a 1 opcion:</div>
 
-<form method="get">
-    <input type="text" name="nombreABuscar" placeholder="Introduce un nombre..." />
-    <input type="number" name="edadASuperar" placeholder="Introduce una Edad..." />
-    <input type="submit" value="🔎" />
-</form>
-
-<br />
-<table class="table table-striped table-hover" data-bs-theme="dark">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Cédula</th>
-            <th>Fecha de nacimiento</th>
-            <th>Edad</th>
-            <th>Antecedentes</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Sospechoso s in Model)
-        {
-            <tr>
-                <td>@s.Id</td>
-                <td>@s.Nombre</td>
-                <td>@s.Cedula</td>
-                <td>@s.FechaNacimiento.ToShortDateString()</td>
-                <td>@s.CalcularEdad()</td>
-                <td>@s.AntecedentesAString(s.TieneAntecedentes)</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-@if (Model.Count() == 0)
-{
-    <div class="mb-3 alert alert-warning" role="alert">No hay resultados</div>
-}
