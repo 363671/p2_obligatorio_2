@@ -7,28 +7,16 @@
       "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\agregarevidenciaparasubformulario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\agregarevidencia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\agregarevidencia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\casodetalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\casodetalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\listadosospechosos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\listadosospechosos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12F3CF19-F88C-0774-969F-8840F52C7312}|Dominio\\Dominio.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12F3CF19-F88C-0774-969F-8840F52C7312}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\casos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\casos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\agregarevidencia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\agregarevidencia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|c:\\users\\diegu\\onedrive - facultad de ingenieria - universidad ort uruguay\\p2\\2 obligatorio parte 2\\obligatorio_p2_fiscalia\\webapp\\views\\investigador\\casoalta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{062C4291-F603-4149-A2F4-0D90EFA06E81}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\investigador\\casoalta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 268,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,65 +38,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CasoAlta.cshtml",
+              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\CasoAlta.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\CasoAlta.cshtml",
+              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\CasoAlta.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Investigador\\CasoAlta.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-19T05:42:25.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AgregarEvidenciaParaSubFormulario.cshtml",
               "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\AgregarEvidenciaParaSubFormulario.cshtml",
               "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\AgregarEvidenciaParaSubFormulario.cshtml",
               "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\AgregarEvidenciaParaSubFormulario.cshtml",
               "RelativeToolTip": "WebApp\\Views\\Investigador\\AgregarEvidenciaParaSubFormulario.cshtml",
-              "ViewState": "AgIAAEkAAAAAAAAAAAASwF8AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-11-19T05:00:56.046Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Sistema.cs",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\Dominio\\Sistema.cs",
-              "RelativeDocumentMoniker": "Dominio\\Sistema.cs",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\Dominio\\Sistema.cs",
-              "RelativeToolTip": "Dominio\\Sistema.cs",
-              "ViewState": "AgIAAFcBAAAAAAAAAAAAAGcBAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T04:27:01.111Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Casos.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Casos.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\Casos.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\Casos.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Investigador\\Casos.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T03:33:16.432Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ListadoSospechosos.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\ListadoSospechosos.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\ListadoSospechosos.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\ListadoSospechosos.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Investigador\\ListadoSospechosos.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAASwFAAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T03:32:44.253Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "WebApp\\wwwroot\\js\\site.js",
               "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\wwwroot\\js\\site.js",
               "RelativeToolTip": "WebApp\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAmwKYAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-11-19T02:11:16.047Z",
               "EditorCaption": ""
@@ -116,25 +78,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CasoDetalle.cshtml",
-              "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\CasoDetalle.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\CasoDetalle.cshtml",
-              "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\CasoDetalle.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Investigador\\CasoDetalle.cshtml",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAAAL8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T03:15:15.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "AgregarEvidencia.cshtml",
               "DocumentMoniker": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\AgregarEvidencia.cshtml",
               "RelativeDocumentMoniker": "WebApp\\Views\\Investigador\\AgregarEvidencia.cshtml",
               "ToolTip": "C:\\Users\\diegu\\OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay\\P2\\2 Obligatorio parte 2\\Obligatorio_P2_Fiscalia\\WebApp\\Views\\Investigador\\AgregarEvidencia.cshtml",
               "RelativeToolTip": "WebApp\\Views\\Investigador\\AgregarEvidencia.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAASwCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-11-19T02:01:31.166Z",
               "EditorCaption": ""

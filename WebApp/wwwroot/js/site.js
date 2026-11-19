@@ -8,6 +8,11 @@ var formularioEvidenciaNueva = document.querySelector("#formularioEvidenciaNueva
 var slcTipoEvidencia = document.querySelector("#slcTipoEvidencia");
 var slcCriterioFiltrado = document.querySelector("#slcCriterioFiltrado");
 var btnCancelarAgregarEvidencia = document.querySelector("#btnCancelarAgregarEvidencia");
+
+
+var btnOKAgregarEvidencia = document.querySelector("#btnOKAgregarEvidencia");
+
+
 var btnDescartarRecomendacion = document.querySelector("#btnDescartarRecomendacion");
 var pAvisoEvidenciaInvalida = document.querySelector("#pAvisoEvidenciaInvalida");
 var divEvidenciaIngresada = document.querySelector("#divEvidenciaIngresada");
@@ -21,11 +26,18 @@ var btnRegistrarEvidencia = document.querySelector("#btnRegistrarEvidencia");
 
 var formEvidenciaNueva = document.querySelector("#formEvidenciaNueva");
 
-
 // Eventos
     // de tipo click
 if (btnAgregarEvidencia) {
     document.querySelector("#btnAgregarEvidencia").addEventListener("click", fMostrarFormulario);
+}
+
+if (btnOKAgregarEvidencia) {
+    document.querySelector("#btnOKAgregarEvidencia").addEventListener("click", fEstatizarEvidencia);
+}
+
+function fEstatizarEvidencia() {
+
 }
 
 if (btnCancelarAgregarEvidencia) {
