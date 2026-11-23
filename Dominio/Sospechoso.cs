@@ -19,7 +19,6 @@ namespace Dominio
         public Sospechoso()
         {
             Id = ++UltimoId;
-            ValidarDatos();
         }
         
         public Sospechoso(string nombre, string cedula, DateTime fechaNacimiento, bool tieneAntecedentes)
@@ -85,11 +84,17 @@ namespace Dominio
         private void ValidarFechaNacimiento()
         {
             // >
-            DateTime fechaLimite = DateTime.Today.AddYears(-12);
+            DateTime fechaMaxima = DateTime.Today.AddYears(-12);
+            DateTime fechaMin = DateTime.Today.AddYears(-130);
 
-            if (FechaNacimiento > fechaLimite)
+            if (FechaNacimiento > fechaMaxima)
             {
-                throw new Exception(" < Ha ocurrido un error / La Fecha de nac. es de un menor de 12 anhos > ");
+                throw new Exception("Ha ocurrido un error / La Fecha de nac. es de un menor de 12 anhos.");
+            }
+
+            if (FechaNacimiento < fechaMin)
+            {
+                throw new Exception("Fecha de Nacimiento inválida.");
             }
 
             // >
@@ -97,7 +102,7 @@ namespace Dominio
 
             if (FechaNacimiento >= DateTime.Today)
             {
-                errores += "Fecha de Nacimiento invalida";
+                throw new Exception("Fecha de Nacimiento inválida.");
             }
 
             // >

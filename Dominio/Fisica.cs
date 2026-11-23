@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dominio
 {
-    public class Fisica : Evidencia
+    public class Fisica : Evidencia, IValidable
     {
         // CLASE HIJA de EVIDENCIA
 
@@ -22,6 +22,11 @@ namespace Dominio
         //                   METODOS                    //
         //                                              //
         // // // // // // // // // // // // // // // // //
+
+        public void ValidarDatos()
+        {
+            base.ValidarDatos();
+        }
 
         public override int CalcularPesoEvidencia()
         {

@@ -98,6 +98,23 @@
             </div>
         }
         
+        @* Alta de Sospechoso *@
+        <div class="card my-4">
+            <div class="card-header">
+                Alta
+            </div>
+            <div class="card-body text-center">
+                <h4 class="card-title">
+                    Ingresar Sospechoso
+                </h4>
+                <p class="card-text">Seleccionar esta opcion para ver Mis Datos personales como @Model.Rol.</p>
+                @* BOTON *@
+                <button type="button" class="btn btn-primary">
+                    <a class="text-white text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="SospechosoAlta">Ingresar</a>
+                </button>
+            </div>
+        </div>
+
         @* PERFIL del Investigador*@
         <div class="card my-4">
             <div class="card-header">

@@ -1,9 +1,12 @@
 ﻿@using Dominio
 @model Caso
-
-@{
-    ViewData["Title"] = "Caso " + Model.Id;
-}
+@if(Model == null)
+{
+    <partial name="../Shared/Error"/>
+} else
+{
+    
+ViewData["Title"] = "Caso " + Model.Id;
 
 <div class="container py-4">
     @if (TempData["CasoIngresado"] != null)
@@ -179,7 +182,7 @@
                 @* PARTE IZQUIERDA > inferior > opcion de "Agregar Evidencia" *@
                 <div class="mt-4">
                     <partial name="AgregarEvidencia" />
-                    @if (TempData["Excepcion"] != null)
+                    @if (TempData["Excepcion"] != null && TempData["Excepcion"] != "")
                     {
                         <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3 small mb-3" role="alert">
                             <i class="bi bi-info-circle-fill me-1"></i>
@@ -197,3 +200,4 @@
             <partial name="EvidenciasDeCaso" />
     </div>
 </div>
+}

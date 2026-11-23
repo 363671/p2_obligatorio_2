@@ -130,9 +130,9 @@ function fOcultarDatosEspecificosDeEvidencias() {
 
 function fOcultarDatosEspecificosDeFiltrado() {
 
-    document.querySelector("#idABuscar").style.display = "none";
     document.querySelector("#txtNombre").style.display = "none";
     document.querySelector("#edadASuperar").style.display = "none";
+    document.querySelector("#antecedentes").style.display = "none";
 }
 
 function fMostrarFormulario() {
@@ -175,8 +175,8 @@ function fCambiarOpcionCriterio() {
         document.querySelector("#edadASuperar").style.display = "block";
     }
 
-    if (this.value === "idABuscar") {
-        document.querySelector("#idABuscars").style.display = "block";
+    if (this.value == "Antecedentes") {
+        document.querySelector("#antecedentes").style.display = "block";
     }
 }
 

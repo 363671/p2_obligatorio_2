@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using static UI.Program;
 
 namespace UI
 {
@@ -8,6 +9,7 @@ namespace UI
         {
             // Inicio de Program
             Sistema s = Sistema.GetInstancia();
+            DataToUser d = DataToUser.GetInstancia();
 
             bool eligioSalir = false;
 
@@ -29,7 +31,8 @@ namespace UI
                         case 1:
                             // >
                             DataToUser.OpcionInicial1();
-                            Console.WriteLine(s.MostrarCasosYEvidencias());
+                            string msg = d.MostrarCasosYEvidencias();
+                            Console.WriteLine();
                             DataToUser.OpcionRegresoInicio();
                             break;
                             // >
@@ -46,7 +49,7 @@ namespace UI
                                 // de ser Fiscal se arroja una excepción
                                 s.InvestigadorEsFiscal(mail);
                                 
-                                Console.WriteLine(s.TextoConCasosDeUnInvestigador(mail));
+                                Console.WriteLine(d.TextoConCasosDeUnInvestigador(mail));
                             } else {
                                 DataToUser.OpcCorreoDelInvestigadorNoExiste(mail);
                             }
@@ -87,7 +90,14 @@ namespace UI
                         case 4:
                             // >
                             DataToUser.OpcionInicial4();
-                            Console.WriteLine(s.MostrarSospechososConAntecedentes());
+
+                            // controlando la forma de manejar cómo se muestra la información desde Program.cs
+                            foreach (Sospechoso sc in s.GetSospechososConAntecedentes())
+                            {
+                                Console.WriteLine(sc.ToString);
+                                Console.WriteLine("\n");
+                            }
+                            
                             DataToUser.OpcionRegresoInicio();
                             break;
                             // >
@@ -141,13 +151,70 @@ namespace UI
 
         // Clase para reciclar los mensajes que se
         // le muestran en consola al usuario
-        public static class DataToUser
+        public class DataToUser
         {
+            private static DataToUser _instancia;
+
+            // CTOR
+            private DataToUser()
+            {
+            }
+
+            // Singleton
+            // > Método que retorna una única instancia
+            public static DataToUser GetInstancia()
+            {
+                if (_instancia == null)
+                {
+                    _instancia = new DataToUser();
+                }
+
+                return _instancia;
+            }
+
+            Sistema s = Sistema.GetInstancia();
+            DataToUser d = DataToUser.GetInstancia();
+
             // // // // // // // // // // // // // // // // //
             //                                              //
             //                  BIENVENIDA                  //
             //                                              //
             // // // // // // // // // // // // // // // // //
+
+
+            /////////////// MOSTRAR DATOS ///////////////
+            public string MostrarCasosYEvidencias()
+            {
+                string textoConCasos = "";
+                foreach (Caso c in s.GetCasos())
+                {
+                    textoConCasos += c.ToString();
+                }
+
+                return (textoConCasos);
+            }
+
+            public string TextoConCasosDeUnInvestigador(string mail)
+            {
+                string textoConCasos = "";
+
+                foreach (Caso c in s.GetCasos())
+                {
+                    // se delega la responsabilidad a su Clase (Caso)
+                    if (c.MailEsDeInvestigador(mail))
+                    {
+                        textoConCasos += c.ToString();
+                    }
+                }
+
+                if (textoConCasos == "")
+                {
+                    return "\n El Investigador no tiene casos asociados. \n";
+                }
+
+                return textoConCasos;
+            }
+
 
             public static void Bienvenida()
             {

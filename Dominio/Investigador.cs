@@ -157,7 +157,7 @@ namespace Dominio
             }
         }
         
-        public bool InvEsFiscal()
+        public bool InvestigadorEsFiscal()
         {
             return Rol == Rol.Fiscal;
         }

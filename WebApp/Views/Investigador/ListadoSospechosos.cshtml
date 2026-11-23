@@ -25,15 +25,7 @@
             </select>
 
             <!-- Input Nombre -->
-            <input type="number"
-                   class="form-control"
-                   id="idABuscar"
-                   name="idABuscar"
-                   placeholder="..."
-                   aria-label="Introduce un ID..." />
-
-            <!-- Input Nombre -->
-            <input type="number"
+            <input type="text"
                    class="form-control"
                    id="txtNombre"
                    name="nombreABuscar"
@@ -50,6 +42,16 @@
                    max="120"
                    style="max-width: 110px;"
                    aria-label="Introduce una edad" />
+
+            <!-- Input Antec -->
+            <div class="form-control" role="group" aria-label="antecedentes" id="antecedentes">
+  
+                <input type="radio" class="btn-check" name="antecedentes" id="no" value="0" autocomplete="off">
+                <label class="btn btn-outline-primary" for="no">Sin</label>
+
+                <input type="radio" class="btn-check" name="antecedentes" id="si" value="1" autocomplete="off">
+                <label class="btn btn-outline-primary" for="si">Con</label>
+            </div>
 
             <!-- Botón Buscar -->
             <button type="submit" class="btn btn-primary" title="Buscar">🔎</button>
@@ -94,7 +96,10 @@
                     <div class="mb-3 alert alert-warning" role="alert">No hay resultados</div>
                 }
             </div>
-
+            @* Alta de Sospechoso *@
+            <button type="button" class="btn btn-primary">
+                <a class="text-white text-decoration-none" asp-area="" asp-controller="Investigador" asp-action="SospechosoAlta">Agregar Sospechoso</a>
+            </button>
         </div>
     </div>
 </div>

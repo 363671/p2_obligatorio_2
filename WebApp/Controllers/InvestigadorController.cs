@@ -52,7 +52,7 @@ namespace WebApp.Controllers
 
             if (iLogueado.Rol.ToString() == "Detective")
             {
-                Casos = s.ListarCasosDeUnInvestigador(iLogueado);
+                Casos = s.GetCasosDeUnInvestigador(iLogueado);
             }
 
             // Ordeno la lista
@@ -73,6 +73,14 @@ namespace WebApp.Controllers
         public IActionResult CasoDetalle(int id, string btnRecomendacion)
         {
             Caso cSeleccionado = s.GetCasoPorId(id);
+
+            Investigador iLogueado = GetInvestigadorLogueado();
+
+            // en este apartado se controla que un Detective no pueda acceder a un Caso que no se encuentre asignado
+            if(iLogueado.Rol.ToString() != "Fiscal" && cSeleccionado.InvestigadorD.Id != iLogueado.Id)
+            {
+                return RedirectToAction("Index");
+            }
 
             ViewBag.Recomendacion = "";
 
@@ -104,6 +112,8 @@ namespace WebApp.Controllers
         {
             Caso cSeleccionado = s.GetCasoPorId(id);
 
+            TempData["Excepcion"] += "";
+
             List<string> tiposEvidencias = s.GetClasesHijasDeEvidencia();
             ViewBag.TiposEvidencias = tiposEvidencias;
 
@@ -125,6 +135,11 @@ namespace WebApp.Controllers
                     break;
             }
 
+            if (slcTipoEvidencia == "x")
+            {
+                TempData["Excepcion"] = "Debes seleccionar un Tipo de Evidencia.";
+            }
+
             // FechaRecoleccion Descripcion / TieneHuellasDigitales / Calidad InFraganti / NombreTestigo IndiceCredibilidad
             if (slcTipoEvidencia == "Fisica")
             {
@@ -141,7 +156,7 @@ namespace WebApp.Controllers
                 }
                 catch (Exception e)
                 {
-                    TempData["Excepcion"] += " " + e.Message;
+                    TempData["Excepcion"] = " " + e.Message;
                 }
             }
 
@@ -321,7 +336,7 @@ namespace WebApp.Controllers
         /// <param name="nombreABuscar"></param>
         /// <param name="edadASuperar"></param>
         /// <returns></returns>
-        public IActionResult ListadoSospechosos(int id, string nombreABuscar, string edadASuperar)
+        public IActionResult ListadoSospechosos(int id, string nombreABuscar, string edadASuperar, string antecedentes)
         {
             Investigador iLogueado = GetInvestigadorLogueado();
             ViewBag.UsuarioLogueado = iLogueado;
@@ -338,13 +353,59 @@ namespace WebApp.Controllers
                 listaRet = s.GetSospechososMayoresDeEdad(edadASuperar);
             }
 
-            if (id != null)
+            if(antecedentes == "0")
             {
-                listaRet.Add(s.GetSospechosoPorId(id));
+                listaRet = s.GetSospechososSinAntecedentes();
             }
+
+            if (antecedentes == "1")
+            {
+                listaRet = s.GetSospechososConAntecedentes();
+            }
+
+            //if (id != null)
+            //{
+            //    listaRet.Add(s.GetSospechosoPorId(id));
+            //}
 
             return View(listaRet);
         }
+
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+        // // // // // // // // // //        SospechosoAlta         // // // // // // // // // //
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+
+        public IActionResult SospechosoAlta()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SospechosoAlta(Sospechoso sAIngresar)
+        {
+            TempData["Fecha"] = DateTime.Today.ToString("yyyy-MM-dd");
+            TempData["FechaMin"] = DateTime.Today.AddYears(-130);
+
+            try
+            {
+                sAIngresar.ValidarDatos();
+                s.AgregarSospechoso(sAIngresar);
+            }
+            catch (Exception e)
+            {
+                TempData["Excepcion"] += " " + e.Message;
+                return View();
+            }
+
+            TempData["SospechosoIngresado"] = "¡Sospechoso ingresado con éxito!";
+            
+            return RedirectToAction("ListadoSospechosos", "Investigador");
+        }
+        
+        // // // // // // // // // //                               // // // // // // // // // //
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
     }
 }

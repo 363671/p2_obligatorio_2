@@ -111,13 +111,11 @@ namespace Dominio
             Sospechoso s18 = new Sospechoso("Andres Pereira", "19191919-1", new DateTime(1979, 10, 8, 0, 0, 0), false);
             Sospechoso s19 = new Sospechoso("Natalia Suarez", "20202020-2", new DateTime(1996, 1, 19, 0, 0, 0), true);
             Sospechoso s20 = new Sospechoso("Sebastian Ramos", "21212121-2", new DateTime(1984, 5, 27, 0, 0, 0), false);
-
             Sospechoso s21 = new Sospechoso("Carolina Mendez", "23232323-2", new DateTime(1999, 9, 4, 0, 0, 0), true);
             Sospechoso s22 = new Sospechoso("Nicolas Acosta", "24242424-2", new DateTime(1981, 12, 17, 0, 0, 0), false);
             Sospechoso s23 = new Sospechoso("Florencia Rojas", "25252525-2", new DateTime(1995, 4, 11, 0, 0, 0), true);
             Sospechoso s24 = new Sospechoso("Matias Sosa", "26262626-2", new DateTime(1990, 8, 23, 0, 0, 0), false);
             Sospechoso s25 = new Sospechoso("Romina Vazquez", "27272727-2", new DateTime(1987, 2, 6, 0, 0, 0), true);
-
             Sospechoso s26 = new Sospechoso("Gonzalo Medina", "28282828-2", new DateTime(1983, 7, 15, 0, 0, 0), false);
             Sospechoso s27 = new Sospechoso("Veronica Iglesias", "29292929-2", new DateTime(1992, 11, 2, 0, 0, 0), true);
             Sospechoso s28 = new Sospechoso("Alejandro Figueroa", "30303030-3", new DateTime(1977, 6, 29, 0, 0, 0), false);
@@ -818,7 +816,7 @@ namespace Dominio
         }
 
         // > Agregar Sospechoso
-        private void AgregarSospechoso(Sospechoso s)
+        public void AgregarSospechoso(Sospechoso s)
         {
             if (!_sospechosos.Contains(s))
             {
@@ -905,40 +903,7 @@ namespace Dominio
             return i;
         }
 
-        /////////////// MOSTRAR DATOS ///////////////
-        public string MostrarCasosYEvidencias()
-        {
-            string textoConCasos = "";
-            foreach (Caso c in _casos)
-            {
-                textoConCasos += c.ToString();
-            }
-
-            return (textoConCasos);
-        }
-
-        public string TextoConCasosDeUnInvestigador(string mail)
-        {
-            string textoConCasos = "";
-
-            foreach (Caso c in _casos)
-            {
-                // se delega la responsabilidad a su Clase (Caso)
-                if (c.MailEsDeInvestigador(mail))
-                {
-                    textoConCasos += c.ToString();
-                }
-            }
-
-            if (textoConCasos == "")
-            {
-                return "\n El Investigador no tiene casos asociados. \n";
-            }
-
-            return textoConCasos;
-        }
-
-        public List<Caso> ListarCasosDeUnInvestigador(Investigador i)
+        public List<Caso> GetCasosDeUnInvestigador(Investigador i)
         {
             List<Caso> listaRet = new List<Caso>();
 
@@ -953,21 +918,37 @@ namespace Dominio
             return listaRet;
         }
 
-        public string MostrarSospechososConAntecedentes()
+        public List<Sospechoso> GetSospechososConAntecedentes()
         {
-            string textoConSospechosos = "";
+            List<Sospechoso> listaRet = new List<Sospechoso>();
 
             foreach (Sospechoso s in _sospechosos)
             {
                 // se delega la responsabilidad a su Clase
                 if (s.SospechosoTieneAntecedentes())
                 {
-                    textoConSospechosos += s.ToString();
-                    textoConSospechosos += "\n";
+                    listaRet.Add(s);
                 }
             }
 
-            return textoConSospechosos;
+            return listaRet;
+        }
+
+
+        public List<Sospechoso> GetSospechososSinAntecedentes()
+        {
+            List<Sospechoso> listaRet = new List<Sospechoso>();
+
+            foreach (Sospechoso s in _sospechosos)
+            {
+                // se delega la responsabilidad a su Clase
+                if (!s.SospechosoTieneAntecedentes())
+                {
+                    listaRet.Add(s);
+                }
+            }
+
+            return listaRet;
         }
 
         private void ValidarStringAntecedentes(string antec)
@@ -984,7 +965,7 @@ namespace Dominio
         {
             Investigador i = GetInvestigadorPorMail(mail);
 
-            if (i != null && i.InvEsFiscal())
+            if (i != null && i.InvestigadorEsFiscal())
             {
                 throw new Exception(" El mail ingresado corresponde al de un Fiscal, el cual no puede tener Casos asignados. ");
             }
@@ -1111,10 +1092,7 @@ namespace Dominio
             return listaRet;
         }
 
-        public void AltaEvidencia()
-        {
-            throw new NotImplementedException();
-        }
+
 
         //sistema
     }

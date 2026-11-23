@@ -70,16 +70,19 @@ namespace Dominio
                 errores += "El largo de la Descripcion no puede ser nulo.";
             }
 
+            if (string.IsNullOrEmpty(Descripcion))
+            {
+                throw new Exception(" < Ha ocurrido un error / Descripcion / > ");
+            }
+
             if (Descripcion.Length < 30)
             {
-                errores += "El largo de la Descripcion no puede ser menor a 20 caracteres.";
+                throw new Exception("El largo de la Descripcion no puede ser menor a 20 caracteres.");
             }
 
             if (errores != "")
             {
-                Console.WriteLine("");
                 throw new Exception(" < Ha ocurrido un error / Descripcion / > ");
-                throw new Exception($" < {errores} > ");
             }
         }
         

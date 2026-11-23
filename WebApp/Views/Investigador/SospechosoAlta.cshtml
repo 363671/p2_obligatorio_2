@@ -4,36 +4,100 @@
     ViewData["Title"] = "Nuevo Sospechoso";
 }
 
-<form method="post"
-    id="formSospechosoNuevo"
-    class="form-check form d-flex flex-column">
+@**@
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                @* Encabezado unificado con el resto del sistema *@
+                <div class="card-header bg-dark text-white px-4 py-3 d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0 fw-semibold">
+                        <i class="bi bi-folder-plus me-2"></i>Sospechoso Nuevo
+                    </h5>
+                    <span class="badge bg-secondary">Formulario de Alta</span>
+                </div>
 
-    <div class="input-group my-2">
-        <span class="input-group-text">Nombre:</span>
-        <input class="form-control" type="text" name="NombreSospechoso" />
-    </div>
+                <div class="card-body p-4">
+                    <form method="post" id="formSospechosoNuevo" class="col">
+                        <h6 class="text-uppercase text-muted small fw-bold mb-3">Datos principales</h6>
+                        @* Fila 1 *@
+                        <div class="row g-3 mb-4">
+                            @* Nombre *@
+                            <div class="col-md-6">
+                                <label for="NombreCaso" class="form-label small fw-semibold text-secondary mb-1">
+                                    Nombre del Sospechoso
+                                </label>
+                                <input type="text" id="Nombre" name="Nombre" class="form-control" placeholder="Perzival Parrapa..." required />
+                            </div>
 
-    <div class="input-group my-2">
-        <span class="input-group-text">CI:</span>
-        <input class="form-control" type="text" name="CiSospechoso" />
-    </div>
+                            @* Descripción *@
+                            <div class="col-md-6">
+                                <label for="DescripcionCaso" class="form-label small fw-semibold text-secondary mb-1">
+                                    Cédula
+                                </label>
+                                <input type="text" id="Nombre" name="Cedula" class="form-control" placeholder="123456789..." required />
+                            </div>
+                        </div>
 
-    @* <div id="divDatosBasicosEvidencias" class="row"> *@
-        <div class="input-group my-2">
-            <span class="input-group-text">Fecha recolección</span>
-            <input type="date" name="FechaRecoleccion" class="form-control" min="01/01/1800" max="@TempData["FechaActual"]" />
+                        @* Fila 2: FechaNacimiento y TieneAntecedentes *@
+                        <div class="row g-3 mb-4 align-items-center">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text" id="lbl-fecha-nac">Fecha de Nacimiento</span>
+                                    <input type="date"
+                                           id="FechaNacimiento"
+                                           name="FechaNacimiento"
+                                           class="form-control"
+                                           aria-labelledby="lbl-fecha-nac"
+                                           min="1900-01-01"
+                                           max="@TempData["FechaActual"]" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           role="switch"
+                                           id="TieneAntecedentes"
+                                           name="TieneAntecedentes"
+                                           value="true">
+                                    <label class="form-check-label" for="TieneAntecedentes">
+                                        Tiene Antecedentes
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4 opacity-25" />
+
+                        @* Botón para Crear *@
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" id="btnIngresarSospechoso"
+                                    class="btn btn-primary px-4 py-2 fw-semibold shadow-sm"
+                                    name="btnIngresarSospechoso"
+                                    value="btnIngresarSospechoso">
+                                <i class="bi bi-check-lg me-1">Ingresar</i>
+                            </button>
+                        </div>
+                    </form>
+
+                    @if (TempData["Excepcion"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 rounded-3 small mb-3" role="alert">
+                            <i class="bi bi-info-circle-fill me-1"></i>
+                            <strong>
+                                @TempData["Excepcion"]
+                            </strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
-        <div class="input-group my-2">
-            <span class="input-group-text">Descripcion</span>
-            <textarea class="form-control" name="Descripcion" aria-label="With textarea"></textarea>
-        </div>
-    @* </div> *@
-
-    <div id="divTipoEvidenciaFisica" class="form-check form-switch">
-        <label class="form-check-label">
-            Incluye huellas digitales
-        </label>
-        <input class="form-check-input" type="checkbox" name="TieneHuellasDigitales" value="siTiene">
     </div>
+</div>
 
-</form>
+
+
+
