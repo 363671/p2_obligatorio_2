@@ -319,7 +319,8 @@ namespace WebApp.Controllers
                 }
 
                 TempData["CasoIngresado"] = "¡Caso ingresado exitosamente!";
-
+                
+                
                 return RedirectToAction("CasoDetalle", new { id = cNuevo.Id });
             }
 
@@ -362,11 +363,6 @@ namespace WebApp.Controllers
             {
                 listaRet = s.GetSospechososConAntecedentes();
             }
-
-            //if (id != null)
-            //{
-            //    listaRet.Add(s.GetSospechosoPorId(id));
-            //}
 
             return View(listaRet);
         }

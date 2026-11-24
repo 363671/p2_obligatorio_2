@@ -20,5 +20,4 @@ namespace WebApp.Filters
             base.OnActionExecuting(context);
         }
     }
-
 }
