@@ -10,15 +10,15 @@
     <div class="mb-3">
 
         <label for="txtNombreCompleto" class="form-label">Nombre Completo</label>
-        <input type="text" class="form-control" name="Nombre" id="txtNombreCompleto">
+        <input type="text" class="form-control" name="Nombre" id="txtNombreCompleto" required>
     </div>
     <div class="mb-3">
         <label for="txtEmail" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" name="Mail" id="txtEmail" aria-describedby="emailHelp">
+        <input type="email" class="form-control" name="Mail" id="txtEmail" aria-describedby="emailHelp" required>
     </div>
     <div class="mb-3">
         <label for="txtPass" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" name="Contrasena" id="txtPass">
+        <input type="password" class="form-control" name="Contrasena" id="txtPass" required>
     </div>
     <div class="mb-3 alert alert-warning" role="alert">
         Advertencia: el usuario que se generará será de Rol <b>Detective</b>
@@ -27,4 +27,3 @@
 </form>
 
 <p class="my-4">@ViewBag.ErrorRegistro</p>
-

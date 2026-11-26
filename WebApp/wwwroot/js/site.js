@@ -1,44 +1,45 @@
 ﻿// sanity check
 console.log("Conectado.");
 
-// Botones
-var btnAgregarEvidencia = document.querySelector("#btnAgregarEvidencia");
+// // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // QuerySelectors // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // //
 
+// Botones
+var btnRegistrarEvidencia = document.querySelector("#btnRegistrarEvidencia");
+var btnAgregarEvidencia = document.querySelector("#btnAgregarEvidencia");
+var btnDescartarRecomendacion = document.querySelector("#btnDescartarRecomendacion");
+var btnOKAgregarEvidencia = document.querySelector("#btnOKAgregarEvidencia");
+var btnCancelarAgregarEvidencia = document.querySelector("#btnCancelarAgregarEvidencia");
+
+// Avisos
+var pAvisoEvidenciaInvalida = document.querySelector("#pAvisoEvidenciaInvalida");
+
+// formularios y selects
+var formEvidenciaNueva = document.querySelector("#formEvidenciaNueva");
 var formularioEvidenciaNueva = document.querySelector("#formularioEvidenciaNueva");
 var slcTipoEvidencia = document.querySelector("#slcTipoEvidencia");
 var slcCriterioFiltrado = document.querySelector("#slcCriterioFiltrado");
-var btnCancelarAgregarEvidencia = document.querySelector("#btnCancelarAgregarEvidencia");
 
-
-var btnOKAgregarEvidencia = document.querySelector("#btnOKAgregarEvidencia");
-
-
-var btnDescartarRecomendacion = document.querySelector("#btnDescartarRecomendacion");
-var pAvisoEvidenciaInvalida = document.querySelector("#pAvisoEvidenciaInvalida");
+// contenedores
 var divEvidenciaIngresada = document.querySelector("#divEvidenciaIngresada");
-
 var divDatosBasicosEvidencias = document.querySelector("#divDatosBasicosEvidencias");
 var divTipoEvidenciaFisica = document.querySelector("#divTipoEvidenciaFisica");
 var divTipoEvidenciaGrabacion = document.querySelector("#divTipoEvidenciaGrabacion");
 var divTipoEvidenciaTestimonio = document.querySelector("#divTipoEvidenciaTestimonio");
 
-var btnRegistrarEvidencia = document.querySelector("#btnRegistrarEvidencia");
+// // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // Eventos // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // //
 
-var formEvidenciaNueva = document.querySelector("#formEvidenciaNueva");
-
-// Eventos
-    // de tipo click
+// de tipo click
 if (btnAgregarEvidencia) {
     document.querySelector("#btnAgregarEvidencia").addEventListener("click", fMostrarFormulario);
 }
 
-if (btnOKAgregarEvidencia) {
-    document.querySelector("#btnOKAgregarEvidencia").addEventListener("click", fEstatizarEvidencia);
-}
-
-function fEstatizarEvidencia() {
-
-}
+// if (btnOKAgregarEvidencia) {
+//     document.querySelector("#btnOKAgregarEvidencia").addEventListener("click", fEstatizarEvidencia);
+// }
 
 if (btnCancelarAgregarEvidencia) {
     document.querySelector("#btnCancelarAgregarEvidencia").addEventListener("click", fCancelarAgregarEvidencia);
@@ -53,7 +54,7 @@ if (btnRegistrarEvidencia) {
     document.querySelector("#btnRegistrarEvidencia").addEventListener("click", fRegistrarEvidencia);
 }
 
-    // de tipo change
+// de tipo change
 if (slcTipoEvidencia) {
     document.querySelector("#slcTipoEvidencia").addEventListener("change", fCambiarOpcionEvidencia);
 }
@@ -64,7 +65,13 @@ if (slcCriterioFiltrado) {
 
 fContenedoresAMostrarPorDefecto();
 
-// --- Funciones ---
+// // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // FUNCIONES // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // //
+
+function fEstatizarEvidencia() {
+   
+}
 
 function fContenedoresAMostrarPorDefecto() {
     console.log("fContenedoresAMostrarPorDefecto.");
@@ -87,6 +94,20 @@ function fContenedoresAMostrarPorDefecto() {
 
     fOcultarDatosEspecificosDeEvidencias();
     fOcultarDatosEspecificosDeFiltrado();
+}
+
+function fOcultarDatosEspecificosDeEvidencias() {
+    if (divTipoEvidenciaFisica) {
+        divTipoEvidenciaFisica.style.display = "none";
+    }
+
+    if (divTipoEvidenciaGrabacion) {
+        divTipoEvidenciaGrabacion.style.display = "none";
+    }
+
+    if (divTipoEvidenciaTestimonio) {
+        divTipoEvidenciaTestimonio.style.display = "none";
+    }
 }
 
 function fCancelarAgregarEvidencia() {
@@ -114,25 +135,19 @@ function fCancelarAgregarEvidencia() {
     fContenedoresAMostrarPorDefecto();
 }
 
-function fOcultarDatosEspecificosDeEvidencias() {
-    if (divTipoEvidenciaFisica) {
-        divTipoEvidenciaFisica.style.display = "none";
-    }
-
-    if (divTipoEvidenciaGrabacion) {
-        divTipoEvidenciaGrabacion.style.display = "none";
-    }
-
-    if (divTipoEvidenciaTestimonio) {
-        divTipoEvidenciaTestimonio.style.display = "none";
-    }
-}
-
 function fOcultarDatosEspecificosDeFiltrado() {
 
-    document.querySelector("#txtNombre").style.display = "none";
-    document.querySelector("#edadASuperar").style.display = "none";
-    document.querySelector("#antecedentes").style.display = "none";
+    if(document.querySelector("#txtNombre")){
+        document.querySelector("#txtNombre").style.display = "none";
+    }
+
+    if (document.querySelector("#edadASuperar")) {
+        document.querySelector("#edadASuperar").style.display = "none";
+    }
+
+    if (document.querySelector("#antecedentes")) {
+        document.querySelector("#antecedentes").style.display = "none";
+    }
 }
 
 function fMostrarFormulario() {
@@ -188,5 +203,7 @@ function fRegistrarEvidencia() {
 
 function fDescartarRecomendacion() {
     console.log("fDescartarRecomendacion");
-    document.querySelector("#formCasoRecomendacion").remove();
+    if (document.querySelector("#formCasoRecomendacion")) {
+        document.querySelector("#formCasoRecomendacion").remove();
+    }
 }
